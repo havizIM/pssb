@@ -16,12 +16,12 @@
 					"formdata": [
 						{
 							"key": "nip",
-							"value": "admin",
+							"value": "havizim",
 							"type": "text"
 						},
 						{
 							"key": "password",
-							"value": "admin",
+							"value": "byi3f",
 							"type": "text"
 						}
 					]
@@ -133,6 +133,58 @@
 			"response": []
 		},
 		{
+			"name": "Show Kriteria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/pssb/api/kriteria/show/d033e22ae348aeb",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"api",
+						"kriteria",
+						"show",
+						"d033e22ae348aeb"
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/kriteria/show/--token--\n\nMethod :\n- GET\n\nParams : \n- id_kriteria\n- nama_kriteria\n\nHak Akses : \n- Panitia\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Params bersifat optional, bertujuan untuk mendapatkan data yang spesifik"
+			},
+			"response": []
+		},
+		{
+			"name": "Show Tahun Ajaran",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/pssb/api/tahun_ajaran/show/d033e22ae348aeb",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"api",
+						"tahun_ajaran",
+						"show",
+						"d033e22ae348aeb"
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/tahun_ajaran/show/--token--\n\nMethod :\n- GET\n\nParams : \n- kd_ta\n\nHak Akses : \n- Panitia\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Params bersifat optional, bertujuan untuk mendapatkan data yang spesifik"
+			},
+			"response": []
+		},
+		{
 			"name": "Add User",
 			"request": {
 				"method": "POST",
@@ -147,17 +199,17 @@
 						},
 						{
 							"key": "nama",
-							"value": "Wahyu Alfarisi",
+							"value": "Haviz Indra Maulana",
 							"type": "text"
 						},
 						{
 							"key": "username",
-							"value": "wahyuais",
+							"value": "havizim",
 							"type": "text"
 						},
 						{
 							"key": "level",
-							"value": "Wali",
+							"value": "Panitia",
 							"description": "Guru / Panitia / Kepsek",
 							"type": "text"
 						}
@@ -177,6 +229,127 @@
 					]
 				},
 				"description": "Link :\n- localhost/pssb/api/user/add/--token--\n\nMethod :\n- POST\n\nData : \n- nip\n- nama\n- username\n- level (Guru / Panitia / Kepsek)\n\nHak Akses : \n- Admin\n\nNote :\n- Token bisa didapatkan dari localStorage"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Kriteria",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nama_kriteria",
+							"value": "Nilai Rata-rata UN",
+							"type": "text"
+						},
+						{
+							"key": "nama_subkriteria[]",
+							"value": "Diatas 60",
+							"type": "text"
+						},
+						{
+							"key": "bobot[]",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "nama_subkriteria[]",
+							"value": "Dibawah 60",
+							"type": "text"
+						},
+						{
+							"key": "bobot[]",
+							"value": "2",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/pssb/api/kriteria/add/9a64164ce3c1429",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"api",
+						"kriteria",
+						"add",
+						"9a64164ce3c1429"
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/kriteria/add/--token--\n\nMethod :\n- POST\n\nData : \n- nama_kriteria\n- nama_subkriteria[]\n- bobot[]\n\nHak Akses : \n- Panitia\n\nNote :\n- Token bisa didapatkan dari localStorage"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Tahun Ajaran",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "tahun_awal",
+							"value": "2019",
+							"type": "text"
+						},
+						{
+							"key": "tahun_akhir",
+							"value": "2020",
+							"type": "text"
+						},
+						{
+							"key": "tgl_awal",
+							"value": "2019-10-10",
+							"type": "text"
+						},
+						{
+							"key": "tgl_akhir",
+							"value": "2019-12-10",
+							"type": "text"
+						},
+						{
+							"key": "id_kriteria[]",
+							"value": "KR000000001",
+							"description": "relasi ke kriteria",
+							"type": "text"
+						},
+						{
+							"key": "tipe[]",
+							"value": "quasi",
+							"description": "quasi / level",
+							"type": "text"
+						},
+						{
+							"key": "q[]",
+							"value": "4",
+							"type": "text"
+						},
+						{
+							"key": "p[]",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/pssb/api/tahun_ajaran/add/9a64164ce3c1429",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"api",
+						"tahun_ajaran",
+						"add",
+						"9a64164ce3c1429"
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/tahun_ajaran/add/--token--\n\nMethod :\n- POST\n\nData : \n- tahun_awal\n- tahun_akhir\n- tgl_awal\n- tgl_akhir\n- id_kriteria[] (relasi ke kriteria)\n- tipe[] (quasi / level)\n- q[]\n- p[]\n\nHak Akses : \n- Panitia\n\nNote :\n- Token bisa didapatkan dari localStorage"
 			},
 			"response": []
 		},
@@ -236,6 +409,141 @@
 			"response": []
 		},
 		{
+			"name": "Edit Kriteria",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "nama_kriteria",
+							"value": "Nilai Rata-rata UNJ",
+							"type": "text"
+						},
+						{
+							"key": "nama_subkriteria[]",
+							"value": "Diatas 50",
+							"type": "text"
+						},
+						{
+							"key": "bobot[]",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "nama_subkriteria[]",
+							"value": "Dibawah 50",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "bobot[]",
+							"value": "2",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/pssb/api/kriteria/edit/9a64164ce3c1429?id_kriteria=KR000000001",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"api",
+						"kriteria",
+						"edit",
+						"9a64164ce3c1429"
+					],
+					"query": [
+						{
+							"key": "id_kriteria",
+							"value": "KR000000001"
+						}
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/kriteria/edit/--token--\n\nMethod :\n- POST\n\nParam :\n- id_kriteria\n\nData : \n- nama_kriteria\n- nama_subkriteria[]\n- bobot[]\n\nHak Akses : \n- Panitia\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Param bersifat wajib"
+			},
+			"response": []
+		},
+		{
+			"name": "Edit Tahun Ajaran",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "tahun_awal",
+							"value": "2019",
+							"type": "text"
+						},
+						{
+							"key": "tahun_akhir",
+							"value": "2020",
+							"type": "text"
+						},
+						{
+							"key": "tgl_awal",
+							"value": "2020-10-10",
+							"type": "text"
+						},
+						{
+							"key": "tgl_akhir",
+							"value": "2020-12-10",
+							"type": "text"
+						},
+						{
+							"key": "id_kriteria[]",
+							"value": "KR000000001",
+							"description": "relasi ke kriteria",
+							"type": "text"
+						},
+						{
+							"key": "tipe[]",
+							"value": "quasi",
+							"description": "quasi / level",
+							"type": "text"
+						},
+						{
+							"key": "q[]",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "p[]",
+							"value": "5",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/pssb/api/tahun_ajaran/edit/9a64164ce3c1429?kd_ta=2020-2021",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"api",
+						"tahun_ajaran",
+						"edit",
+						"9a64164ce3c1429"
+					],
+					"query": [
+						{
+							"key": "kd_ta",
+							"value": "2020-2021"
+						}
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/tahun_ajaran/edit/--token--\n\nMethod :\n- POST\n\nParam :\n- kd_ta\n\nData : \n- tahun_awal\n- tahun_akhir\n- tgl_awal\n- tgl_akhir\n- id_kriteria[] (relasi ke kriteria)\n- tipe[] (quasi / level)\n- q[]\n- p[]\n\nHak Akses : \n- Panitia\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Param bersifat wajib"
+			},
+			"response": []
+		},
+		{
 			"name": "Delete User",
 			"request": {
 				"method": "GET",
@@ -264,6 +572,134 @@
 					]
 				},
 				"description": "Link :\n- localhost/pssb/api/user/delete/--token--\n\nMethod :\n- GET\n\nParams :\n- nip\n\nHak Akses :\n- Admin\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Params bersifat wajib digunakan. Karena dibutuhkan untuk menentukan user mana yang dihapus"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Kriteria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/pssb/api/kriteria/delete/9a64164ce3c1429?id_kriteria=KR000000002",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"api",
+						"kriteria",
+						"delete",
+						"9a64164ce3c1429"
+					],
+					"query": [
+						{
+							"key": "id_kriteria",
+							"value": "KR000000002"
+						}
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/kriteria/delete/--token--\n\nMethod :\n- GET\n\nParams :\n- id_kriteria\n\nHak Akses :\n- Panitia\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Params bersifat wajib digunakan. Karena dibutuhkan untuk menentukan user mana yang dihapus"
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Tahun Ajaran",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/pssb/api/tahun_ajaran/delete/9a64164ce3c1429?kd_ta=2019-2020",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"api",
+						"tahun_ajaran",
+						"delete",
+						"9a64164ce3c1429"
+					],
+					"query": [
+						{
+							"key": "kd_ta",
+							"value": "2019-2020"
+						}
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/tahun_ajaran/delete/--token--\n\nMethod :\n- GET\n\nParams :\n- kd_ta\n\nHak Akses :\n- Panitia\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Params bersifat wajib digunakan. Karena dibutuhkan untuk menentukan user mana yang dihapus"
+			},
+			"response": []
+		},
+		{
+			"name": "Detail Kriteria",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/pssb/api/kriteria/detail/9a64164ce3c1429?id_kriteria=KR000000001",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"api",
+						"kriteria",
+						"detail",
+						"9a64164ce3c1429"
+					],
+					"query": [
+						{
+							"key": "id_kriteria",
+							"value": "KR000000001"
+						}
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/kriteria/detail/--token--\n\nMethod :\n- GET\n\nParams :\n- id_kriteria\n\nHak Akses :\n- Panitia\n- Kepsek\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Params bersifat wajib digunakan. Karena dibutuhkan untuk menentukan user mana yang dihapus"
+			},
+			"response": []
+		},
+		{
+			"name": "Detail Tahun Ajaran",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost/pssb/api/tahun_ajaran/detail/9a64164ce3c1429?kd_ta=2019-2020",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"api",
+						"tahun_ajaran",
+						"detail",
+						"9a64164ce3c1429"
+					],
+					"query": [
+						{
+							"key": "kd_ta",
+							"value": "2019-2020"
+						}
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/tahun_ajaran/detail/--token--\n\nMethod :\n- GET\n\nParams :\n- kd_ta\n\nHak Akses :\n- Panitia\n- Kepsek\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Params bersifat wajib digunakan. Karena dibutuhkan untuk menentukan user mana yang dihapus"
 			},
 			"response": []
 		}
