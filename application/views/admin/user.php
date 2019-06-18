@@ -1,50 +1,66 @@
-<div class="az-content-header d-block d-md-flex">
-  <div class="row">
-    <div class="">
-      <h2 class="az-content-title mg-b-5 mg-b-lg-8">User</h2>
-    </div>
-    <div class="az-content-breadcrumb" style="margin-left: 10px; margin-top: -6px;">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="#/dashboard">Dashboard</a></li>
-        <li class="breadcrumb-item active">User</li>
-      </ol>
-    </div>
-
-    <div class="btn-add">
-      <button type="button" class="btn btn-info" id="btn_add" name="button"><i class="fa fa-plus-circle"></i> Tambah Baru</button>
+<div class="content-header row">
+  <div class="content-header-left col-md-6 col-12 mb-2">
+    <h3 class="content-header-title">User</h3>
+    <div class="row breadcrumbs-top">
+      <div class="breadcrumb-wrapper col-12">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#/dashboard">Dashboard</a></li>
+          <li class="breadcrumb-item active">User</li>
+        </ol>
+      </div>
     </div>
   </div>
-</div><!-- az-content-header -->
-<div class="az-content-body">
-  <table id="t_user" class="table table-hovered responsive" style="width: 100%;">
-    <thead>
-      <tr>
-        <th>Tgl Registrasi</th>
-        <th>NIP</th>
-        <th>Nama</th>
-        <th>Username</th>
-        <th>Level</th>
-        <th>Foto</th>
-        <th>Status</th>
-        <th></th>
-      </tr>
-    </thead>
-    <tbody>
+  <div class="content-header-right col-md-6 col-12">
+    <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
+      <button class="btn btn-info round box-shadow-2 px-2" id="btn_add" type="button"><i class="ft-plus icon-left"></i> Tambah Baru</button>
+    </div>
+  </div>
+</div>
+<div class="content-body">
+  <section>
+    <div class="row">
+      <div class="col-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="card-title">Data User</h4>
+          </div>
+          <div class="card-content">
+            <div class="card-body card-dashboard">
+              <table class="table table-striped table-responsive" id="t_user">
+                <thead>
+                  <tr>
+                    <th>Tgl Registrasi</th>
+                    <th>NIP</th>
+                    <th>Nama</th>
+                    <th>Username</th>
+                    <th>Level</th>
+                    <th>Foto</th>
+                    <th>Status</th>
+                    <th></th>
+                  </tr>
+                </thead>
+                <tbody>
 
-    </tbody>
-  </table>
-</div><!-- az-content-body -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
 
-<div id="modal_add" class="modal">
+<div class="modal fade text-left" id="modal_add" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content modal-content-demo">
+    <div class="modal-content">
       <div class="modal-header">
-        <h6 class="modal-title">Tambah User</h6>
+        <h3 class="modal-title" id="myModalLabel35"> Tambah User</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form class="form-horizontal" id="form_add">
+      <form id="form_add">
         <div class="modal-body">
           <div class="form-group">
             <input type="text" class="form-control" id="nip" name="nip" placeholder="NIP">
@@ -68,23 +84,23 @@
           </div>
         </div>
         <div class="modal-footer">
-          <button type="submit" id="submit_add" class="btn btn-indigo">Simpan</button>
+          <button type="submit" id="submit_add" class="btn btn-indigo">Tambah</button>
         </div>
       </form>
     </div>
-  </div><!-- modal-dialog -->
-</div><!-- modal -->
+  </div>
+</div>
 
-<div id="modal_edit" class="modal">
+<div class="modal fade text-left" id="modal_edit" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content modal-content-demo">
+    <div class="modal-content">
       <div class="modal-header">
-        <h6 class="modal-title">Tambah User</h6>
+        <h3 class="modal-title" id="myModalLabel35"> Edit User</h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form class="form-horizontal" id="form_edit">
+      <form id="form_edit">
         <div class="modal-body">
           <div class="form-group">
             <input type="text" class="form-control" id="edit_nama" name="nama" placeholder="Nama">
@@ -117,12 +133,15 @@
         </div>
       </form>
     </div>
-  </div><!-- modal-dialog -->
-</div><!-- modal -->
+  </div>
+</div>
 
 <script type="text/javascript">
 
   $(document).ready(function(){
+
+    var session = localStorage.getItem('pssb');
+    var auth = JSON.parse(session);
 
     var table = $('#t_user').DataTable({
       columnDefs: [{
@@ -136,11 +155,11 @@
       language: {
         search: 'Cari Nama: _INPUT_',
         lengthMenu: 'Tampilkan: _MENU_',
-        paginate: {'next': 'Next', 'previous': 'Prev'},
+        paginate: {'next': 'Berikutnya', 'previous': 'Sebelumnya'},
         info: 'Menampilkan _START_ sampai _END_ dari _TOTAL_ User',
         zeroRecords: 'User tidak ditemukan',
         infoEmpty: 'Menampilkan 0 sampai 0 dari _TOTAL_ User',
-        loadingRecords: '<i class="fa fa-refresh fa-spin"></i>',
+        loadingRecords: '<i class="la la-spin la-spinner"></i>',
         processing: 'Memuat....',
         infoFiltered: ''
       },
@@ -156,13 +175,12 @@
         {"data": 'foto'},
         {"data": 'status'},
         {"data": null, 'render': function(data, type, row){
-          return `<button class="btn btn-info" id="edit_user" data-id="${row.nip}"><i class="far fa-edit"></i></button> <button class="btn btn-danger" style="margin-left: 5px;" id="hapus_user" data-id="${row.nip}"><i class="fas fa-trash"></i></button>`
+          return `<button type="button" class="btn btn-sm btn-info" id="edit_user" data-id="${row.nip}"><i class="la la-edit"></i></button> <button type="button" class="btn btn-sm btn-danger" id="hapus_user" data-id="${row.nip}" data-nama="${row.nama_user}"><i class="la la-trash"></i></button>`
           }
         }
       ],
       order: [[0, 'desc']]
     })
-  })
 
   $('#btn_add').on('click', function(){
     $('#modal_add').modal('show')
@@ -190,7 +208,7 @@
         type: 'POST',
         dataType: 'JSON',
         beforeSend: function(){
-          $('#submit_add').addClass('disabled').attr('disabled', 'disabled').html('<i class="fa fa-fw fa-spinner fa-spin"></i>');
+          $('#submit_add').addClass('disabled').attr('disabled', 'disabled').html('<i class="la la-spin la-spinner"></i>');
         },
         data: $(this).serialize(),
         success: function(response){
@@ -214,7 +232,7 @@
               timer: 1500
             })
           }
-          $('#submit_add').removeClass('disabled').removeAttr('disabled', 'disabled').text('Simpan')
+          $('#submit_add').removeClass('disabled').removeAttr('disabled', 'disabled').text('Tambah')
         },
         error: function(){
           Swal.fire({
@@ -224,13 +242,14 @@
             showConfirmButton: false,
             timer: 1500
           })
-          $('#submit_add').removeClass('disabled').removeAttr('disabled', 'disabled').text('Simpan')
+          $('#submit_add').removeClass('disabled').removeAttr('disabled', 'disabled').text('Tambah')
         }
       })
     }
+  })
 
     $(document).on('click', '#edit_user', function(){
-      var nip = $(this).attr('data-id')
+      var nip = $(this).attr('data-id');
 
       $.ajax({
         url: `<?= base_url('api/user/show/') ?>${auth.token}?nip=${nip}`,
@@ -321,9 +340,10 @@
 
     $(document).on('click', '#hapus_user', function(){
       var nip = $(this).attr('data-id');
+      var nama_user = $(this).attr('data-nama')
 
       Swal.fire({
-        title: 'Apa Anda yakin ingin menghapus ini?',
+        title: `Apa Anda yakin ingin menghapus ${nama_user}?`,
         text: "User akan terhapus secara permanen",
         type: 'question',
         showCancelButton: true,
@@ -369,6 +389,16 @@
           });
         }
       })
+    });
+
+    var pusher = new Pusher('f6a967b44e507048ffa7', {
+      cluster: 'ap1',
+      forceTLS: true
+    });
+
+    var channel = pusher.subscribe('pssb');
+    channel.bind('user', function(data) {
+      table.ajax.reload()
     });
 
   })
