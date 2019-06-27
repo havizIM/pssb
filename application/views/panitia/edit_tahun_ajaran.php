@@ -59,7 +59,7 @@
                     </div>
                   </div>
                 </div>
-                <button type="submit" id="submit_edit" class="btn btn-indigo float-md-right">Tambah</button>
+                <button type="submit" id="submit_edit" class="btn btn-indigo float-md-right">Simpan</button>
                 <br><br>
               </form>
             </div>
@@ -268,7 +268,7 @@
                  showConfirmButton: false,
                  timer: 1500
                });
-               $('#submit_edit').removeClass('disabled').removeAttr('disabled', 'disabled').text('Tambah');
+               $('#submit_edit').removeClass('disabled').removeAttr('disabled', 'disabled').text('Simpan');
              }
            },
            error: function(){
@@ -279,7 +279,7 @@
                showConfirmButton: false,
                timer: 1500
              });
-             $('#submit_edit').removeClass('disabled').removeAttr('disabled', 'disabled').text('Tambah')
+             $('#submit_edit').removeClass('disabled').removeAttr('disabled', 'disabled').text('Simpan')
            }
          })
         }

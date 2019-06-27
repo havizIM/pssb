@@ -11,7 +11,7 @@
 
     <meta name="author" content="PIXINVENT">
 
-    <title>Panitia | PSSB</title>
+    <title>Kepala Sekolah | PSSB</title>
 
     <link rel="apple-touch-icon" href="<?= base_url('assets') ?>/app-assets/images/ico/apple-icon-120.png">
 
@@ -45,7 +45,7 @@
       if(!session){
         window.location.replace('<?= base_url().'login' ?>');
       } else {
-        if(auth.level !== 'panitia'){
+        if(auth.level !== 'kepsek'){
           window.location.replace('<?= base_url().'' ?>'+auth.level+'/');
         }
       }
@@ -197,7 +197,7 @@
 
       function load_content(link){
 
-        $.get(`<?= base_url('panitia/'); ?>${link}`, function(response){
+        $.get(`<?= base_url('kepsek/'); ?>${link}`, function(response){
           $('#content').html(response);
         })
       }

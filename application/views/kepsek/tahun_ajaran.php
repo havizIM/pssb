@@ -10,11 +10,6 @@
       </div>
     </div>
   </div>
-  <div class="content-header-right col-md-6 col-12">
-    <div class="btn-group float-md-right" role="group" aria-label="Button group with nested dropdown">
-      <a href="#/add_tahun_ajaran"><button class="btn btn-info round box-shadow-2 px-2" type="button"><i class="ft-plus icon-left"></i> Tambah Baru</button></a>
-    </div>
-  </div>
 </div>
 <div class="content-body">
   <section>
@@ -90,64 +85,12 @@
         {"data": 'tgl_akhir'},
         {"data": 'status'},
         {"data": null, 'render': function(data, type, row){
-          return `<a href="#/edit_tahun_ajaran/${row.kd_ta}" class="btn btn-sm btn-info"><i class="la la-edit"></i></a> <button type="button" class="btn btn-sm btn-default" id="detail_tahun_ajaran" data-id="${row.kd_ta}"><i class="la la-eye"></i></button> <button type="button" class="btn btn-sm btn-danger" id="hapus_tahun_ajaran" data-id="${row.kd_ta}"><i class="la la-trash"></i></button>`
+          return `<button type="button" class="btn btn-sm btn-default" id="detail_tahun_ajaran" data-id="${row.kd_ta}"><i class="la la-eye"></i></button>`
           }
         }
       ],
       order: [[1, 'desc']]
     })
-
-    $(document).on('click', '#hapus_tahun_ajaran', function(){
-      var kd_ta = $(this).attr('data-id');
-
-      Swal.fire({
-        title: `Apa Anda yakin ingin menghapus Tahun Ajaran ${kd_ta}?`,
-        text: "Tahun Ajaran akan terhapus secara permanen",
-        type: 'question',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Ya, Saya yakin.',
-        cancelButtonText: 'Batal',
-        showLoaderOnConfirm: true
-      }).then((result) => {
-        if (result.value) {
-          $.ajax({
-            url: `<?= base_url('api/tahun_ajaran/delete/'); ?>${auth.token}?kd_ta=${kd_ta}`,
-            type: 'GET',
-            dataType: 'JSON',
-            success: function(response){
-              if(response.status === 200){
-                Swal.fire({
-                  position: 'center',
-                  type: 'success',
-                  title: response.message,
-                  showConfirmButton: false,
-                  timer: 1500
-                });
-              } else {
-                Swal.fire({
-                  position: 'center',
-                  type: 'error',
-                  title: response.message,
-                  showConfirmButton: false,
-                  timer: 1500
-                });
-              }
-            },
-            error: function(){
-              Swal.fire({
-                position: 'center',
-                type: 'error',
-                title: 'Tidak dapat mengakses server',
-                showConfirmButton: false,
-                timer: 1500
-              });
-            }
-          });
-        }
-      })
-    });
 
     var pusher = new Pusher('f6a967b44e507048ffa7', {
       cluster: 'ap1',

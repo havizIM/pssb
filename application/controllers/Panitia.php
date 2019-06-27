@@ -49,4 +49,19 @@ class Panitia extends CI_Controller{
     $this->load->view('panitia/edit_tahun_ajaran');
   }
 
+  function jadwal()
+  {
+    $this->load->view('panitia/jadwal');
+  }
+
+  function add_jadwal()
+  {
+    $this->load->view('panitia/add_jadwal');
+  }
+
+  function edit_jadwal($id)
+  {
+    $this->load->view('panitia/edit_jadwal');
+  }
+
 }
