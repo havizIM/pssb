@@ -149,7 +149,7 @@
       var html = `<tr id="baris${id_kriteria}">`
 
       html+=`<td>${nama_kriteria} <input type="hidden" name="id_kriteria[]" value="${id_kriteria}"></td>`
-      html+=`<td><select class="form-control">
+      html+=`<td><select class="form-control" name="tipe[]">
                   <option value=""></option>
                   <option value="Quasi">Quasi</option>
                   <option value="Level">Level</option>
@@ -176,7 +176,6 @@
       var tahun_akhir = $('#tahun_akhir').val()
       var tgl_awal = $('#tgl_awal').val()
       var tgl_akhir = $('#tgl_akhir').val()
-      var id_kriteria = $('#id_kriteria').val()
       var select_kriteria = $('#select_kriteria tbody tr').length
 
       if(tahun_awal === '' || tahun_akhir === '' || tgl_awal === '' || tgl_akhir === ''){
@@ -227,7 +226,7 @@
                $('#submit_add').removeClass('disabled').removeAttr('disabled', 'disabled').text('Tambah');
              }
            },
-           error: function(){
+           error: function(err){
              Swal.fire({
                position: 'center',
                type: 'warning',
@@ -236,6 +235,7 @@
                timer: 1500
              });
              $('#submit_add').removeClass('disabled').removeAttr('disabled', 'disabled').text('Tambah')
+             console.log(err)
            }
          })
         }

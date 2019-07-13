@@ -201,16 +201,12 @@
             $('#id_kriteria').val(v.id_kriteria)
             $('#detail_nama_kriteria').val(v.nama_kriteria)
 
-            var html = ''
-
             $.each(v.subkriteria, function(k1, v1){
-              html+=`<tr id="baris${v1.id_subkriteria}">`
+              $('#t_subkriteria').html(`<tr id="baris${v1.id_subkriteria}">
 
-              html+=`<td><input type="text" class="form-control" value="${v1.nama_subkriteria}" name="nama_subkriteria[]" placeholder="Nama Subkriteria" readonly></td>`
-              html+=`<td><input type="text" class="form-control" value="${v1.bobot}" name="bobot" placeholder="Bobot" readonly></td>`
-              html+=`</tr>`
-
-              $('#t_subkriteria').append(html)
+              <td><input type="text" class="form-control" value="${v1.nama_subkriteria}" name="nama_subkriteria[]" placeholder="Nama Subkriteria" readonly></td>
+              <td><input type="text" class="form-control" value="${v1.bobot}" name="bobot" placeholder="Bobot" readonly></td>
+              </tr>`)
             })
           })
         },
