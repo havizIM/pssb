@@ -7,6 +7,445 @@
 	},
 	"item": [
 		{
+			"name": "Public - Add Pendaftaran",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "kd_ta",
+							"value": "2020-2021",
+							"description": "Relasi ke TA",
+							"type": "text"
+						},
+						{
+							"key": "nama_lengkap",
+							"value": "Haviz Indra Maulana",
+							"type": "text"
+						},
+						{
+							"key": "jenis_kelamin",
+							"value": "Laki-laki",
+							"description": "Laki-laki / Perempuan",
+							"type": "text"
+						},
+						{
+							"key": "nisn",
+							"value": "12341241",
+							"type": "text"
+						},
+						{
+							"key": "no_ijazah",
+							"value": "12541341",
+							"type": "text"
+						},
+						{
+							"key": "no_skhun",
+							"value": "135314141",
+							"type": "text"
+						},
+						{
+							"key": "no_un",
+							"value": "1251341",
+							"type": "text"
+						},
+						{
+							"key": "asal_sekolah",
+							"value": "SDN Tanah Sereal 01 Pagi",
+							"type": "text"
+						},
+						{
+							"key": "nik",
+							"value": "1376813751",
+							"type": "text"
+						},
+						{
+							"key": "tmp_lahir",
+							"value": "Jakarta",
+							"type": "text"
+						},
+						{
+							"key": "tgl_lahir",
+							"value": "2019-10-10",
+							"type": "text"
+						},
+						{
+							"key": "agama",
+							"value": "Islam",
+							"description": "Islam / Protestan / Katholik / Budha / Hindu",
+							"type": "text"
+						},
+						{
+							"key": "alamat",
+							"value": "Jakarta",
+							"type": "text"
+						},
+						{
+							"key": "id_kelurahan",
+							"value": "9107180012",
+							"description": "Relasi ke Kelurahan",
+							"type": "text"
+						},
+						{
+							"key": "rtrw",
+							"value": "010/05",
+							"type": "text"
+						},
+						{
+							"key": "kode_pos",
+							"value": "11210",
+							"type": "text"
+						},
+						{
+							"key": "alat_transportasi",
+							"value": "Jalan Kaki",
+							"description": "Jalan Kaki / Motor / Angkutan Umum",
+							"type": "text"
+						},
+						{
+							"key": "jenis_tmp_tinggal",
+							"value": "Bersama Orang Tua",
+							"description": "Bersama Orang Tua / Bersama Wali / Pondok Pesantren",
+							"type": "text"
+						},
+						{
+							"key": "anak_ke",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "jml_saudara",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "kip",
+							"value": "T",
+							"description": "Y / T",
+							"type": "text"
+						},
+						{
+							"key": "no_hp",
+							"value": "081355754092",
+							"type": "text"
+						},
+						{
+							"key": "email",
+							"value": "viz.ndinq@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "nama_ayah",
+							"value": "Muhammad Hanafi",
+							"type": "text"
+						},
+						{
+							"key": "nik_ayah",
+							"value": "138613795613",
+							"type": "text"
+						},
+						{
+							"key": "tmp_lahir_ayah",
+							"value": "Jakarta",
+							"type": "text"
+						},
+						{
+							"key": "tgl_lahir_ayah",
+							"value": "2019-10-10",
+							"type": "text"
+						},
+						{
+							"key": "pekerjaan_ayah",
+							"value": "Karyawan Swasta",
+							"type": "text"
+						},
+						{
+							"key": "pendidikan_ayah",
+							"value": "SMA/SMK",
+							"description": "SD - SMP - SMA/SMK - D3 - S1 - S2 - S3",
+							"type": "text"
+						},
+						{
+							"key": "penghasilan_ayah",
+							"value": "3500000",
+							"type": "text"
+						},
+						{
+							"key": "nama_ibu",
+							"value": "Indrawati",
+							"type": "text"
+						},
+						{
+							"key": "nik_ibu",
+							"value": "16718376193",
+							"type": "text"
+						},
+						{
+							"key": "tmp_lahir_ibu",
+							"value": "Jakarta",
+							"type": "text"
+						},
+						{
+							"key": "tgl_lahir_ibu",
+							"value": "2019-10-10",
+							"type": "text"
+						},
+						{
+							"key": "pekerjaan_ibu",
+							"value": "Ibu Rumah Tangga",
+							"type": "text"
+						},
+						{
+							"key": "pendidikan_ibu",
+							"value": "SMA/SMK",
+							"description": "SD - SMP - SMA/SMK - D3 - S1 - S2 - S3",
+							"type": "text"
+						},
+						{
+							"key": "penghasilan_ibu",
+							"value": "0",
+							"type": "text"
+						},
+						{
+							"key": "tinggi_badan",
+							"value": "120",
+							"type": "text"
+						},
+						{
+							"key": "berat_badan",
+							"value": "25",
+							"type": "text"
+						},
+						{
+							"key": "gol_darah",
+							"value": "A",
+							"type": "text"
+						},
+						{
+							"key": "ekstrakulikuler",
+							"value": "Sepak Bola",
+							"description": "Sepak Bola / Volly / Badminton / Bela Diri / Pramuka / Paskibra",
+							"type": "text"
+						},
+						{
+							"key": "ijazah",
+							"type": "file",
+							"src": "/C:/Users/TI/Pictures/chanyeolgram_2___BqkFL3LnbDk___.jpg"
+						},
+						{
+							"key": "skhun",
+							"type": "file",
+							"src": "/C:/Users/TI/Pictures/wallpaper1.jpg"
+						},
+						{
+							"key": "kk",
+							"type": "file",
+							"src": "/C:/Users/TI/Pictures/wallpaper1.jpg"
+						},
+						{
+							"key": "ktp_ayah",
+							"type": "file",
+							"src": "/C:/Users/TI/Pictures/wallpaper1.jpg"
+						},
+						{
+							"key": "ktp_ibu",
+							"type": "file",
+							"src": "/C:/Users/TI/Pictures/wallpaper1.jpg"
+						},
+						{
+							"key": "ktp_wali",
+							"type": "file",
+							"src": "/C:/Users/TI/Pictures/wallpaper1.jpg"
+						},
+						{
+							"key": "fc_kip",
+							"type": "file",
+							"src": "/C:/Users/TI/Pictures/wallpaper1.jpg"
+						},
+						{
+							"key": "foto",
+							"type": "file",
+							"src": "/C:/Users/TI/Pictures/wallpaper1.jpg"
+						},
+						{
+							"key": "sk_baik",
+							"type": "file",
+							"src": "/C:/Users/TI/Pictures/wallpaper1.jpg"
+						},
+						{
+							"key": "sertifikat",
+							"type": "file",
+							"src": "/C:/Users/TI/Pictures/wallpaper1.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/pssb/public/pendaftaran/add",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"public",
+						"pendaftaran",
+						"add"
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/user/add/--token--\n\nMethod :\n- POST\n\nData : \n- nip\n- nama\n- username\n- level (Guru / Panitia / Kepsek)\n\nHak Akses : \n- Admin\n\nNote :\n- Token bisa didapatkan dari localStorage"
+			},
+			"response": []
+		},
+		{
+			"name": "Public - Show Tahun Ajaran",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/pssb/public/tahun_ajaran/show",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"public",
+						"tahun_ajaran",
+						"show"
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/jadwal/show/--token--\n\nMethod :\n- GET\n\nParams : \n- id_jadwal\n- keterangan_jadwal\n\nHak Akses : \n- Panitia\n- Kepsek\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Params bersifat optional, bertujuan untuk mendapatkan data yang spesifik"
+			},
+			"response": []
+		},
+		{
+			"name": "Public - Show Provinsi",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/pssb/public/pendaftaran/provinsi?",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"public",
+						"pendaftaran",
+						"provinsi"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/jadwal/show/--token--\n\nMethod :\n- GET\n\nParams : \n- id_jadwal\n- keterangan_jadwal\n\nHak Akses : \n- Panitia\n- Kepsek\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Params bersifat optional, bertujuan untuk mendapatkan data yang spesifik"
+			},
+			"response": []
+		},
+		{
+			"name": "Public - Show Kabupaten",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/pssb/public/pendaftaran/kabupaten?",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"public",
+						"pendaftaran",
+						"kabupaten"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_provinsi",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/jadwal/show/--token--\n\nMethod :\n- GET\n\nParams : \n- id_jadwal\n- keterangan_jadwal\n\nHak Akses : \n- Panitia\n- Kepsek\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Params bersifat optional, bertujuan untuk mendapatkan data yang spesifik"
+			},
+			"response": []
+		},
+		{
+			"name": "Public - Show Kecamatan",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/pssb/public/pendaftaran/kecamatan?",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"public",
+						"pendaftaran",
+						"kecamatan"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_kabupaten",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/jadwal/show/--token--\n\nMethod :\n- GET\n\nParams : \n- id_jadwal\n- keterangan_jadwal\n\nHak Akses : \n- Panitia\n- Kepsek\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Params bersifat optional, bertujuan untuk mendapatkan data yang spesifik"
+			},
+			"response": []
+		},
+		{
+			"name": "Public - Show Kelurahan",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/pssb/public/pendaftaran/kelurahan?",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"public",
+						"pendaftaran",
+						"kelurahan"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": null,
+							"disabled": true
+						},
+						{
+							"key": "id_kecamatan",
+							"value": null,
+							"disabled": true
+						}
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/jadwal/show/--token--\n\nMethod :\n- GET\n\nParams : \n- id_jadwal\n- keterangan_jadwal\n\nHak Akses : \n- Panitia\n- Kepsek\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Params bersifat optional, bertujuan untuk mendapatkan data yang spesifik"
+			},
+			"response": []
+		},
+		{
 			"name": "Login",
 			"request": {
 				"method": "POST",
@@ -48,10 +487,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "localhost/pssb/api/auth/logout_user/d033e22ae348aeb",
 					"host": [
@@ -111,10 +546,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "localhost/pssb/api/user/show/d033e22ae348aeb",
 					"host": [
@@ -137,10 +568,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "localhost/pssb/api/kriteria/show/d033e22ae348aeb",
 					"host": [
@@ -163,10 +590,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "localhost/pssb/api/tahun_ajaran/show/d033e22ae348aeb",
 					"host": [
@@ -189,10 +612,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "localhost/pssb/api/jadwal/show/d033e22ae348aeb",
 					"host": [
@@ -202,6 +621,50 @@
 						"pssb",
 						"api",
 						"jadwal",
+						"show",
+						"d033e22ae348aeb"
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/jadwal/show/--token--\n\nMethod :\n- GET\n\nParams : \n- id_jadwal\n- keterangan_jadwal\n\nHak Akses : \n- Panitia\n- Kepsek\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Params bersifat optional, bertujuan untuk mendapatkan data yang spesifik"
+			},
+			"response": []
+		},
+		{
+			"name": "Show Pendaftaran",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/pssb/api/pendaftaran/show/d033e22ae348aeb",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"api",
+						"pendaftaran",
+						"show",
+						"d033e22ae348aeb"
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/jadwal/show/--token--\n\nMethod :\n- GET\n\nParams : \n- id_jadwal\n- keterangan_jadwal\n\nHak Akses : \n- Panitia\n- Kepsek\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Params bersifat optional, bertujuan untuk mendapatkan data yang spesifik"
+			},
+			"response": []
+		},
+		{
+			"name": "Show Seleksi",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/pssb/api/seleksi/show/d033e22ae348aeb",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"api",
+						"seleksi",
 						"show",
 						"d033e22ae348aeb"
 					]
@@ -686,10 +1149,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "localhost/pssb/api/user/delete/d033e22ae348aeb?nip=7201160101",
 					"host": [
@@ -718,10 +1177,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "localhost/pssb/api/kriteria/delete/9a64164ce3c1429?id_kriteria=KR000000002",
 					"host": [
@@ -750,10 +1205,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "localhost/pssb/api/tahun_ajaran/delete/9a64164ce3c1429?kd_ta=2019-2020",
 					"host": [
@@ -782,10 +1233,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "localhost/pssb/api/jadwal/delete/9a64164ce3c1429?id_jadwal=JD000000001",
 					"host": [
@@ -814,10 +1261,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "localhost/pssb/api/kriteria/detail/9a64164ce3c1429?id_kriteria=KR000000001",
 					"host": [
@@ -846,10 +1289,6 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
 				"url": {
 					"raw": "localhost/pssb/api/tahun_ajaran/detail/9a64164ce3c1429?kd_ta=2019-2020",
 					"host": [
@@ -866,6 +1305,106 @@
 						{
 							"key": "kd_ta",
 							"value": "2019-2020"
+						}
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/tahun_ajaran/detail/--token--\n\nMethod :\n- GET\n\nParams :\n- kd_ta\n\nHak Akses :\n- Panitia\n- Kepsek\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Params bersifat wajib digunakan. Karena dibutuhkan untuk menentukan user mana yang dihapus"
+			},
+			"response": []
+		},
+		{
+			"name": "Terima Pendaftaran",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id_pendaftar",
+							"value": "P-000000001",
+							"description": "Relasi ke Pendaftar",
+							"type": "text"
+						},
+						{
+							"key": "id_jadwal",
+							"value": "JD000000001",
+							"description": "Relas ke Jadwal",
+							"type": "text"
+						},
+						{
+							"key": "keterangan",
+							"value": "Test",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost/pssb/api/pendaftaran/terima/9a64164ce3c1429",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"api",
+						"pendaftaran",
+						"terima",
+						"9a64164ce3c1429"
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/tahun_ajaran/detail/--token--\n\nMethod :\n- GET\n\nParams :\n- kd_ta\n\nHak Akses :\n- Panitia\n- Kepsek\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Params bersifat wajib digunakan. Karena dibutuhkan untuk menentukan user mana yang dihapus"
+			},
+			"response": []
+		},
+		{
+			"name": "Tolak Pendaftaran",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/pssb/api/pendaftaran/tolak/9a64164ce3c1429?id_pendaftar=P-000000001",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"api",
+						"pendaftaran",
+						"tolak",
+						"9a64164ce3c1429"
+					],
+					"query": [
+						{
+							"key": "id_pendaftar",
+							"value": "P-000000001"
+						}
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/tahun_ajaran/detail/--token--\n\nMethod :\n- GET\n\nParams :\n- kd_ta\n\nHak Akses :\n- Panitia\n- Kepsek\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Params bersifat wajib digunakan. Karena dibutuhkan untuk menentukan user mana yang dihapus"
+			},
+			"response": []
+		},
+		{
+			"name": "Tidak Hadir Seleksi",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/pssb/api/seleksi/tidak_hadir/9a64164ce3c1429?id_seleksi=SL-00000001",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"api",
+						"seleksi",
+						"tidak_hadir",
+						"9a64164ce3c1429"
+					],
+					"query": [
+						{
+							"key": "id_seleksi",
+							"value": "SL-00000001"
 						}
 					]
 				},

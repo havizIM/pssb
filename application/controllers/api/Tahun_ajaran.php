@@ -39,12 +39,12 @@ class Tahun_ajaran extends CI_Controller {
         } else {
 
           $otorisasi    = $auth->row();
-          $where        = array();
-          $like         = array();
 
-          $this->input->get('kd_ta') != null ? $where['kd_ta'] = $this->input->get('kd_ta') : null;
+          $where = array(
+            'kd_ta' => $this->input->get('kd_ta')
+          );
             
-            $show          = $this->TahunAjaranModel->show($where, $like);
+            $show          = $this->TahunAjaranModel->show($where);
             $tahun_ajaran  = array();
 
             foreach($show->result() as $key){

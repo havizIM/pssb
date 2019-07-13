@@ -1,50 +1,41 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html class="loading" lang="en" data-textdirection="ltr">
+
   <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Twitter -->
-    <meta name="twitter:site" content="@themepixels">
-    <meta name="twitter:creator" content="@themepixels">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Azia">
-    <meta name="twitter:description" content="Responsive Bootstrap 4 Dashboard Template">
-    <meta name="twitter:image" content="http://themepixels.me/azia/img/azia-social.png">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
-    <!-- Facebook -->
-    <meta property="og:url" content="http://themepixels.me/azia">
-    <meta property="og:title" content="Azia">
-    <meta property="og:description" content="Responsive Bootstrap 4 Dashboard Template">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
-    <meta property="og:image" content="http://themepixels.me/azia/img/azia-social.png">
-    <meta property="og:image:secure_url" content="http://themepixels.me/azia/img/azia-social.png">
-    <meta property="og:image:type" content="image/png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="600">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
 
-    <!-- Meta -->
-    <meta name="description" content="Responsive Bootstrap 4 Dashboard Template">
-    <meta name="author" content="ThemePixels">
+    <meta name="description" content="Modern admin is super flexible, powerful, clean &amp; modern responsive bootstrap 4 admin template with unlimited possibilities with bitcoin dashboard.">
 
-    <title>PSSB | Admin</title>
+    <meta name="keywords" content="admin template, modern admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
 
-    <!-- vendor css -->
-    <link href="<?= base_url('assets')  ?>/lib/fontawesome-free/css/all.min.css" rel="stylesheet">
-    <link href="<?= base_url('assets')  ?>/lib/ionicons/css/ionicons.min.css" rel="stylesheet">
-    <link href="<?= base_url('assets')  ?>/lib/typicons.font/typicons.css" rel="stylesheet">
-    <link href="<?= base_url('assets')  ?>/lib/morris.js/morris.css" rel="stylesheet">
-    <link href="<?= base_url('assets')  ?>/lib/flag-icon-css/css/flag-icon.min.css" rel="stylesheet">
-    <link href="<?= base_url('assets')  ?>/lib/jqvmap/jqvmap.min.css" rel="stylesheet">
+    <meta name="author" content="PIXINVENT">
 
-    <!-- azia CSS -->
-    <link rel="stylesheet" href="<?= base_url('assets')  ?>/css/azia.css">
+    <title>Admin | PSSB</title>
 
-    <link rel="stylesheet" href="<?= base_url('assets/lib/sweetalert/sweetalert.css') ?>">
+    <link rel="apple-touch-icon" href="<?= base_url('assets') ?>/app-assets/images/ico/apple-icon-120.png">
 
-    <script src="<?= base_url('assets') ?>/lib/jquery/jquery.min.js"></script>
+    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('assets') ?>/app-assets/images/ico/favicon.ico">
+
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700" rel="stylesheet">
+
+    <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets') ?>/app-assets/css/vendors.css">
+
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets') ?>/app-assets/css/app.css">
+
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets') ?>/app-assets/css/core/menu/menu-types/vertical-menu.css">
+
+    <link rel="stylesheet" type="text/css" href="<?= base_url('assets') ?>/app-assets/css/core/colors/palette-gradient.css">
+
+    <link rel="stylesheet" type="text/css" href="<?= base_url('') ?>assets/css/style.css">
+
+    <link rel="stylesheet" href="<?= base_url('assets/app-assets/vendors/js/sweetalert/sweetalert.css') ?>">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css"/>
 
@@ -65,129 +56,132 @@
 
     </script>
 
-    <style media="screen">
-
-      .btn-add {
-        margin-left: 750px;
-        margin-top: -6px;
-      }
-    </style>
-
   </head>
 
-  <body class="az-body az-body-sidebar az-light">
+  <body class="vertical-layout vertical-menu 2-columns   menu-expanded fixed-navbar" data-open="click" data-menu="vertical-menu" data-col="2-columns">
 
-    <div class="az-sidebar">
-      <div class="az-sidebar-header">
-        <a href="index.html" class="az-logo">az<span>i</span>a</a>
-      </div><!-- az-sidebar-header -->
-      <div class="az-sidebar-loggedin">
-        <div class="az-img-user online"><img src="https://via.placeholder.com/500x500" alt=""></div>
-        <div class="media-body">
-          <h6>Aziana Pechon</h6>
-          <span>Premium Member</span>
-        </div><!-- media-body -->
-      </div><!-- az-sidebar-loggedin -->
-      <div class="az-sidebar-body">
-        <ul class="nav">
-          <li class="nav-label">Main Menu</li>
-          <li class="nav-item active">
-            <a href="#/dashboard" class="nav-link"><i class="typcn typcn-clipboard"></i>Dashboard</a>
-          </li><!-- nav-item -->
-
-          <li class="nav-item">
-            <a href="#/user" class="nav-link"><i class="typcn typcn-group-outline"></i>User</a>
-          </li>
-        </ul><!-- nav -->
-      </div><!-- az-sidebar-body -->
-    </div><!-- az-sidebar -->
-    <div class="az-content az-content-dashboard-five">
-      <div class="az-header">
-        <div class="container-fluid">
-          <div class="az-header-left">
-            <a href="" id="azSidebarToggle" class="az-header-menu-icon"><span></span></a>
-          </div><!-- az-header-left -->
-
-          <div class="az-header-right">
-            <div class="dropdown az-profile-menu">
-              <a href="" class="az-img-user"><img src="https://via.placeholder.com/500x500" alt=""></a>
-              <div class="dropdown-menu">
-                <div class="az-dropdown-header d-sm-none">
-                  <a href="" class="az-header-arrow"><i class="icon ion-md-arrow-back"></i></a>
+    <!-- NAVBAR -->
+    <nav class="header-navbar navbar-expand-md navbar navbar-with-menu navbar-without-dd-arrow fixed-top navbar-semi-light bg-info navbar-shadow">
+      <div class="navbar-wrapper">
+        <div class="navbar-header">
+          <ul class="nav navbar-nav flex-row">
+            <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
+            <li class="nav-item">
+              <a class="navbar-brand" href="index.html">
+                <img class="brand-logo" alt="modern admin logo" src="<?= base_url('assets') ?>/app-assets/images/logo/logo.png">
+                <h3 class="brand-text">Modern Admin</h3>
+              </a>
+            </li>
+            <li class="nav-item d-md-none">
+              <a class="nav-link open-navbar-container" data-toggle="collapse" data-target="#navbar-mobile"><i class="la la-ellipsis-v"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="navbar-container content">
+          <div class="collapse navbar-collapse" id="navbar-mobile">
+            <ul class="nav navbar-nav mr-auto float-left">
+              <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu"></i></a></li>
+            </ul>
+            <ul class="nav navbar-nav float-right">
+              <li class="dropdown dropdown-user nav-item">
+                <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
+                  <span class="mr-1">Assalamualaikum,
+                    <span class="user-name text-bold-700">John Doe</span>
+                  </span>
+                  <span class="avatar avatar-online">
+                    <img src="<?= base_url('assets') ?>/app-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i></span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i class="ft-user"></i> Informasi User</a>
+                  <a class="dropdown-item" href="#"><i class="ft-mail"></i> My Inbox</a>
+                  <a class="dropdown-item" href="#"><i class="ft-check-square"></i> Task</a>
+                  <a class="dropdown-item" href="#"><i class="ft-message-square"></i> Chats</a>
                 </div>
-                <div class="az-header-profile">
-                  <div class="az-img-user">
-                    <img src="https://via.placeholder.com/500x500" alt="">
-                  </div><!-- az-img-user -->
-                  <h6>Aziana Pechon</h6>
-                  <span>Premium Member</span>
-                </div><!-- az-header-profile -->
+              </li>
+              <li class="dropdown dropdown-notification nav-item">
+                <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-settings"></i></a>
+                <ul class="dropdown-menu dropdown-menu-right">
+                  <a class="dropdown-item" id="btn_ganti"><i class="ft-lock"></i> Ganti Password</a>
+                  <a class="dropdown-item" id="btn_logout"><i class="ft-power"></i> Logout</a>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </nav>
 
-                <a href="" class="dropdown-item"><i class="typcn typcn-user-outline"></i> My Profile</a>
-                <a href="" id="btn_ganti" class="dropdown-item"><i class="typcn typcn-cog-outline"></i> Ganti Password</a>
-                <a id="btn_logout" class="dropdown-item"><i class="typcn typcn-power-outline"></i> Sign Out</a>
-              </div><!-- dropdown-menu -->
-            </div>
-          </div><!-- az-header-right -->
-        </div><!-- container -->
-      </div><!-- az-header -->
+    <!-- SIDEBAR-->
+    <div class="main-menu menu-fixed menu-light menu-accordion    menu-shadow " data-scroll-to-active="true">
+      <div class="main-menu-content">
+        <ul class="navigation navigation-main">
+          <li class=" nav-item"><a href="#/dashboard"><i class="la la-home"></i><span class="menu-title">Dashboard</span></a></li>
 
-      <div class="page-wrapper" id="content">
+          <li class=" nav-item"><a href="#/user"><i class="la la-user"></i><span class="menu-title">User</span></a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="app-content content">
+      <div class="content-wrapper" id="content">
 
       </div>
+    </div>
+    <!-- ////////////////////////////////////////////////////////////////////////////-->
+    <footer class="footer footer-static footer-light navbar-border navbar-shadow fixed-bottom">
+      <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">
+        <span class="float-md-left d-block d-md-inline-block">PSSB </span>
+        <span class="float-md-right d-block d-md-inline-blockd-none d-lg-block">2019 <i class="ft-heart pink"></i></span>
+      </p>
+    </footer>
 
-      <div class="az-footer">
-        <div class="container-fluid">
-          <span>&copy; 2018 Azia Responsive Bootstrap 4 Dashboard Template</span>
-          <span>Designed by: ThemePixels</span>
-        </div><!-- container -->
-      </div><!-- az-footer -->
-    </div><!-- az-content -->
-
-    <div id="modal_ganti" class="modal">
+    <div class="modal fade text-left" id="modal_ganti" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
       <div class="modal-dialog" role="document">
-        <div class="modal-content modal-content-demo">
+        <div class="modal-content">
           <div class="modal-header">
-            <h6 class="modal-title">Ganti Password</h6>
+            <h3 class="modal-title" id="myModalLabel35"> Ganti Password</h3>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
-          <form class="form-horizontal" id="form_ganti">
+          <form id="form_ganti">
             <div class="modal-body">
-              <div class="form-group">
-                <input type="password" class="form-control" name="password_lama" id="password_lama" placeholder="Password Lama">
-              </div>
+              <fieldset class="form-group floating-label-form-group">
+                <label for="title">Password Lama</label>
+                <input type="password" class="form-control" id="password_lama" name="password_lama" placeholder="Password Lama">
+              </fieldset>
+              <br>
 
-              <div class="form-group">
-                <input type="password" class="form-control" name="password_baru" id="password_baru" placeholder="Password Baru">
-              </div>
+              <fieldset class="form-group floating-label-form-group">
+                <label for="title">Password Baru</label>
+                <input type="password" class="form-control" id="password_baru" name="password_baru" placeholder="Password Baru">
+              </fieldset>
+              <br>
 
-              <div class="form-group">
-                <input type="password" class="form-control" name="re_password" id="re_password" placeholder="Konfirmasi Password">
-              </div>
+              <fieldset class="form-group floating-label-form-group">
+                <label for="title">Konfirmasi Password</label>
+                <input type="password" class="form-control" id="re_password" placeholder="Konfirmasi Password">
+              </fieldset>
+              <br>
             </div>
             <div class="modal-footer">
-              <button type="submit" id="submit_ganti" class="btn btn-indigo">Simpan</button>
+              <button type="submit" id="submit_ganti" class="btn btn-outline-primary btn-lg">Simpan</button>
             </div>
           </form>
         </div>
-      </div><!-- modal-dialog -->
+      </div>
     </div>
 
-    <script src="<?= base_url('assets') ?>/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="<?= base_url('assets') ?>/lib/ionicons/ionicons.js"></script>
-    <script src="<?= base_url('assets') ?>/lib/jquery.flot/jquery.flot.js"></script>
-    <script src="<?= base_url('assets') ?>/lib/jquery.flot/jquery.flot.pie.js"></script>
-    <script src="<?= base_url('assets') ?>/lib/jquery.flot/jquery.flot.resize.js"></script>
-    <script src="<?= base_url('assets') ?>/lib/chart.js/Chart.bundle.min.js"></script>
+    <script src="<?= base_url('assets') ?>/app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
 
-    <script src="<?= base_url('assets') ?>/js/azia.js"></script>
-    <script src="<?= base_url('assets') ?>/js/chart.flot.sampledata.js"></script>
+    <script src="<?= base_url('assets') ?>/app-assets/js/core/app-menu.js" type="text/javascript"></script>
 
-    <script src="<?= base_url('assets/lib/sweetalert/sweetalert.min.js') ?>"></script>
+    <script src="<?= base_url('assets') ?>/app-assets/js/core/app.js" type="text/javascript"></script>
 
-    <script src="<?= base_url('assets/lib/sweetalert/jquery.sweet-alert.custom.js') ?>"></script>
+    <script src="<?= base_url('assets') ?>/app-assets/js/scripts/customizer.js" type="text/javascript"></script>
+
+    <script src="<?= base_url('assets/app-assets/vendors/js/sweetalert/sweetalert.min.js') ?>"></script>
+
+    <script src="<?= base_url('assets/app-assets/vendors/js/sweetalert/jquery.sweet-alert.custom.js') ?>"></script>
 
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
 
@@ -199,7 +193,7 @@
 
     <script src="https://js.pusher.com/4.4/pusher.min.js"></script>
 
-    <script>
+    <script type="text/javascript">
 
       function load_content(link){
 
@@ -282,7 +276,7 @@
               type: 'POST',
               dataType: 'JSON',
               beforeSend: function(){
-                $('#submit_ganti').addClass('disabled').attr('disabled', 'disabled').html('<i class="fa fa-fw fa-spinner fa-spin"></i>');
+                $('#submit_ganti').addClass('disabled').attr('disabled', 'disabled').html('<i class="la la-spin la-spinner"></i>');
               },
               data: {
                 password_lama: password_lama,
@@ -308,7 +302,7 @@
                     timer: 1500
                   });
                 }
-                $('#submit_ganti').removeClass('disabled').removeAttr('disabled', 'disabled').text('Ganti')
+                $('#submit_ganti').removeClass('disabled').removeAttr('disabled', 'disabled').text('Simpan')
               },
               error: function(){
                 Swal.fire({
@@ -318,42 +312,16 @@
                   showConfirmButton: false,
                   timer: 1500
                 });
-                $('#submit_ganti').removeClass('disabled').removeAttr('disabled', 'disabled').text('Ganti')
+                $('#submit_ganti').removeClass('disabled').removeAttr('disabled', 'disabled').text('Simpan')
               }
             });
           }
         });
 
-        $('.az-sidebar .with-sub').on('click', function(e){
-          e.preventDefault();
-          $(this).parent().toggleClass('show');
-          $(this).parent().siblings().removeClass('show');
-        })
-
-        $(document).on('click touchstart', function(e){
-          e.stopPropagation();
-
-          // closing of sidebar menu when clicking outside of it
-          if(!$(e.target).closest('.az-header-menu-icon').length) {
-            var sidebarTarg = $(e.target).closest('.az-sidebar').length;
-            if(!sidebarTarg) {
-              $('body').removeClass('az-sidebar-show');
-            }
-          }
-        });
-
-        $('#azSidebarToggle').on('click', function(e){
-          e.preventDefault();
-
-          if(window.matchMedia('(min-width: 992px)').matches) {
-            $('.az-sidebar').toggle();
-          } else {
-            $('body').toggleClass('az-sidebar-show');
-          }
-        })
-
       });
 
     </script>
+
   </body>
+
 </html>

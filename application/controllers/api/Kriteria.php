@@ -39,14 +39,13 @@ class Kriteria extends CI_Controller {
         } else {
 
           $otorisasi    = $auth->row();
-          $where        = array();
-          $like         = array();
 
-          $this->input->get('id_kriteria') != null ? $where['id_kriteria'] = $this->input->get('id_kriteria') : null;
-          $this->input->get('nama_kriteria') != null ? $like['nama_kriteria'] = $this->input->get('nama_kriteria') : null;
+          $where = array(
+            'id_kriteria' => $this->input->get('id_kriteria')
+          );
             
 
-            $show  = $this->KriteriaModel->show($where, $like);
+            $show  = $this->KriteriaModel->show($where);
             $kriteria  = array();
 
             foreach($show->result() as $key){
@@ -251,18 +250,13 @@ class Kriteria extends CI_Controller {
         } else {
 
           $otorisasi     = $auth->row();
-          $id_kriteria   = $this->input->get('id_kriteria');
-          $where        = array('id_kriteria' => $id_kriteria);
-          $like         = array();
 
-          $this->input->get('id_kriteria') != null ? $where['id_kriteria'] = $this->input->get('id_kriteria') : null;
-          $this->input->get('nama_kriteria') != null ? $like['nama_kriteria'] = $this->input->get('nama_kriteria') : null;
+          $where = array(
+            'id_kriteria' => $this->input->get('id_kriteria')
+          );
 
-          if($id_kriteria == null){
-            json_output(400, array('status' => 400, 'description' => 'Gagal', 'message' => 'ID Kriteria tidak dipilih'));
-          } else {
-            $show  = $this->KriteriaModel->show($where, $like);
-            $show2 = $this->KriteriaModel->detail($where, $like);
+            $show  = $this->KriteriaModel->show($where);
+            $show2 = $this->KriteriaModel->detail($where);
 
             $kriteria      = array();
             $subkriteria   = array();
@@ -280,15 +274,14 @@ class Kriteria extends CI_Controller {
             foreach($show->result() as $key){
               $json = array();
 
-              $json['id_kriteria'] = $key->id_kriteria;
+              $json['id_kriteria']    = $key->id_kriteria;
               $json['nama_kriteria']  = $key->nama_kriteria;
-              $json['subkriteria']      = $subkriteria;
+              $json['subkriteria']    = $subkriteria;
 
               $kriteria[] = $json;
             }
 
             json_output(200, array('status' => 200, 'description' => 'Berhasil', 'data' => $kriteria));
-          }
         }
       }
     }

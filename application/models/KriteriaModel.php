@@ -38,18 +38,18 @@
             }
         }
 
-		function show($where = array(), $like = array())
+		function show($where)
         {
             $this->db->select('*')
                      ->select("(SELECT COUNT(id_kriteria) FROM subkriteria WHERE subkriteria.id_kriteria = kriteria.id_kriteria) as jml_subkriteria")
                      ->from('kriteria');
 
-            if(count($where) != 0){
-                $this->db->where($where);
-            }
-
-            if(count($like) != 0){
-                $this->db->like($like);
+            if(!empty($where)){
+                foreach($where as $key => $value){
+                    if($value != null){
+                        $this->db->where($key, $value);
+                    }
+                }
             }
 
             $this->db->order_by('id_kriteria', 'desc');
@@ -71,17 +71,17 @@
             }
         }
 
-		function detail($where = array(), $like = array())
+		function detail($where)
 		{
 			$this->db->select('*')
 					 ->from('subkriteria');
 
-            if(count($where) != 0){
-                $this->db->where($where);
-            }
-
-            if(count($like) != 0){
-                $this->db->like($like);
+            if(!empty($where)){
+                foreach($where as $key => $value){
+                    if($value != null){
+                        $this->db->where($key, $value);
+                    }
+                }
             }
 
             $this->db->order_by('id_subkriteria', 'desc');

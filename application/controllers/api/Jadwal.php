@@ -22,54 +22,6 @@ class Jadwal extends CI_Controller {
     $this->load->model('JadwalModel');
   }
 
-  function show($token = null){
-    $method = $_SERVER['REQUEST_METHOD'];
-
-    if ($method != 'GET') {
-      json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Metode request salah'));
-		} else {
-
-      if($token == null){
-        json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Request tidak terotorisasi'));
-      } else {
-        $auth = $this->AuthModel->cekAuth($token);
-
-        if($auth->num_rows() != 1){
-          json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Token tidak dikenali'));
-        } else {
-
-          $otorisasi    = $auth->row();
-          $where        = array();
-          $like         = array();
-
-          $this->input->get('id_jadwal') != null ? $where['id_jadwal'] = $this->input->get('id_jadwal') : null;
-          $this->input->get('keterangan_jadwal') != null ? $like['keterangan_jadwal'] = $this->input->get('keterangan_jadwal') : null;
-            
-
-            $show  = $this->JadwalModel->show($where, $like);
-            $jadwal  = array();
-
-            foreach($show->result() as $key){
-                $json = array();
-
-                $json['id_jadwal']          = $key->id_jadwal;
-                $json['kd_ta']              = $key->kd_ta;
-                $json['keterangan_jadwal']  = $key->keterangan_jadwal;
-                $json['deskripsi_jadwal']   = $key->deskripsi_jadwal;
-                $json['tgl_pelaksanaan']    = $key->tgl_pelaksanaan;
-                $json['lokasi']             = $key->lokasi;
-                $json['status']             = $key->status;
-                $json['tgl_input']          = $key->tgl_input;
-
-                $jadwal[] = $json;
-            }
-
-            json_output(200, array('status' => 200, 'description' => 'Berhasil', 'data' => $jadwal));
-        }
-      }
-    }
-  }
-
   function add($token = null){
     $method = $_SERVER['REQUEST_METHOD'];
 
@@ -223,6 +175,53 @@ class Jadwal extends CI_Controller {
               }
             }
           }
+        }
+      }
+    }
+  }
+
+  function show($token = null){
+    $method = $_SERVER['REQUEST_METHOD'];
+
+    if ($method != 'GET') {
+      json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Metode request salah'));
+		} else {
+
+      if($token == null){
+        json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Request tidak terotorisasi'));
+      } else {
+        $auth = $this->AuthModel->cekAuth($token);
+
+        if($auth->num_rows() != 1){
+          json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Token tidak dikenali'));
+        } else {
+
+          $otorisasi    = $auth->row();
+
+          $where = array(
+            'id_jadwal' => $this->input->get('id_jadwal')
+          );
+            
+
+            $show  = $this->JadwalModel->show($where);
+            $jadwal  = array();
+
+            foreach($show->result() as $key){
+                $json = array();
+
+                $json['id_jadwal']          = $key->id_jadwal;
+                $json['kd_ta']              = $key->kd_ta;
+                $json['keterangan_jadwal']  = $key->keterangan_jadwal;
+                $json['deskripsi_jadwal']   = $key->deskripsi_jadwal;
+                $json['tgl_pelaksanaan']    = $key->tgl_pelaksanaan;
+                $json['lokasi']             = $key->lokasi;
+                $json['status']             = $key->status;
+                $json['tgl_input']          = $key->tgl_input;
+
+                $jadwal[] = $json;
+            }
+
+            json_output(200, array('status' => 200, 'description' => 'Berhasil', 'data' => $jadwal));
         }
       }
     }
