@@ -22,48 +22,6 @@ class Kriteria extends CI_Controller {
     $this->load->model('KriteriaModel');
   }
 
-  function show($token = null){
-    $method = $_SERVER['REQUEST_METHOD'];
-
-    if ($method != 'GET') {
-      json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Metode request salah'));
-		} else {
-
-      if($token == null){
-        json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Request tidak terotorisasi'));
-      } else {
-        $auth = $this->AuthModel->cekAuth($token);
-
-        if($auth->num_rows() != 1){
-          json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Token tidak dikenali'));
-        } else {
-
-          $otorisasi    = $auth->row();
-
-          $where = array(
-            'id_kriteria' => $this->input->get('id_kriteria')
-          );
-            
-
-            $show  = $this->KriteriaModel->show($where);
-            $kriteria  = array();
-
-            foreach($show->result() as $key){
-                $json = array();
-
-                $json['id_kriteria']       = $key->id_kriteria;
-                $json['nama_kriteria']     = $key->nama_kriteria;
-                $json['jml_subkriteria']   = $key->jml_subkriteria;
-
-                $kriteria[] = $json;
-            }
-
-            json_output(200, array('status' => 200, 'description' => 'Berhasil', 'data' => $kriteria));
-        }
-      }
-    }
-  }
-
   function add($token = null){
     $method = $_SERVER['REQUEST_METHOD'];
 
@@ -85,11 +43,12 @@ class Kriteria extends CI_Controller {
           if($otorisasi->level != 'Panitia'){
             json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Hak akses tidak disetujui'));
           } else {
-            $post            = $this->input->post();
-            $id_kriteria     = $this->KodeModel->buatKode('kriteria', 'KR', 'id_kriteria', 9);
-            $nama_kriteria   = $this->input->post('nama_kriteria');
+            $post             = $this->input->post();
+            $id_kriteria      = $this->KodeModel->buatKode('kriteria', 'KR', 'id_kriteria', 9);
+            $nama_kriteria    = $this->input->post('nama_kriteria');
+            $bobot_kriteria   = $this->input->post('bobot_kriteria');
 
-            if($nama_kriteria == null){
+            if($nama_kriteria == null || $bobot_kriteria == null){
               json_output(400, array('status' => 400, 'description' => 'Gagal', 'message' => 'Data yang dikirim tidak lengkap'));
             } else {
               if(!isset($post['nama_subkriteria']) && count($post['nama_subkriteria']) < 1){
@@ -101,13 +60,14 @@ class Kriteria extends CI_Controller {
                   $subkriteria[] = array(
                     'id_kriteria'       => $id_kriteria,
                     'nama_subkriteria'  => $post['nama_subkriteria'][$key],
-                    'bobot'             => $post['bobot'][$key]
+                    'bobot_sub'         => $post['bobot_sub'][$key]
                   );
                 }
 
                 $kriteria = array(
                     'id_kriteria'         => $id_kriteria,
-                    'nama_kriteria'       => $nama_kriteria
+                    'nama_kriteria'       => $nama_kriteria,
+                    'bobot_kriteria'      => $bobot_kriteria
                 );
 
                 $log = array('message' => 'Berhasil menambah kriteria');
@@ -150,11 +110,12 @@ class Kriteria extends CI_Controller {
             $post               = $this->input->post();
             $id_kriteria        = $this->input->get('id_kriteria');
             $nama_kriteria      = $this->input->post('nama_kriteria');
+            $bobot_kriteria     = $this->input->post('bobot_kriteria');
 
             if($id_kriteria == null){
               json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Tidak ada ID Kriteria yang dipilih'));
             } else {
-              if($nama_kriteria == null){
+              if($nama_kriteria == null || $bobot_kriteria == null){
                 json_output(400, array('status' => 400, 'description' => 'Gagal', 'message' => 'Data yang dikirim tidak lengkap'));
               } else {
                 if(!isset($post['nama_subkriteria']) && count($post['nama_subkriteria']) < 1){
@@ -165,12 +126,13 @@ class Kriteria extends CI_Controller {
                         $subkriteria[] = array(
                             'id_kriteria'       => $id_kriteria,
                             'nama_subkriteria'  => $post['nama_subkriteria'][$key],
-                            'bobot'             => $post['bobot'][$key]
+                            'bobot_sub'         => $post['bobot_sub'][$key]
                         );
                     }
 
                     $kriteria = array(
-                        'nama_kriteria'      => $nama_kriteria
+                        'nama_kriteria'      => $nama_kriteria,
+                        'bobot_kriteria'     => $bobot_kriteria
                     );
 
                     $log  = array('message' => 'Berhasil mengedit kriteria');
@@ -233,7 +195,7 @@ class Kriteria extends CI_Controller {
     }
   }
 
-  function detail($token = null){
+  function show($token = null){
     $method = $_SERVER['REQUEST_METHOD'];
 
     if ($method != 'GET') {
@@ -256,32 +218,37 @@ class Kriteria extends CI_Controller {
           );
 
             $show  = $this->KriteriaModel->show($where);
-            $show2 = $this->KriteriaModel->detail($where);
-
+            
             $kriteria      = array();
-            $subkriteria   = array();
-
-            foreach($show2->result() as $key){
-              $json = array();
-
-              $json['id_subkriteria']   = $key->id_subkriteria;
-              $json['nama_subkriteria'] = $key->nama_subkriteria;
-              $json['bobot']            = $key->bobot;
-
-              $subkriteria[] = $json;
-            }
-
+            
             foreach($show->result() as $key){
               $json = array();
-
+              
               $json['id_kriteria']    = $key->id_kriteria;
               $json['nama_kriteria']  = $key->nama_kriteria;
-              $json['subkriteria']    = $subkriteria;
+              $json['bobot_kriteria'] = $key->bobot_kriteria;
+              $json['jml_subkriteria'] = $key->jml_subkriteria;
+              $json['subkriteria']    = array();
+              
+              $where_sub = array('id_kriteria' => $key->id_kriteria);
+              $show2 = $this->KriteriaModel->detail($where_sub);
 
-              $kriteria[] = $json;
+              foreach($show2->result() as $key2){
+                $json_sub = array();
+
+                $json_sub['id_subkriteria']   = $key2->id_subkriteria;
+                $json_sub['id_kriteria']      = $key2->id_kriteria;
+                $json_sub['nama_subkriteria'] = $key2->nama_subkriteria;
+                $json_sub['bobot_sub']        = $key2->bobot_sub;
+
+                $json['subkriteria'][] = $json_sub;
+              }
+
+              $total_bobot[]  = $key->bobot_kriteria;
+              $kriteria[]     = $json;
             }
 
-            json_output(200, array('status' => 200, 'description' => 'Berhasil', 'data' => $kriteria));
+            json_output(200, array('status' => 200, 'description' => 'Berhasil', 'data' => $kriteria, 'total_bobot' => array_sum($total_bobot)));
         }
       }
     }

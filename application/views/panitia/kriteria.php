@@ -29,8 +29,9 @@
               <table class="table table-striped" id="t_kriteria">
                 <thead>
                   <tr>
-                    <th>Nama Kriteria</th>
-                    <th>Jumlah Subkriteria</th>
+                    <th>Kriteria</th>
+                    <th>Bobot</th>
+                    <th>Subkriteria (Bobot)</th>
                     <th></th>
                   </tr>
                 </thead>
@@ -50,42 +51,36 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h3 class="modal-title" id="myModalLabel35"> Detail Kriteria</h3>
+        <h3 class="modal-title" id="myModalLabel35"> Detail </h3>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <div class="input-group">
-          <input type="hidden" name="id_kriteria" id="id_kriteria">
-        </div>
-
-        <div class="form-group">
-          <label>Nama Kriteria</label><br>
-          <input type="text" class="form-control" name="nama_kriteria" id="detail_nama_kriteria" readonly>
-        </div>
 
         <div class="row">
           <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                <h4 class="card-title">Subkriteria</h4>
-              </div>
-              <div class="card-content">
-                <div class="card-body card-dashboard">
-                  <table class="table table-striped" id="t_subkriteria">
-                    <thead>
-                      <tr>
-                        <th>Nama Subkriteria</th>
-                        <th>Bobot</th>
-                      </tr>
-                    </thead>
-                    <tbody>
+              <h4>Kriteria</h4>              
+             <div class="table-responsive">
+              <table class="table table-striped" id="det_kriteria"></table>
+            </div>
+            <br><br>
+          </div>
+          <div class="col-12">
+            <h4>Subkriteria</h4>
+            <div class="table-responsive">
+              <table class="table table-striped" id="det_subkriteria">
+                <thead>
+                  <tr>
+                    <th>ID Subkriteria</th>
+                    <th>Nama Subkriteria</th>
+                    <th>Bobot</th>
+                  </tr>
+                </thead>
+                <tbody>
 
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+                </tbody>
+              </table>
             </div>
           </div>
         </div>
@@ -126,11 +121,22 @@
       ajax: '<?= base_url('api/kriteria/show/'); ?>'+auth.token,
       columns: [
         {"data": 'nama_kriteria'},
-        {"data": 'jml_subkriteria'},
+        {"data": 'bobot_kriteria'},
+        {"data": null, 'render': function(data, type, row){
+
+            var subkriteria = '';
+            $.each(row.subkriteria, function(k, v){
+              subkriteria += `${v.nama_subkriteria} (${v.bobot_sub})<br/>`;
+            })
+
+            return subkriteria;
+          
+          }
+        },
         {"data": null, 'render': function(data, type, row){
           return `<a href="#/edit_kriteria/${row.id_kriteria}" class="btn btn-sm btn-info"><i class="la la-edit"></i></a> <button type="button" class="btn btn-sm btn-default" id="detail_kriteria" data-id="${row.id_kriteria}"><i class="la la-eye"></i></button> <button type="button" class="btn btn-sm btn-danger" id="hapus_kriteria" data-id="${row.id_kriteria}" data-nama="${row.nama_kriteria}"><i class="la la-trash"></i></button>`
           }
-        }
+        },
       ],
       order: [[0, 'desc']]
     })
@@ -192,23 +198,44 @@
       var id_kriteria = $(this).attr('data-id')
 
       $.ajax({
-        url: `<?= base_url('api/kriteria/detail/') ?>${auth.token}?id_kriteria=${id_kriteria}`,
+        url: `<?= base_url('api/kriteria/show/') ?>${auth.token}?id_kriteria=${id_kriteria}`,
         type: 'GET',
         dataType: 'JSON',
         success: function(response){
+          var detail_kriteria = ``;
+          var detail_subkriteria = ``;
+
           $.each(response.data, function(k, v){
-            $('#modal_detail').modal('show')
-            $('#id_kriteria').val(v.id_kriteria)
-            $('#detail_nama_kriteria').val(v.nama_kriteria)
+
+            detail_kriteria += `
+              <tr>
+                <th>ID Kriteria</th>
+                <td>${v.id_kriteria}</td>
+              </tr>
+              <tr>
+                <th>Nama Kriteria</th>
+                <td>${v.nama_kriteria}</td>
+              </tr>
+              <tr>
+                <th>Bobot</th>
+                <td>${v.bobot_kriteria}</td>
+              </tr>
+            `;
 
             $.each(v.subkriteria, function(k1, v1){
-              $('#t_subkriteria').html(`<tr id="baris${v1.id_subkriteria}">
-
-              <td><input type="text" class="form-control" value="${v1.nama_subkriteria}" name="nama_subkriteria[]" placeholder="Nama Subkriteria" readonly></td>
-              <td><input type="text" class="form-control" value="${v1.bobot}" name="bobot" placeholder="Bobot" readonly></td>
-              </tr>`)
+              detail_subkriteria += `
+                <tr>
+                  <td>${v1.id_subkriteria}</td>
+                  <td>${v1.nama_subkriteria}</td>
+                  <td>${v1.bobot_sub}</td>
+                </tr>
+              `;
             })
           })
+
+          $('#det_kriteria').html(detail_kriteria);
+          $('#det_subkriteria tbody').html(detail_subkriteria);
+          $('#modal_detail').modal('show');
         },
         error: function(){
           Swal.fire({

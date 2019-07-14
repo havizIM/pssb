@@ -25,14 +25,19 @@
             <div class="card-body card-dashboard">
               <form class="form-horizontal" id="form_edit">
                 <div class="form-group">
-                  <input type="text" class="form-control" name="nama_kriteria" id="nama_kriteria" placeholder="Nama Kriteria">
+                  <label>Nama Kriteria</label>
+                  <input type="text" class="form-control" name="nama_kriteria" id="nama_kriteria">
+                </div>
+                <div class="form-group">
+                  <label>Bobot Kriteria</label>
+                  <input type="number" class="form-control" name="bobot_kriteria" id="bobot_kriteria">
                 </div>
 
                 <div class="row">
                   <div class="col-12">
                     <div class="card">
                       <div class="card-header">
-                        <h4 class="card-title">Subkriteria</h4>
+                        <h4 class="card-title">Ubah Subkriteria</h4>
                       </div>
                       <div class="card-content">
                         <div class="card-body card-dashboard">
@@ -41,11 +46,13 @@
                               <tr>
                                 <th>Nama Subkriteria</th>
                                 <th>Bobot</th>
-                                <th><button class="btn btn-sm btn-info round" id="subkriteria" type="button"><i class="ft-plus"></i></button></th>
+                                <th><button class="btn btn-sm btn-info round" id="add_sub" type="button"><i class="ft-plus"></i></button></th>
                               </tr>
                             </thead>
                             <tbody>
-
+                              <tr>
+                                <td colspan="3"><center>Tidak ada subkriteria yang ditambahkan</center></td>
+                              </tr>
                             </tbody>
                           </table>
                         </div>
@@ -71,19 +78,21 @@
 
     var session = localStorage.getItem('pssb');
     var auth = JSON.parse(session);
-    var id_kriteria = location.hash.substr(16);
+    var ID_KRITERIA = location.hash.substr(16);
+    var count = 1;
+    var baris = 1;
 
-    $('#subkriteria').on('click', function(){
+    $('#add_sub').on('click', function(){
       count  = count + 1
       var html = `<tr id="baris${count}">`
 
       html+=`<td><input type="text" class="form-control" name="nama_subkriteria[]" placeholder="Nama Subkriteria" required></td>`
-      html+=`<td><input type="text" class="form-control" name="bobot[]" placeholder="Bobot" required></td>`
+      html+=`<td><input type="text" class="form-control" name="bobot_sub[]" placeholder="Bobot" required></td>`
       html+=`<td><button type="button" class="btn btn-danger remove" id="${count}"><i class="la la-trash"></i></button></td>`
       html+=`</tr>`
 
 
-      $('#t_subkriteria').append(html)
+      $('#t_subkriteria tbody').append(html)
     })
 
     $(document).on('click', '.remove', function(){
@@ -93,26 +102,27 @@
     })
 
     $.ajax({
-      url: `<?= base_url('api/kriteria/detail/') ?>${auth.token}?id_kriteria=${id_kriteria}`,
+      url: `<?= base_url('api/kriteria/show/') ?>${auth.token}?id_kriteria=${ID_KRITERIA}`,
       type: 'GET',
       dataType: 'JSON',
       success: function(response){
         $.each(response.data, function(k, v){
           $('#id_kriteria').val(v.id_kriteria)
           $('#nama_kriteria').val(v.nama_kriteria)
+          $('#bobot_kriteria').val(v.bobot_kriteria)
 
-          var html = ''
+          var html  = ''
 
           $.each(v.subkriteria, function(k1, v1){
-            html+=`<tr id="baris${v1.id_subkriteria}">`
-
+            html+=`<tr id="baris${baris++}">`
             html+=`<td><input type="text" class="form-control" value="${v1.nama_subkriteria}" name="nama_subkriteria[]" placeholder="Nama Subkriteria" required></td>`
-            html+=`<td><input type="text" class="form-control" value="${v1.bobot}" name="bobot" placeholder="Bobot" required></td>`
-            html+=`<td><button type="button" class="btn btn-danger remove" id="${v1.id_kriteria}"><i class="la la-trash"></i></button></td>`
+            html+=`<td><input type="text" class="form-control" value="${v1.bobot_sub}" name="bobot_sub[]" placeholder="Bobot" required></td>`
+            html+=`<td><button type="button" class="btn btn-danger remove" id="${count++}"><i class="la la-trash"></i></button></td>`
             html+=`</tr>`
 
-            $('#t_subkriteria').append(html)
           })
+            
+          $('#t_subkriteria tbody').html(html)
         })
       },
       error: function(){
@@ -143,7 +153,7 @@
         });
       } else {
         $.ajax({
-          url: '<?= base_url('api/kriteria/edit/') ?>'+auth.token,
+          url: '<?= base_url('api/kriteria/edit/') ?>'+auth.token+'?id_kriteria='+ID_KRITERIA,
           type: 'POST',
           dataType: 'JSON',
           beforeSend: function(){

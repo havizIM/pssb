@@ -19,20 +19,25 @@
       <div class="col-12">
         <div class="card">
           <div class="card-header">
-            <h4 class="card-title">Tambah Kriteria</h4>
+            <h4 class="card-title">Form Kriteria</h4>
           </div>
           <div class="card-content">
             <div class="card-body card-dashboard">
               <form class="form-horizontal" id="form_add">
                 <div class="form-group">
-                  <input type="text" class="form-control" name="nama_kriteria" id="nama_kriteria" placeholder="Nama Kriteria">
+                  <label>Nama Kriteria</label>
+                  <input type="text" class="form-control" name="nama_kriteria" id="nama_kriteria">
+                </div>
+                <div class="form-group">
+                  <label>Bobot Kriteria</label>
+                  <input type="number" class="form-control" name="bobot_kriteria" id="bobot_kriteria">
                 </div>
 
                 <div class="row">
                   <div class="col-12">
                     <div class="card">
                       <div class="card-header">
-                        <h4 class="card-title">Subkriteria</h4>
+                        <h4 class="card-title">Tambah Subkriteria <small class="text-warning">* jika terdapat subkriteria</small></h4>
                       </div>
                       <div class="card-content">
                         <div class="card-body card-dashboard">
@@ -45,7 +50,9 @@
                               </tr>
                             </thead>
                             <tbody>
-
+                              <tr>
+                                <td colspan="3"><center>Tidak ada subkriteria yang ditambahkan</center></td>
+                              </tr>
                             </tbody>
                           </table>
                         </div>
@@ -77,7 +84,7 @@
       var html = `<tr id="baris${count}">`
 
       html+=`<td><input type="text" class="form-control" name="nama_subkriteria[]" placeholder="Nama Subkriteria" required></td>`
-      html+=`<td><input type="text" class="form-control" name="bobot[]" placeholder="Bobot" required></td>`
+      html+=`<td><input type="text" class="form-control" name="bobot_sub[]" placeholder="Bobot" required></td>`
       html+=`<td><button type="button" class="btn btn-danger remove" id="${count}"><i class="la la-trash"></i></button></td>`
       html+=`</tr>`
 

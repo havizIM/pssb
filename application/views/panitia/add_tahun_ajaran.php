@@ -43,18 +43,19 @@
                 <div class="row">
                   <div class="col-md-12">
                     <div class="table-responsive">
-                      <label>Pilih Kriteria</label>
-                      <table class="table table-bordered" id="select_kriteria">
+                      <h5>Pilih Kriteria</h5>
+                      <table class="table table-striped" id="select_kriteria">
                         <thead>
-                          <th>Nama Kriteria</th>
-                          <th>Tipe</th>
-                          <th>Parameter Q</th>
-                          <th>Parameter P</th>
-                          <th> <button type="button" class="btn btn-sm btn-info" id="modal_kriteria"> <i class="la la-plus"></i> </button> </th>
+                          <tr>
+                            <th width="30%">Nama Kriteria</th>
+                            <th width="20%">Tipe</th>
+                            <th>Q</th>
+                            <th>P</th>
+                            <th><button type="button" class="btn btn-sm btn-info" id="modal_kriteria"> <i class="la la-plus"></i> </button> </th>
+                          
+                          </tr>
                         </thead>
-                        <tbody>
-
-                        </tbody>
+                        <tbody></tbody>
                       </table>
                     </div>
                   </div>
@@ -84,6 +85,7 @@
           <table class="table table-striped table-hover" id="t_kriteria">
             <thead>
               <th>Nama Kriteria</th>
+              <th>Bobot</th>
               <th>Jumlah Subkriteria</th>
               <th></th>
             </thead>
@@ -129,6 +131,7 @@
       ajax: '<?= base_url('api/kriteria/show/'); ?>'+auth.token,
       columns: [
         {"data": 'nama_kriteria'},
+        {"data": 'bobot_kriteria'},
         {"data": 'jml_subkriteria'},
         {"data": null, 'render': function(data, type, row){
           return `<button class="btn btn-info" id="pilih_kriteria" data-id="${row.id_kriteria}" data-nama="${row.nama_kriteria}"> Pilih</button>`
@@ -149,18 +152,19 @@
       var html = `<tr id="baris${id_kriteria}">`
 
       html+=`<td>${nama_kriteria} <input type="hidden" name="id_kriteria[]" value="${id_kriteria}"></td>`
-      html+=`<td><select class="form-control" name="tipe[]">
+      html+=`<td><select class="form-control form-control-sm" name="tipe[]">
                   <option value=""></option>
                   <option value="Quasi">Quasi</option>
                   <option value="Level">Level</option>
                  </select>
               </td>`
-      html+=`<td><input type="text" class="form-control" name="q[]" placeholder="Parameter Q" required></td>`
-      html+=`<td><input type="text" class="form-control" name="p[]" placeholder="Parameter P" required></td>`
+      html+=`<td><input type="number" class="form-control form-control-sm" name="q[]" required></td>`
+      html+=`<td><input type="number" class="form-control form-control-sm" name="p[]" required></td>`
       html+=`<td><button type="button" class="btn btn-danger remove" id="${id_kriteria}"><i class="la la-trash"></i></button></td>`
       html+=`</tr>`
 
-      $('#select_kriteria').append(html)
+      $('#select_kriteria tbody').append(html)
+      $('#lookup_kriteria').modal('hide')
     })
 
     $(document).on('click', '.remove', function(){

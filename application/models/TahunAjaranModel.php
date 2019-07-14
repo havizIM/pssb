@@ -70,20 +70,23 @@
             }
         }
 
-		function detail($where = array(), $like = array())
+		function detail($where)
 		{
-			$this->db->select('*')
-					 ->from('pengaturan');
+            $this->db->select('a.*')
+                     ->select('b.nama_kriteria, b.bobot_kriteria')
 
-            if(count($where) != 0){
-                $this->db->where($where);
+					 ->from('pengaturan a')
+					 ->join('kriteria b', 'b.id_kriteria = a.id_kriteria');
+
+            if(!empty($where)){
+                foreach($where as $key => $value){
+                    if($value != null){
+                        $this->db->where($key, $value);
+                    }
+                }
             }
 
-            if(count($like) != 0){
-                $this->db->like($like);
-            }
-
-            $this->db->order_by('id_pengaturan', 'desc');
+            $this->db->order_by('a.id_pengaturan', 'desc');
             return $this->db->get();
 		}
   }

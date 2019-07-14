@@ -57,6 +57,23 @@ class Tahun_ajaran extends CI_Controller {
                 $json['tgl_akhir']      = $key->tgl_akhir;
                 $json['status']         = $key->status;
                 $json['tgl_input']      = $key->tgl_input;
+                $json['pengaturan']     = array();
+
+                $where_p  = array('kd_ta' => $key->kd_ta);
+                $show2    = $this->TahunAjaranModel->detail($where_p);
+
+                foreach($show2->result() as $key2){
+                  $json_p = array();
+
+                  $json_p['id_pengaturan']    = $key2->id_pengaturan;
+                  $json_p['id_kriteria']      = $key2->id_kriteria;
+                  $json_p['nama_kriteria']    = $key2->nama_kriteria;
+                  $json_p['tipe']             = $key2->tipe;
+                  $json_p['q']                = $key2->q;
+                  $json_p['p']                = $key2->p;
+
+                  $json['pengaturan'][]   = $json_p;
+                }
 
                 $tahun_ajaran[] = $json;
             }
@@ -254,73 +271,6 @@ class Tahun_ajaran extends CI_Controller {
       }
     }
   }
-
-  function detail($token = null){
-    $method = $_SERVER['REQUEST_METHOD'];
-
-    if ($method != 'GET') {
-      json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Metode request salah'));
-		} else {
-
-      if($token == null){
-        json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Request tidak terotorisasi'));
-      } else {
-        $auth = $this->AuthModel->cekAuth($token);
-
-        if($auth->num_rows() != 1){
-          json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Token tidak dikenali'));
-        } else {
-
-          $otorisasi    = $auth->row();
-          $kd_ta        = $this->input->get('kd_ta');
-          $where        = array('kd_ta' => $kd_ta);
-          $like         = array();
-
-          $this->input->get('kd_ta') != null ? $where['kd_ta'] = $this->input->get('kd_ta') : null;
-
-          if($kd_ta == null){
-            json_output(400, array('status' => 400, 'description' => 'Gagal', 'message' => 'ID Kriteria tidak dipilih'));
-          } else {
-            $show  = $this->TahunAjaranModel->show($where, $like);
-            $show2 = $this->TahunAjaranModel->detail($where, $like);
-
-            $tahun_ajaran      = array();
-            $pengaturan   = array();
-
-            foreach($show2->result() as $key){
-              $json = array();
-
-              $json['id_pengaturan']  = $key->id_pengaturan;
-              $json['id_kriteria']    = $key->id_kriteria;
-              $json['tipe']           = $key->tipe;
-              $json['q']              = $key->q;
-              $json['p']              = $key->p;
-
-              $pengaturan[] = $json;
-            }
-
-            foreach($show->result() as $key){
-              $json = array();
-
-              $json['kd_ta']       = $key->kd_ta;
-              $json['tahun_awal']  = $key->tahun_awal;
-              $json['tahun_akhir'] = $key->tahun_akhir;
-              $json['tgl_awal']    = $key->tgl_awal;
-              $json['tgl_akhir']   = $key->tgl_akhir;
-              $json['status']      = $key->status;
-              $json['tgl_input']   = $key->tgl_input;
-              $json['pengaturan']  = $pengaturan;
-
-              $tahun_ajaran[] = $json;
-            }
-
-            json_output(200, array('status' => 200, 'description' => 'Berhasil', 'data' => $tahun_ajaran));
-          }
-        }
-      }
-    }
-  }
-
 
 }
 
