@@ -61,6 +61,7 @@ class Seleksi extends CI_Controller {
                 $json['lokasi']             = $key->lokasi;
                 $json['status']             = $key->status;
                 $json['tgl_input']          = $key->tgl_input;
+                $json['seleksi']            = array();
 
                 $where_sk   = array('a.id_jadwal' => $key->id_jadwal);
                 $show2      = $this->SeleksiModel->show($where_sk);
@@ -78,6 +79,7 @@ class Seleksi extends CI_Controller {
                   );
                   $json_s['keterangan']     = $key2->keterangan;
                   $json_s['status_seleksi'] = $key2->status_seleksi;
+                  $json_s['detail']         = array();
 
                   $where_dt = array('a.id_seleksi' => $key2->id_seleksi);
                   $show3    = $this->SeleksiDetailModel->show($where_dt);
