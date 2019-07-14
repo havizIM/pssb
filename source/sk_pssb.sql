@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Jul 2019 pada 16.47
+-- Waktu pembuatan: 14 Jul 2019 pada 04.45
 -- Versi server: 10.1.40-MariaDB
 -- Versi PHP: 7.1.29
 
@@ -76,7 +76,8 @@ CREATE TABLE `jadwal_seleksi` (
 --
 
 INSERT INTO `jadwal_seleksi` (`id_jadwal`, `kd_ta`, `keterangan_jadwal`, `deskripsi_jadwal`, `tgl_pelaksanaan`, `lokasi`, `status`, `tgl_input`) VALUES
-('JD000000001', '2020-2021', 'Batch 1', 'Coba coba coba coba', '2019-10-12', 'Lobby SMA Negeri 2', 'Tutup', '2019-07-13 14:29:58');
+('JD000000001', '2020-2021', 'Batch 1', 'Coba coba coba coba', '2019-10-12', 'Lobby SMA Negeri 2', 'Tutup', '2019-07-13 14:29:58'),
+('JD000000002', '2020-2021', 'vhvj', 'xgcg', '1992-10-10', 'Jakarta', 'Tutup', '2019-07-14 02:44:29');
 
 -- --------------------------------------------------------
 
@@ -82881,15 +82882,17 @@ INSERT INTO `kelurahan` (`id`, `id_kecamatan`, `nama_kelurahan`) VALUES
 
 CREATE TABLE `kriteria` (
   `id_kriteria` varchar(11) NOT NULL,
-  `nama_kriteria` varchar(50) NOT NULL
+  `nama_kriteria` varchar(50) NOT NULL,
+  `bobot_kriteria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `kriteria`
 --
 
-INSERT INTO `kriteria` (`id_kriteria`, `nama_kriteria`) VALUES
-('KR000000001', 'Nilai Rata-rata UNJ');
+INSERT INTO `kriteria` (`id_kriteria`, `nama_kriteria`, `bobot_kriteria`) VALUES
+('KR000000001', 'Nilai Rata-rata UNJ', 4),
+('KR000000002', 'Umur', 6);
 
 -- --------------------------------------------------------
 
@@ -82981,7 +82984,8 @@ CREATE TABLE `pengaturan` (
 --
 
 INSERT INTO `pengaturan` (`id_pengaturan`, `kd_ta`, `id_kriteria`, `tipe`, `q`, `p`) VALUES
-(4, '2020-2021', 'KR000000001', 'quasi', 1, 5);
+(25, '2020-2021', 'KR000000001', 'quasi', 1, 3),
+(26, '2020-2021', 'KR000000002', 'level', 3, 3);
 
 -- --------------------------------------------------------
 
@@ -83044,15 +83048,19 @@ CREATE TABLE `subkriteria` (
   `id_subkriteria` int(11) NOT NULL,
   `id_kriteria` varchar(11) NOT NULL,
   `nama_subkriteria` varchar(50) NOT NULL,
-  `bobot` int(11) NOT NULL
+  `bobot_sub` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `subkriteria`
 --
 
-INSERT INTO `subkriteria` (`id_subkriteria`, `id_kriteria`, `nama_subkriteria`, `bobot`) VALUES
-(7, 'KR000000001', 'Diatas 50', 5);
+INSERT INTO `subkriteria` (`id_subkriteria`, `id_kriteria`, `nama_subkriteria`, `bobot_sub`) VALUES
+(12, 'KR000000001', 'Diatas 50', 5),
+(13, 'KR000000001', 'Dibawah 50', 2),
+(33, 'KR000000002', 'Pas 15', 3),
+(34, 'KR000000002', 'Diatas 15', 5),
+(35, 'KR000000002', 'Dibawah 15', 2);
 
 -- --------------------------------------------------------
 
@@ -83208,13 +83216,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `pengaturan`
 --
 ALTER TABLE `pengaturan`
-  MODIFY `id_pengaturan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_pengaturan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
 
 --
 -- AUTO_INCREMENT untuk tabel `subkriteria`
 --
 ALTER TABLE `subkriteria`
-  MODIFY `id_subkriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_subkriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
