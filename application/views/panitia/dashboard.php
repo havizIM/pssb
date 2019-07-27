@@ -4,7 +4,7 @@
     <div class="row breadcrumbs-top">
       <div class="breadcrumb-wrapper col-12">
         <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="#/dashboard">Dashboard</a></li>
+        <li class="breadcrumb-item"><a href="#/dashboard">Dashboard</a></li>
         </ol>
       </div>
     </div>

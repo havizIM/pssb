@@ -31,10 +31,6 @@ img {
 .ovrflow::-webkit-scrollbar{
     display:none;
 }
-
-.alert.float-right {
-    padding: 1.75rem 1rem;
-}
 </style>
 <div class="row page-titles">
     <div class="col-md-5 col-8 align-self-center">
@@ -45,88 +41,24 @@ img {
             <li class="breadcrumb-item active">Detail Pendaftaran</li>
         </ol>
     </div>
-    <div class="col-md-7 col-4" id="action">
-        
+    <div class="col-md-7 col-4 align-self-center">
+      
     </div>
 </div>
 
-<div class="row" id="content_profile"></div>
+<div class="row" id="content_profile">
 
-<div class="modal fade text-left" id="modal_terima" tabindex="-1" role="dialog" aria-labelledby="myModalLabel35" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title" id="myModalLabel35">Pilih Tahun Ajaran</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body form-group">
-        <div class="table-responsive m-t-40">
-            <form id="form_terima">
-                <div class="form-group">
-                  <input type="text" class="form-control" name="id_pendaftar" id="id_pendaftar" placeholder="ID Pendaftar" readonly>
-                </div>
-
-                <div class="form-group">
-                  <select type="date" class="form-control" name="id_jadwal" id="id_jadwal">
-                    
-                  </select>
-                </div>
-
-                <div class="form-group">
-                  <input type="text" class="form-control" name="keterangan" id="keterangan" placeholder="Keterangan">
-                </div>
-
-                <div class="form-group">
-                    <button type="submit" id="submit_add" class="btn btn-indigo float-md-right">Tambah</button>
-                 </div>
-                <div class="form-group">
-                    <button type="submit" data-dismiss="modal" class="btn btn-indigo float-md-right">Cancel</button>
-                 </div>
-                
-            </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
 <script>
  var renderUI = (function(){
         
         return {
-            renderAction: function(data){
-                var html = '';
-
-                if (data.status_pendaftaran === "Proses") {
-                    html += `
-                        <button type="button" class="btn btn-md round btn-danger btn-glow float-right" id="btn_tolak" data-id="${data.id_pendaftar}"><i class="la la-close" style="margin-right:10px;"></i> Tolak Pendaftaran</button>
-                        <button type="button" class="btn btn-md round btn-success btn-glow float-right" id="btn_terima" data-id="${data.id_pendaftar}"><i class="la la-check" style="margin-right:10px;"></i> Terima Pendaftaran</button>
-                    `
-                } else if (data.status_pendaftaran === 'Terima') {
-                    html += `
-                        <div class="alert alert-icon-left alert-success alert-dismissible mb-2 float-right" role="alert">
-                            <span class="alert-icon"><i class="la la-check"></i></span>
-                            <strong>Diterima.</strong> Pendaftaran Siswa berhasil tervalidasi.
-                        </div>
-                    `
-                } else {
-                    html += `
-                    <div class="alert alert-icon-left alert-danger alert-dismissible mb-2 float-right" role="alert">
-                        <span class="alert-icon"><i class="la la-check"></i></span>
-                        <strong>Ditolak.</strong> Pendaftaran Siswa gagal tervalidasi.
-                    </div>
-                     `
-                }
-
-                $('#action').html(html)
-            },
             renderProfile: function(data){
                 var html = '';
 
                 
                 //DATA PRIBADI
-                html += `<div class="col-xl-12 col-lg-12">
+                html += `
+                        <div class="col-xl-12 col-lg-12">
                         <div class="card">
                             <div class="card-header">
                             <h4 class="card-title">Detail Pendaftaran</h4>
@@ -475,23 +407,18 @@ img {
                     </div>
                     </div>
                 </div>
-            </div>`;
+            </div>
+
+                        
+                    `;
                     
-            $('#content_profile').html(html);
+                    
+
+
+                $('#content_profile').html(html);
             },
             renderNoData: function(){
                 console.log('No Data');
-            },
-
-            renderJadwal: function (data) {
-                var html = ' <option value="">--- Pilih ---</option>';
-                
-                $.each(data, function(k, v){
-                      html +=`
-                            <option value="${v.id_jadwal}">${v.id_jadwal}</option>
-                        `
-                })
-              $('#id_jadwal').html(html);
             }
         }
 
@@ -514,7 +441,6 @@ img {
                         } else {
                             $.each(response.data, function(k, v){
                                 UI.renderProfile(v);
-                                UI.renderAction(v);
                             })
                         }
                     } else {
@@ -557,157 +483,50 @@ img {
             });
         }
 
-        var modalTerima = function () {
-            $(document).on('click', '#btn_terima', function(){
-                var id_pendaftar = $(this).attr('data-id');
+        // var deleteSurvey = function(){
+        //     $(document).on('click', '#delete_survey', function(){
+        //         var id_survey = $(this).attr('data-id');
 
-                $('#id_pendaftar').val(id_pendaftar)
-               
-            
+        //         swal({
+        //             title: "Apakah anda yakin?",
+        //             text: "Data survey ini akan terhapus secara permanen.",
+        //             type: "warning",
+        //             showCancelButton: true,
+        //             confirmButtonColor: "#DD6B55",
+        //             confirmButtonText: "Ya",
+        //             cancelButtonText: "Tidak",
+        //             closeOnConfirm: false,
+        //             closeOnCancel: true,
+        //             showLoaderOnConfirm: true
+        //         }, function (isConfirm) {
+        //             if(isConfirm){
+        //             $.ajax({
+        //                 url: `<?= base_url('ext/survey/delete/') ?>${auth.token}?id_survey=${id_survey}`,
+        //                 type: 'GET',
+        //                 dataType: 'JSON',
+        //                 success: function(response){
+        //                 if(response.status === 200){
+        //                     swal.close();
+        //                     makeNotif('success', response.description, response.message, 'bottom-left');
+        //                     location.hash = '#/survey';
+        //                 } else {
+        //                     makeNotif('error', response.description, response.message, 'bottom-left');
+        //                 }
+        //                 },
+        //                 error: function(){
+        //                 makeNotif('error', 'Error', 'Tidak dapat mengakses server', 'bottom-left');
+        //                 }
+        //             })
+        //             }
+        //         });
+        //     });
+        // }
 
-                $('#modal_terima').modal('show');
-                    
-            })
-        }
-        
-        var getJadwal = function() {
-            console.log()
-            $.ajax({
-                url: `<?= base_url('api/jadwal/show/'); ?>${auth.token}`,
-                type: 'GET',
-                dataType: 'JSON',
-                success: function(response){
-                    if (response.data.length !== 0) {
-                        UI.renderJadwal(response.data)
-                    }
-                    
-                },
-            error: function(err){
-                // location.hash = '#/deta'
-                }
-            }) 
-        }
-
-        var submitSeleksi = function() {
-            $('#form_terima').on('submit', function(e){
-                e.preventDefault();
-                // alert('test')
-                var id_pendaftar = $('#id_pendaftar').val();
-                var id_jadwal = $('#id_jadwal').val();
-                var keterangan = $('#keterangan').val();
-
-                if (id_pendaftar === '' || id_jadwal === '' || keterangan === '') {
-                    Swal.fire({
-                        position: 'center',
-                        type: 'warning',
-                        title: 'Data tidak boleh kosong',
-                        showConfirmButton: false,
-                        timer: 1500
-                    });
-                }  else {
-                    $.ajax({
-                    url: '<?= base_url('api/pendaftaran/terima/') ?>'+auth.token,
-                    type: 'POST',
-                    dataType: 'JSON',
-                    beforeSend: function(){
-                        $('#submit_add').addClass('disabled').attr('disabled', 'disabled').html('<i class="la la-spin la-spinner"></i>')
-                    },
-                    data: $(this).serialize(),
-                    success: function(response){
-                        if(response.status === 200){
-                            Swal.fire({
-                                position: 'center',
-                                type: 'success',
-                                title: response.message,
-                                showConfirmButton: false,
-                                timer: 1500
-                        });
-                            $('#form_terima')[0].reset();
-                            $('#modal_terima').modal('hide');
-                            dataProfile()
-                        } else {
-                            Swal.fire({
-                                position: 'center',
-                                type: 'error',
-                                title: response.message,
-                                showConfirmButton: false,
-                                timer: 1500
-                             });
-                            $('#submit_add').removeClass('disabled').removeAttr('disabled', 'disabled').text('Tambah');
-                        }
-                    },
-                    error: function(){
-                            Swal.fire({
-                                position: 'center',
-                                type: 'warning',
-                                title: 'Tidak dapat mengakses server',
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                         $('#submit_add').removeClass('disabled').removeAttr('disabled', 'disabled').text('Tambah')
-                        }
-                    })
-                }
-            })
-        }
-        
-
-      
-    var tolakPendaftaran = function () {
-        $(document).on('click', '#btn_tolak', function() {
-            var id_pendaftar = $(this).attr('data-id');
-            link_get = `<?= base_url('api/pendaftaran/tolak/') ?>${auth.token}?id_pendaftar=${id_pendaftar}`;
-
-            // alert(id_pendaftar)
-            $.ajax({
-                url: link_get,
-                type: 'GET',
-                dataType: 'JSON',
-                success: function(response){
-                    if(response.status === 200){
-                         Swal.fire({
-                                position: 'center',
-                                type: 'success',
-                                title: response.message,
-                                showConfirmButton: true,
-                                timer: 1500
-                        });
-                        dataProfile();
-
-                    } else {
-                        Swal.fire({
-                            position: 'center',
-                            type: 'error',
-                            title: response.message,
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                    }
-                },
-                error: function(err){
-                    Swal.fire({
-                                position: 'center',
-                                type: 'warning',
-                                title: 'Tidak dapat mengakses server',
-                                showConfirmButton: false,
-                                timer: 1500
-                            });
-                         $('#submit_add').removeClass('disabled').removeAttr('disabled', 'disabled').text('Tambah')
-                   dataProfile();
-                }
-            }) 
-        })
-        
-    }
        
         return {
             init : function(){
                 dataProfile();
                 magnificPop();
-                modalTerima();
-                getJadwal();
-                submitSeleksi();
-                tolakPendaftaran();
             }
         }
 

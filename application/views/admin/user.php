@@ -33,6 +33,7 @@
                     <th>NIP</th>
                     <th>Nama</th>
                     <th>Username</th>
+                    <th>Password</th>
                     <th>Level</th>
                     <th>Foto</th>
                     <th>Status</th>
@@ -171,6 +172,7 @@
         {"data": 'nip'},
         {"data": 'nama'},
         {"data": 'username'},
+        {"data": 'password'},
         {"data": 'level'},
         {"data": 'foto'},
         {"data": 'status'},

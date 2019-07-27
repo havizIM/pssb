@@ -71,6 +71,11 @@ class Panitia extends CI_Controller{
 		} else {
 			$this->load->view('panitia/detail_pendaftaran');
 		}
+  }
+  
+  public function seleksi($id)
+	{
+			$this->load->view('panitia/seleksi');
 	}
 
 }
