@@ -34,4 +34,13 @@ class Kepsek extends CI_Controller{
     $this->load->view('kepsek/jadwal');
   }
 
+  public function pendaftaran($id = null)
+	{
+		if($id == null){
+			$this->load->view('kepsek/pendaftaran');
+		} else {
+			$this->load->view('kepsek/detail_pendaftaran');
+		}
+	}
+
 }

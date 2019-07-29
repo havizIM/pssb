@@ -29,6 +29,7 @@
               <table class="table table-striped" id="t_jadwal">
                 <thead>
                   <tr>
+                    <th>ID Jadwal</th>
                     <th>Tanggal Input</th>
                     <th>Tahun Ajaran</th>
                     <th>Keterangan</th>
@@ -82,6 +83,10 @@
       processing: true,
       ajax: '<?= base_url('api/jadwal/show/'); ?>'+auth.token,
       columns: [
+         {"data": null, 'render': function(data, type, row){
+                return `<a href="#/seleksi/${row.id_jadwal}">${row.id_jadwal}</a>`;
+            }
+        },
         {"data": 'tgl_input'},
         {"data": 'kd_ta'},
         {"data": 'keterangan_jadwal'},

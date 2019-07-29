@@ -64,4 +64,18 @@ class Panitia extends CI_Controller{
     $this->load->view('panitia/edit_jadwal');
   }
 
+  public function pendaftaran($id = null)
+	{
+		if($id == null){
+			$this->load->view('panitia/pendaftaran');
+		} else {
+			$this->load->view('panitia/detail_pendaftaran');
+		}
+  }
+  
+  public function seleksi($id)
+	{
+			$this->load->view('panitia/seleksi');
+	}
+
 }

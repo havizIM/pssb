@@ -31,6 +31,8 @@
 
     <link rel="stylesheet" type="text/css" href="<?= base_url('') ?>assets/css/style.css">
 
+    <link rel="stylesheet" type="text/css" href="<?= base_url('') ?>assets/css/magnific-popup.min.css">
+
     <link rel="stylesheet" href="<?= base_url('assets/app-assets/vendors/js/sweetalert/sweetalert.css') ?>">
 
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css"/>
@@ -117,6 +119,8 @@
           <li class=" nav-item"><a href="#/tahun_ajaran"><i class="la la-calendar"></i><span class="menu-title">Tahun Ajaran</span></a></li>
 
           <li class=" nav-item"><a href="#/jadwal"><i class="la la-calendar-check-o"></i><span class="menu-title">Jadwal</span></a></li>
+
+          <li class=" nav-item"><a href="#/pendaftaran"><i class="la la-pencil-square"></i><span class="menu-title">Pendaftaran</span></a></li>
         </ul>
       </div>
     </div>
@@ -127,7 +131,7 @@
       </div>
     </div>
     <!-- ////////////////////////////////////////////////////////////////////////////-->
-    <footer class="footer footer-static footer-light navbar-border navbar-shadow fixed-bottom">
+    <footer class="footer footer-static footer-light navbar-border navbar-shadow">
       <p class="clearfix blue-grey lighten-2 text-sm-center mb-0 px-2">
         <span class="float-md-left d-block d-md-inline-block">PSSB </span>
         <span class="float-md-right d-block d-md-inline-blockd-none d-lg-block">2019 <i class="ft-heart pink"></i></span>
@@ -170,6 +174,10 @@
         </div>
       </div>
     </div>
+    
+        <script src="<?= base_url('assets') ?>/app-assets/js/scripts/customizer.js" type="text/javascript"></script>
+    
+        <script src="<?= base_url('assets') ?>/app-assets/js/scripts/pages/dashboard-crypto.js" type="text/javascript"></script>
 
     <script src="<?= base_url('assets') ?>/app-assets/vendors/js/vendors.min.js" type="text/javascript"></script>
 
@@ -177,7 +185,7 @@
 
     <script src="<?= base_url('assets') ?>/app-assets/js/core/app.js" type="text/javascript"></script>
 
-    <script src="<?= base_url('assets') ?>/app-assets/js/scripts/customizer.js" type="text/javascript"></script>
+    <script src="<?= base_url('assets') ?>/js/jquery.magnific-popup.min.js" type="text/javascript"></script>
 
     <script src="<?= base_url('assets/app-assets/vendors/js/sweetalert/sweetalert.min.js') ?>"></script>
 
