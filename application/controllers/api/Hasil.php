@@ -20,6 +20,7 @@ class Hasil extends CI_Controller {
     );
 
     $this->load->model('TahunAjaranModel');
+    $this->load->model('KriteriaModel');
   }
 
   function show($token = null){
@@ -43,42 +44,43 @@ class Hasil extends CI_Controller {
           $where = array(
             'kd_ta' => $this->input->get('kd_ta')
           );
-            
-            $show          = $this->TahunAjaranModel->show($where);
-            $tahun_ajaran  = array();
+          
+            $show   = $this->TahunAjaranModel->detail($where);
+            $tipe   = array();
+            $p      = array();
+            $q      = array();
 
             foreach($show->result() as $key){
-                $json = array();
-
-                $json['kd_ta']          = $key->kd_ta;
-                $json['tahun_awal']     = $key->tahun_awal;
-                $json['tahun_akhir']    = $key->tahun_akhir;
-                $json['tgl_awal']       = $key->tgl_awal;
-                $json['tgl_akhir']      = $key->tgl_akhir;
-                $json['status']         = $key->status;
-                $json['tgl_input']      = $key->tgl_input;
-                $json['pengaturan']     = array();
-
-                $where_p  = array('kd_ta' => $key->kd_ta);
-                $show2    = $this->TahunAjaranModel->detail($where_p);
-
-                foreach($show2->result() as $key2){
-                  $json_p = array();
-
-                  $json_p['id_pengaturan']    = $key2->id_pengaturan;
-                  $json_p['id_kriteria']      = $key2->id_kriteria;
-                  $json_p['nama_kriteria']    = $key2->nama_kriteria;
-                  $json_p['tipe']             = $key2->tipe;
-                  $json_p['q']                = $key2->q;
-                  $json_p['p']                = $key2->p;
-
-                  $json['pengaturan'][]   = $json_p;
-                }
-
-                $tahun_ajaran[] = $json;
+                $tipe[$key->id_kriteria] = $key->tipe;
+                $p[$key->id_kriteria] = $key->p;
+                $q[$key->id_kriteria] = $key->q;
             }
 
-            json_output(200, array('status' => 200, 'description' => 'Berhasil', 'data' => $tahun_ajaran));
+            $jarak_kriteria = [];
+            $h_d = [];
+            $ranking = [];
+            $hasil = [];
+
+            $show2 = $this->KriteriaModel->detail($where);
+
+            foreach($show2->result() as $key){
+                $total_bobot[]  = $key->bobot_kriteria;
+            }
+
+            $sum_bobot = array_sum($total_bobot);
+
+            foreach($show2->result() as $key){
+                $bobot = $key->boboy_kriteria / $sum_bobot;
+
+                $y = 1;
+                
+            }
+
+
+
+
+
+            // json_output(200, array('status' => 200, 'description' => 'Berhasil', 'data' => $tahun_ajaran));
         }
       }
     }
