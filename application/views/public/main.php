@@ -78,12 +78,12 @@
                     <span>Home</span>
                   </a>
                 </li>
-                <li class="nav-item"><a class=" nav-link" href="#/pendaftaran"><i class="la la-television"></i><span>Pendaftaran</span></a>
+                <li class="nav-item"><a class=" nav-link" href="#/pendaftaran"><i class="la la-user-plus"></i><span>Pendaftaran</span></a>
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#/jadwal_seleksi"><i class="la la-columns"></i><span>Jadwal Seleksi</span></a>
+                <li class="nav-item"><a class="nav-link" href="#/jadwal_seleksi"><i class="la la-calendar"></i><span>Jadwal Seleksi</span></a>
                 
                 </li>
-                <li class="nav-item"><a class="nav-link" href="#/hasil_seleksi"><i class="la la-folder-open"></i><span>Hasil Seleksi</span></a>
+                <li class="nav-item"><a class="nav-link" href="#/hasil_seleksi"><i class="la la-file-text"></i><span>Hasil Seleksi</span></a>
                 </li>
             </ul>
       </div>

@@ -28,9 +28,13 @@ class Main extends CI_Controller{
    
   }
   
-  function jadwal_seleksi()
+  function jadwal_seleksi($id = null)
   {
-    $this->load->view('public/jadwal_seleksi');
+    if ($id == null) {
+      $this->load->view('public/jadwal_seleksi');
+    } else {
+      $this->load->view('public/seleksi');
+    }
   }
 
   function hasil_seleksi()
