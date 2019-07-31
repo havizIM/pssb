@@ -85,12 +85,181 @@
         {"data": 'tgl_akhir'},
         {"data": 'status'},
         {"data": null, 'render': function(data, type, row){
-          return `<button type="button" class="btn btn-sm btn-default" id="detail_tahun_ajaran" data-id="${row.kd_ta}"><i class="la la-eye"></i></button>`
+          if(row.status === 'Publish'){
+            return `
+              <button type="button" class="btn btn-sm btn-danger" id="nonaktif" data-id="${row.kd_ta}"><i class="la la-close"></i> Nonaktif</button>
+              <button type="button" class="btn btn-sm btn-info" id="validasi" data-id="${row.kd_ta}"><i class="la la-pencil"></i> Validasi</button>
+            `
+          } else if(row.status === 'Valid'){
+             return `<label class="text-info">Valid <i class="la la-check"></i></label>`
+          } else {
+             return `
+              <button type="button" class="btn btn-sm btn-success" id="publish" data-id="${row.kd_ta}"><i class="la la-check"></i> Publish</button>
+              <button type="button" class="btn btn-sm btn-info" id="validasi" data-id="${row.kd_ta}"><i class="la la-pencil"></i> Validasi</button>
+            `
+          }
+          
           }
         }
       ],
       order: [[1, 'desc']]
-    })
+    });
+
+    $(document).on('click', '#publish', function(){
+      var kd_ta = $(this).attr('data-id');
+
+      Swal.fire({
+        title: `Apa Anda yakin ingin publish Tahun Ajaran ${kd_ta}?`,
+        text: "Tahun Ajaran akan terhapus secara permanen",
+        type: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Saya yakin.',
+        cancelButtonText: 'Batal',
+        showLoaderOnConfirm: true
+      }).then((result) => {
+        if (result.value) {
+          $.ajax({
+            url: `<?= base_url('api/tahun_ajaran/publish/'); ?>${auth.token}?kd_ta=${kd_ta}`,
+            type: 'GET',
+            dataType: 'JSON',
+            success: function(response){
+              if(response.status === 200){
+                Swal.fire({
+                  position: 'center',
+                  type: 'success',
+                  title: response.message,
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+              } else {
+                Swal.fire({
+                  position: 'center',
+                  type: 'error',
+                  title: response.message,
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+              }
+            },
+            error: function(){
+              Swal.fire({
+                position: 'center',
+                type: 'error',
+                title: 'Tidak dapat mengakses server',
+                showConfirmButton: false,
+                timer: 1500
+              });
+            }
+          });
+        }
+      })
+    });
+
+    $(document).on('click', '#nonaktif', function(){
+      var kd_ta = $(this).attr('data-id');
+
+      Swal.fire({
+        title: `Apa Anda yakin ingin menonaktifkan Tahun Ajaran ${kd_ta}?`,
+        text: "Tahun Ajaran akan terhapus secara permanen",
+        type: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Saya yakin.',
+        cancelButtonText: 'Batal',
+        showLoaderOnConfirm: true
+      }).then((result) => {
+        if (result.value) {
+          $.ajax({
+            url: `<?= base_url('api/tahun_ajaran/nonaktif/'); ?>${auth.token}?kd_ta=${kd_ta}`,
+            type: 'GET',
+            dataType: 'JSON',
+            success: function(response){
+              if(response.status === 200){
+                Swal.fire({
+                  position: 'center',
+                  type: 'success',
+                  title: response.message,
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+              } else {
+                Swal.fire({
+                  position: 'center',
+                  type: 'error',
+                  title: response.message,
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+              }
+            },
+            error: function(){
+              Swal.fire({
+                position: 'center',
+                type: 'error',
+                title: 'Tidak dapat mengakses server',
+                showConfirmButton: false,
+                timer: 1500
+              });
+            }
+          });
+        }
+      })
+    });
+
+    $(document).on('click', '#validasi', function(){
+      var kd_ta = $(this).attr('data-id');
+
+      Swal.fire({
+        title: `Apa Anda yakin ingin validasi Tahun Ajaran ${kd_ta}?`,
+        text: "Tahun Ajaran akan terhapus secara permanen",
+        type: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Ya, Saya yakin.',
+        cancelButtonText: 'Batal',
+        showLoaderOnConfirm: true
+      }).then((result) => {
+        if (result.value) {
+          $.ajax({
+            url: `<?= base_url('api/tahun_ajaran/validasi/'); ?>${auth.token}?kd_ta=${kd_ta}`,
+            type: 'GET',
+            dataType: 'JSON',
+            success: function(response){
+              if(response.status === 200){
+                Swal.fire({
+                  position: 'center',
+                  type: 'success',
+                  title: response.message,
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+              } else {
+                Swal.fire({
+                  position: 'center',
+                  type: 'error',
+                  title: response.message,
+                  showConfirmButton: false,
+                  timer: 1500
+                });
+              }
+            },
+            error: function(){
+              Swal.fire({
+                position: 'center',
+                type: 'error',
+                title: 'Tidak dapat mengakses server',
+                showConfirmButton: false,
+                timer: 1500
+              });
+            }
+          });
+        }
+      })
+    });
 
     var pusher = new Pusher('f6a967b44e507048ffa7', {
       cluster: 'ap1',

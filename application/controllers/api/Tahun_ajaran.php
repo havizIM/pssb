@@ -272,6 +272,135 @@ class Tahun_ajaran extends CI_Controller {
     }
   }
 
+  function publish($token = null){
+    $method = $_SERVER['REQUEST_METHOD'];
+
+    if ($method != 'GET') {
+			json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Metode request salah'));
+		} else {
+      if($token == null){
+        json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Request tidak terotorisasi'));
+      } else {
+        $auth = $this->AuthModel->cekAuth($token);
+
+        if($auth->num_rows() != 1){
+          json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Token tidak dikenali'));
+        } else {
+
+          $otorisasi = $auth->row();
+
+          if($otorisasi->level != 'Kepsek'){
+            json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Hak akses tidak disetujui'));
+          } else {
+            $kd_ta = $this->input->get('kd_ta');
+
+            if($kd_ta == null){
+              json_output(400, array('status' => 400, 'description' => 'Gagal', 'message' => 'ID Kriteria tidak ditemukan'));
+            } else {
+
+              $tahun_ajaran = array('status' => 'Publish');
+              $log  = array('message' => 'Berhasil mengedit tahun ajaran');
+              $edit = $this->TahunAjaranModel->edit($kd_ta, $tahun_ajaran, FALSE);
+
+              if(!$edit){
+                  json_output(400, array('status' => 400, 'description' => 'Gagal', 'message' => 'Gagal mengedit tahun ajaran'));
+              } else {
+                  $this->pusher->trigger('pssb', 'tahun_ajaran', $log);
+                  json_output(200, array('status' => 200, 'description' => 'Berhasil', 'message' => 'Berhasil mengedit tahun ajaran'));
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  function validasi($token = null){
+    $method = $_SERVER['REQUEST_METHOD'];
+
+    if ($method != 'GET') {
+			json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Metode request salah'));
+		} else {
+      if($token == null){
+        json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Request tidak terotorisasi'));
+      } else {
+        $auth = $this->AuthModel->cekAuth($token);
+
+        if($auth->num_rows() != 1){
+          json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Token tidak dikenali'));
+        } else {
+
+          $otorisasi = $auth->row();
+
+          if($otorisasi->level != 'Kepsek'){
+            json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Hak akses tidak disetujui'));
+          } else {
+            $kd_ta = $this->input->get('kd_ta');
+
+            if($kd_ta == null){
+              json_output(400, array('status' => 400, 'description' => 'Gagal', 'message' => 'ID Kriteria tidak ditemukan'));
+            } else {
+
+              $tahun_ajaran = array('status' => 'Valid');
+              $log  = array('message' => 'Berhasil mengedit tahun ajaran');
+              $edit = $this->TahunAjaranModel->edit($kd_ta, $tahun_ajaran, FALSE);
+
+              if(!$edit){
+                  json_output(400, array('status' => 400, 'description' => 'Gagal', 'message' => 'Gagal mengedit tahun ajaran'));
+              } else {
+                  $this->pusher->trigger('pssb', 'tahun_ajaran', $log);
+                  json_output(200, array('status' => 200, 'description' => 'Berhasil', 'message' => 'Berhasil mengedit tahun ajaran'));
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  function nonaktif($token = null){
+    $method = $_SERVER['REQUEST_METHOD'];
+
+    if ($method != 'GET') {
+			json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Metode request salah'));
+		} else {
+      if($token == null){
+        json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Request tidak terotorisasi'));
+      } else {
+        $auth = $this->AuthModel->cekAuth($token);
+
+        if($auth->num_rows() != 1){
+          json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Token tidak dikenali'));
+        } else {
+
+          $otorisasi = $auth->row();
+
+          if($otorisasi->level != 'Kepsek'){
+            json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Hak akses tidak disetujui'));
+          } else {
+            $kd_ta = $this->input->get('kd_ta');
+
+            if($kd_ta == null){
+              json_output(400, array('status' => 400, 'description' => 'Gagal', 'message' => 'ID Kriteria tidak ditemukan'));
+            } else {
+
+              $tahun_ajaran = array('status' => 'Nonaktif');
+              $log  = array('message' => 'Berhasil mengedit tahun ajaran');
+              $edit = $this->TahunAjaranModel->edit($kd_ta, $tahun_ajaran, FALSE);
+
+              if(!$edit){
+                  json_output(400, array('status' => 400, 'description' => 'Gagal', 'message' => 'Gagal mengedit tahun ajaran'));
+              } else {
+                  $this->pusher->trigger('pssb', 'tahun_ajaran', $log);
+                  json_output(200, array('status' => 200, 'description' => 'Berhasil', 'message' => 'Berhasil mengedit tahun ajaran'));
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
 }
 
 ?>

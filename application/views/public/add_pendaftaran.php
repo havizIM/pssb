@@ -4,16 +4,7 @@
             <div class="col-12">
               <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title">Form wizard with icon tabs</h4>
-                  <a class="heading-elements-toggle"><i class="la la-ellipsis-h font-medium-3"></i></a>
-                  <div class="heading-elements">
-                    <ul class="list-inline mb-0">
-                      <li><a data-action="collapse"><i class="ft-minus"></i></a></li>
-                      <li><a data-action="reload"><i class="ft-rotate-cw"></i></a></li>
-                      <li><a data-action="expand"><i class="ft-maximize"></i></a></li>
-                      <li><a data-action="close"><i class="ft-x"></i></a></li>
-                    </ul>
-                  </div>
+                  <h4 class="card-title">Form Pendaftaran Murid Baru</h4>
                 </div>
                 <div class="card-content collapse show">
                   <div class="card-body">
@@ -60,8 +51,8 @@
                                   <select class="c-select form-control" id="agama" name="agama">
                                     <option value="">-</option>
                                     <option value="Islam">Islam</option>
-                                    <option value="Kristen">Kristen</option>
-                                    <option value="Katolik">Katolik</option>
+                                    <option value="Protestan">Protestan</option>
+                                    <option value="Katholik">Katholik</option>
                                     <option value="Hindu">Hindu</option>
                                     <option value="Budha">Buddha</option>
                                   </select>
@@ -99,7 +90,7 @@
                                 <div class="col-md-6">
                                   <div class="form-group">
                                     <label>Alat Transportasi :</label>
-                                    <select class="c-select form-control" id="alat_transportawsi" name="alat_transportawsi">
+                                    <select class="c-select form-control" id="alat_transportasi" name="alat_transportasi">
                                       <option value="">-</option>
                                       <option value="Jalan Kaki">Jalan Kaki</option>
                                       <option value="Motor">Motor</option>
@@ -126,7 +117,7 @@
                               <div class="col-md-6">
                                  <div class="form-group">
                                     <label>Ekstrakulikuler :</label>
-                                    <select class="c-select form-control" id="ekstrakuliler" name="ekstrakuliler">
+                                    <select class="c-select form-control" id="ekstrakulikuler" name="ekstrakulikuler">
                                       <option value="">-</option>
                                       <option value="Sepak Bola">Sepak Bola</option>
                                       <option value="Volly">Volly</option>
@@ -150,16 +141,22 @@
                         <div class="row">
                             <div class="col-md-6">
                             <div class="row">
-                              <div class="col-md-6">
+                              <div class="col-md-4">
                                 <div class="form-group">
                                   <label>Golongan Darah :</label>
                                   <input type="text" class="form-control" id="gol_darah" name="gol_darah">
                                 </div>
                               </div>
-                              <div class="col-md-6">
+                              <div class="col-md-4">
                                 <div class="form-group">
                                   <label>Tinggi Badan :</label>
                                   <input type="text" class="form-control" id="tinggi_badan" name="tinggi_badan">
+                                </div>
+                              </div>
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <label>Berat Badan :</label>
+                                  <input type="text" class="form-control" id="berat_badan" name="berat_badan">
                                 </div>
                               </div>
                             </div>
@@ -219,14 +216,11 @@
                             <div class="col-md-6">
                             <div class="form-group">
                               <label>KIP:</label>
-                              <input type="text" class="form-control" id="kip" name="kip">
-                            </div>
-                          </div>
-
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label>Tahun Ajaran:</label>
-                              <input type="text" class="form-control" id="kd_ta" name="kd_ta">
+                              <select name="kip" id="kip" class="form-control">
+                                <option value="">-</option>
+                                <option value="Y">Y</option>
+                                <option value="T">T</option>
+                              </select>
                             </div>
                           </div>
                         </div>
@@ -241,11 +235,15 @@
                           <div class="col-md-6">
                             <div class="form-group">
                                 <label>Alamat :</label>
-                                <textarea name="alamat" id="alamat2" name="shortDescription2" rows="11" class="form-control"></textarea>
+                                <textarea name="alamat" id="alamat2" name="shortDescription2" rows="8" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
                               <label>RT/RW :</label>
                               <input type="text" class="form-control" id="rtrw" name="rtrw">
+                            </div>
+                            <div class="form-group">
+                              <label>Kode Pos</label>
+                              <input type="text" class="form-control" id="kode_pos" name="kode_pos">
                             </div>
                             
                           </div>
@@ -379,122 +377,72 @@
                             <div class="form-group">
                                 <label class="m-b-10">Ijazah</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control new-form" readonly style="height: 40px;">
-                                    <label class="input-group-btn">
-                                    <span class="btn btn-primary">
-                                        Browse&hellip; <input type="file" style="display: none;" id="ijasah" name="ijasah" multiple>
-                                    </span>
-                                    </label>
+                                    <input type="file" class="form-control" id="ijazah" name="ijazah">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="m-b-10">SKHUN</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control new-form" readonly style="height: 40px;">
-                                    <label class="input-group-btn">
-                                    <span class="btn btn-primary">
-                                        Browse&hellip; <input type="file" style="display: none;" id="skhun" name="skhun" multiple>
-                                    </span>
-                                    </label>
+                                    <input type="file" class="form-control" id="skhun" name="skhun">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="m-b-10">Kartu Keluarga</label>
+                                <label class="m-b-10">KK</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control new-form" readonly style="height: 40px;">
-                                    <label class="input-group-btn">
-                                    <span class="btn btn-primary">
-                                        Browse&hellip; <input type="file" style="display: none;" id="kk" name="kk" multiple>
-                                    </span>
-                                    </label>
+                                    <input type="file" class="form-control" id="kk" name="kk">
                                 </div>
                             </div>
 
-                            <div class="form-group">
-                                <label class="m-b-10">Sertifikat</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control new-form" readonly style="height: 40px;">
-                                    <label class="input-group-btn">
-                                    <span class="btn btn-primary">
-                                        Browse&hellip; <input type="file" style="display: none;" id="sertifikat" name="sertifikat" multiple>
-                                    </span>
-                                    </label>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="m-b-10">Surat Keterangan Baik</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control new-form" readonly style="height: 40px;">
-                                    <label class="input-group-btn">
-                                    <span class="btn btn-primary">
-                                        Browse&hellip; <input type="file" style="display: none;" id="sk_baik" name="sk_baik" multiple>
-                                    </span>
-                                    </label>
-                                </div>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                                <div class="form-group">
-                                <label class="m-b-10">Foto</label>
-                                <div class="input-group">
-                                    <input type="text" class="form-control new-form" readonly style="height: 40px;">
-                                    <label class="input-group-btn">
-                                    <span class="btn btn-primary">
-                                        Browse&hellip; <input type="file" style="display: none;" id="foto" name="foto" multiple>
-                                    </span>
-                                    </label>
-                                </div>
-                            </div>
-                            
                             <div class="form-group">
                                 <label class="m-b-10">KTP Ayah</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control new-form" readonly style="height: 40px;">
-                                    <label class="input-group-btn">
-                                    <span class="btn btn-primary">
-                                        Browse&hellip; <input type="file" style="display: none;" id="ktp_ayah" name="ktp_ayah" multiple>
-                                    </span>
-                                    </label>
+                                    <input type="file" class="form-control" id="ktp_ayah" name="ktp_ayah">
                                 </div>
                             </div>
 
                             <div class="form-group">
                                 <label class="m-b-10">KTP Ibu</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control new-form" readonly style="height: 40px;">
-                                    <label class="input-group-btn">
-                                    <span class="btn btn-primary">
-                                        Browse&hellip; <input type="file" style="display: none;" id="ktp_ibu" name="ktp_ibu" multiple>
-                                    </span>
-                                    </label>
+                                    <input type="file" class="form-control" id="ktp_ibu" name="ktp_ibu">
+                                </div>
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="m-b-10">KTP Wali</label>
+                                <div class="input-group">
+                                    <input type="file" class="form-control" id="ktp_wali" name="ktp_wali">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label class="m-b-10">Fotocopy KIP</label>
+                                <div class="input-group">
+                                    <input type="file" class="form-control" id="fc_kip" name="fc_kip">
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="m-b-10">KTP Wali</label>
+                                <label class="m-b-10">Foto</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control new-form" readonly style="height: 40px;">
-                                    <label class="input-group-btn">
-                                    <span class="btn btn-primary">
-                                        Browse&hellip; <input type="file" style="display: none;" id="ktp_wali" name="ktp_wali" multiple>
-                                    </span>
-                                    </label>
+                                    <input type="file" class="form-control" id="foto" name="foto">
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="m-b-10">Surat Keterangan Baik</label>
+                                <div class="input-group">
+                                    <input type="file" class="form-control" id="sk_baik" name="sk_baik">
                                 </div>
                             </div>
 
                             
                             <div class="form-group">
-                                <label class="m-b-10">Kartu Indonesia Pintar</label>
+                                <label class="m-b-10">Sertifikat</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control new-form" readonly style="height: 40px;">
-                                    <label class="input-group-btn">
-                                    <span class="btn btn-primary">
-                                        Browse&hellip; <input type="file" style="display: none;" id="fc_kip" name="fc_kip" multiple>
-                                    </span>
-                                    </label>
+                                    <input type="file" class="form-control" id="sertifikat" name="sertifikat">
                                 </div>
                             </div>
                           </div>
@@ -583,12 +531,8 @@
 
  var loadData = (function(UI){
         var form = $('#form_pendaftaran')
-
-        var KD_TA = location.hash.substr(14);
-
-        // alert(KD_TA)
+        var kd_ta = location.hash.substr(14);
         
-
         var setupStep = function(){
             form.steps({
                 headerTag: "h6",
@@ -598,16 +542,16 @@
                 labels: {
                 finish: "Simpan"
                 },
-                onStepChanging: function (event, currentIndex, newIndex)
-                {   
-                    if (currentIndex > newIndex)
-                    {
-                        return true;
-                    }
+                // onStepChanging: function (event, currentIndex, newIndex)
+                // {   
+                //     if (currentIndex > newIndex)
+                //     {
+                //         return true;
+                //     }
 
-                    form.validate().settings.ignore = ":disabled,:hidden";
-                    return form.valid();
-                },
+                //     form.validate().settings.ignore = ":disabled,:hidden";
+                //     return form.valid();
+                // },
                 onFinishing: function (event, currentIndex)
                 {
                     form.validate().settings.ignore = ":disabled";
@@ -625,7 +569,7 @@
                 e.preventDefault();
 
                 $.ajax({
-                    url: `<?= base_url('public/pendaftaran/add') ?>`,
+                    url: `<?= base_url('public/pendaftaran/add/') ?>?kd_ta=${kd_ta}`,
                     type: 'POST',
                     dataType: 'JSON',
                     data: new FormData(this),
@@ -780,7 +724,6 @@
         return {
             init : function(){
                 setupStep();
-                setupFile();
                 selectProvinsi();
                 provinsiOnChange()
                 kotaOnChange()

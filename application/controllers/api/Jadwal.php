@@ -105,6 +105,7 @@ class Jadwal extends CI_Controller {
             $deskripsi_jadwal   = $this->input->post('deskripsi_jadwal');
             $tgl_pelaksanaan    = $this->input->post('tgl_pelaksanaan');
             $lokasi             = $this->input->post('lokasi');
+            $status             = $this->input->post('status');
 
             if($id_jadwal == null){
               json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Tidak ada ID Jadwal yang dipilih'));
@@ -118,7 +119,7 @@ class Jadwal extends CI_Controller {
                     'deskripsi_jadwal'  => $deskripsi_jadwal,
                     'tgl_pelaksanaan'   => $tgl_pelaksanaan,
                     'lokasi'            => $lokasi,
-                    'status'            => 'Tutup'
+                    'status'            => $status
                 );
 
                 $log  = array('message' => 'Berhasil mengedit jadwal');

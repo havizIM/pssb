@@ -25,8 +25,11 @@
         {
             $this->db->trans_start();
             $this->db->where('kd_ta', $kd_ta)->update('tahun_ajaran', $tahun_ajaran);
-            $this->db->where('kd_ta', $kd_ta)->delete('pengaturan');
-            $this->db->insert_batch('pengaturan', $pengaturan);
+
+            if(!empty($pengaturan)){
+                $this->db->where('kd_ta', $kd_ta)->delete('pengaturan');
+                $this->db->insert_batch('pengaturan', $pengaturan);
+            }
             $this->db->trans_complete();
 
             if ($this->db->trans_status() === FALSE){

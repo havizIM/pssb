@@ -99,14 +99,10 @@
       <div class="main-menu-content">
         <ul class="navigation navigation-main">
           <li class=" nav-item"><a href="#/dashboard"><i class="la la-home"></i><span class="menu-title">Dashboard</span></a></li>
-
-          <li class=" nav-item"><a href="#/kriteria"><i class="la la-university"></i><span class="menu-title">Kriteria</span></a></li>
-
           <li class=" nav-item"><a href="#/tahun_ajaran"><i class="la la-calendar"></i><span class="menu-title">Tahun Ajaran</span></a></li>
+          <li class=" nav-item"><a href="#/laporan_pendaftaran"><i class="la la-university"></i><span class="menu-title">Laporan Pendaftaran</span></a></li>
+          <li class=" nav-item"><a href="#/laporan_hasil"><i class="la la-university"></i><span class="menu-title">Laporan Hasil Seleksi</span></a></li>
 
-          <li class=" nav-item"><a href="#/jadwal"><i class="la la-calendar-check-o"></i><span class="menu-title">Jadwal</span></a></li>
-
-           <li class=" nav-item"><a href="#/pendaftaran"><i class="la la-pencil-square"></i><span class="menu-title">Pendaftaran</span></a></li>
         </ul>
       </div>
     </div>

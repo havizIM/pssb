@@ -19,28 +19,20 @@ class Kepsek extends CI_Controller{
     $this->load->view('kepsek/dashboard');
   }
 
-  function kriteria()
-  {
-    $this->load->view('kepsek/kriteria');
-  }
-
   function tahun_ajaran()
   {
     $this->load->view('kepsek/tahun_ajaran');
   }
 
-  function jadwal()
+  function laporan_hasil()
   {
-    $this->load->view('kepsek/jadwal');
+    $this->load->view('kepsek/laporan_hasil');
   }
 
-  public function pendaftaran($id = null)
-	{
-		if($id == null){
-			$this->load->view('kepsek/pendaftaran');
-		} else {
-			$this->load->view('kepsek/detail_pendaftaran');
-		}
-	}
+  function laporan_pendaftaran()
+  {
+    $this->load->view('kepsek/laporan_pendaftaran');
+  }
+
 
 }

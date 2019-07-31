@@ -36,19 +36,32 @@
                 </div>
 
                 <div class="form-group">
+                  <label for="">Keterangan</label>
                   <input type="text" class="form-control" name="keterangan_jadwal" id="keterangan" placeholder="Keterangan">
                 </div>
 
                 <div class="form-group">
+                  <label for="">Deskripsi</label>
                   <input type="text" class="form-control" name="deskripsi_jadwal" id="deskripsi" placeholder="Deskripsi">
                 </div>
 
                 <div class="form-group">
+                  <label for="">Tanggal Pelaksanaan</label>
                   <input type="date" class="form-control" name="tgl_pelaksanaan" id="tgl_pelaksanaan" placeholder="Tanggal Pelaksanaan">
                 </div>
 
                 <div class="form-group">
+                  <label for="">Lokasi</label>
                   <input type="text" class="form-control" name="lokasi" id="lokasi" placeholder="Lokasi">
+                </div>
+
+                <div class="form-group">
+                  <label for="">Status</label>
+                  <select name="status" id="status" class="form-control">
+                    <option value="">-</option>
+                    <option value="Buka">Buka</option>
+                    <option value="Tutup">Tutup</option>
+                  </select>
                 </div>
 
                 <button type="submit" id="submit_add" class="btn btn-indigo float-md-right">Tambah</button>

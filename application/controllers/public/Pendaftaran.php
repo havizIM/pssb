@@ -30,7 +30,7 @@ class Pendaftaran extends CI_Controller {
 			json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Metode request salah'));
 		} else {
       $id_pendaftar       = $this->KodeModel->buatKode('pendaftaran', 'P-', 'id_pendaftar', 9);
-      $kd_ta              = $this->input->post('kd_ta');
+      $kd_ta              = $this->input->get('kd_ta');
       $nama_lengkap       = $this->input->post('nama_lengkap');
       $jenis_kelamin      = $this->input->post('jenis_kelamin');
       $nisn               = $this->input->post('nisn');
