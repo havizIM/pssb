@@ -8,7 +8,7 @@ class SeleksiDetailModel extends CI_Model {
     {
       $this->db->select('a.id_seleksi')
                ->select('b.id_subkriteria, b.nama_subkriteria, b.bobot_sub')
-               ->select('c.id_kriteria, c.nama_kriteria, c.bobot_kriteria')
+               ->select('c.id_kriteria, c.nama_kriteria')
 
                ->from('hasil_seleksi_detail a')
                ->join('subkriteria b', 'b.id_subkriteria = a.id_subkriteria')

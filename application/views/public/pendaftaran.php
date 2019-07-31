@@ -31,13 +31,6 @@
                 <div class="card-header">
                   <h4 class="card-title" id="heading-icon">Syarat Pendaftaran</h4>
                   <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
-                  <div class="heading-elements">
-                    <ul class="list-inline mb-0">
-                      <li>
-                        <a href="#"><i class="ft-smartphone"></i></a>
-                      </li>
-                    </ul>
-                  </div>
                 </div>
                 <div class="card-content">
                   <div class="card-body">
@@ -55,10 +48,7 @@
         </div>
 
         <div class="col-md-6 col-xs-12" id="content_ta">
-            
-              
-     
-
+        
         </div>
            
 

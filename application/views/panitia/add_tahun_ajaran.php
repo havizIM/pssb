@@ -85,7 +85,6 @@
           <table class="table table-striped table-hover" id="t_kriteria">
             <thead>
               <th>Nama Kriteria</th>
-              <th>Bobot</th>
               <th>Jumlah Subkriteria</th>
               <th></th>
             </thead>
@@ -131,7 +130,6 @@
       ajax: '<?= base_url('api/kriteria/show/'); ?>'+auth.token,
       columns: [
         {"data": 'nama_kriteria'},
-        {"data": 'bobot_kriteria'},
         {"data": 'jml_subkriteria'},
         {"data": null, 'render': function(data, type, row){
           return `<button class="btn btn-info" id="pilih_kriteria" data-id="${row.id_kriteria}" data-nama="${row.nama_kriteria}"> Pilih</button>`

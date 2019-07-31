@@ -73,7 +73,7 @@
 		function detail($where)
 		{
             $this->db->select('a.*')
-                     ->select('b.nama_kriteria, b.bobot_kriteria')
+                     ->select('b.nama_kriteria')
 
 					 ->from('pengaturan a')
 					 ->join('kriteria b', 'b.id_kriteria = a.id_kriteria');

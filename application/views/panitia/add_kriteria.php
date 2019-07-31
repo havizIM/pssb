@@ -28,10 +28,6 @@
                   <label>Nama Kriteria</label>
                   <input type="text" class="form-control" name="nama_kriteria" id="nama_kriteria">
                 </div>
-                <div class="form-group">
-                  <label>Bobot Kriteria</label>
-                  <input type="number" class="form-control" name="bobot_kriteria" id="bobot_kriteria">
-                </div>
 
                 <div class="row">
                   <div class="col-12">

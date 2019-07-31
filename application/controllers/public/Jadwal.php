@@ -79,7 +79,7 @@ class Jadwal extends CI_Controller {
                     $json_d['subkriteria']      = array(
                         'id_subkriteria'    => $key3->id_subkriteria,
                         'nama_subkriteria'  => $key3->nama_subkriteria,
-                        'bobot'             => $key3->bobot
+                        'bobot'             => $key3->bobot_sub
                     );
 
                     $json_d['kriteria']         = array(

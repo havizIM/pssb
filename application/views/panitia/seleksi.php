@@ -72,57 +72,52 @@ img {
                             </div>
                             <div class="card-content collpase show">
                                 <div class="card-body">
-                                <div class="card-text">
-                                    <p class="card-text">
-                                        Berikut adalah kelengkapan data jadwal yang meliputi Status  dan Detail jadwal.
-                                    </p>
-                                </div>
                                 <form class="form">
                                     <div class="form-body">
                                     <h4 class="form-section"><i class="ft-user"></i> Status</h4>
                                     <div class="row">
                                         <div class="col-md-6">
                                         <div class="form-group">
-                                            <dl class="">
-                                                <dt class="">ID Jadwal</dt>
-                                            </dl>
+                                            <div class="">
+                                                <div class=""><b>ID Jadwal</b></div>
+                                            </div>
                                         </div>
                                         </div>
                                         <div class="col-md-6">
                                         <div class="form-group">
-                                                <dl class="">
-                                                    <dd class="">${data.id_jadwal}</dd>
-                                                </dl>
+                                                <div class="">
+                                                    <div class="">${data.id_jadwal}</div>
+                                                </div>
                                         </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-6">
-                                        <dl class="">
-                                            <dt class="">Tahun Ajaran</dt>
-                                        </dl>
+                                        <div class="">
+                                            <div class=""><b>Tahun Ajaran</b></div>
+                                        </div>
                                         </div>
                                         <div class="col-md-6">
                                         <div class="form-group">
-                                            <dl class="">
+                                            <div class="">
                                                     <dd class="">${data.kd_ta}</dd>
-                                            </dl>
+                                            </div>
                                         </div>
                                         </div>
                                     </div>
 
                                     <div class="row">
                                         <div class="col-md-6">
-                                        <dl class="">
+                                        <div class="">
                                             <dt class="">Status</dt>
-                                        </dl>
+                                        </div>
                                         </div>
                                         <div class="col-md-6">
                                         <div class="form-group">
-                                            <dl class="">
+                                            <div class="">
                                                     <dd class="">${data.status}</dd>
-                                            </dl>
+                                            </div>
                                         </div>
                                         </div>
                                     </div>
@@ -130,44 +125,44 @@ img {
                                     <h4 class="form-section"><i class="ft-check-circle"></i> Detail</h4>
                                         <div class="row">
                                             <div class="col-md-6">
-                                                <dl class="">
+                                                <div class="">
                                                     <dt class="">Lokasi</dt>
-                                                </dl>
+                                                </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <dl class="">
+                                                    <div class="">
                                                         <dd class="">${data.lokasi}</dd>
-                                                    </dl>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
 
                                     <div class="row">
                                         <div class="col-md-6">
-                                        <dl class="">
+                                        <div class="">
                                             <dt class="">Keterangan Jadwal</dt>
-                                        </dl>
+                                        </div>
                                         </div>
                                         <div class="col-md-6">
                                         <div class="form-group">
-                                            <dl class="">
+                                            <div class="">
                                                     <dd class="">${data.keterangan_jadwal}</dd>
-                                            </dl>
+                                            </div>
                                         </div>
                                         </div>
                                     </div>
                                         <div class="row">
                                             <div class="col-md-6">
-                                            <dl class="">
+                                            <div class="">
                                                 <dt class="">Deskripsi Jadwal</dt>
-                                            </dl>
+                                            </div>
                                             </div>
                                             <div class="col-md-6">
                                             <div class="form-group">
-                                                <dl class="">
+                                                <div class="">
                                                         <dd class="">${data.deskripsi_jadwal}</dd>
-                                                </dl>
+                                                </div>
                                             </div>
                                             </div>
                                         </div>
@@ -175,15 +170,15 @@ img {
                                     <div class="form-group">
                                         <div class="row">
                                             <div class="col-md-6">
-                                            <dl class="">
+                                            <div class="">
                                                 <dt class="">Tanggal Input</dt>
-                                            </dl>
+                                            </div>
                                             </div>
                                             <div class="col-md-6">
                                             <div class="form-group">
-                                                <dl class="">
+                                                <div class="">
                                                         <dd class="">${data.tgl_input}</dd>
-                                                </dl>
+                                                </div>
                                             </div>
                                             </div>
                                         </div>
@@ -219,33 +214,42 @@ img {
                                                     </tr>
                                                 </thead> 
 
-                                                <tbody>` 
-                                                    $.each(data.seleksi, function(k, v){
-                                                        html += `
-                                                        <tr>
-                                                            <td>${v.id_seleksi}</td>
-                                                            <td>${v.pendaftar.id_pendaftar}</td>
-                                                            <td>${v.pendaftar.kd_ta}</td>
-                                                            <td>${v.pendaftar.nama_lengkap}</td>
-                                                            <td>${v.pendaftar.tgl_register}</td>
-                                                            <td>${v.keterangan}</td>
-                                                            <td>`
+                                                <tbody>`
+                                                    if(data.seleksi.length !== 0){
+                                                        $.each(data.seleksi, function(k, v){
+                                                            html += `
+                                                            <tr>
+                                                                <td>${v.id_seleksi}</td>
+                                                                <td>${v.pendaftar.id_pendaftar}</td>
+                                                                <td>${v.pendaftar.kd_ta}</td>
+                                                                <td>${v.pendaftar.nama_lengkap}</td>
+                                                                <td>${v.pendaftar.tgl_register}</td>
+                                                                <td>${v.keterangan}</td>
+                                                                <td>`
 
-                                                            if (v.status_seleksi === "Proses") {
-                                                                html += `<div class="btn-group">
-                                                                            <button type="button" class="btn btn-info round btn-min-width box-shadow-2 btn-glow" id="btn_terima" data-id="${v.id_seleksi}">Hadir</button>
-                                                                            <button type="button" class="btn btn-danger round btn-min-width box-shadow-2" data-id="${v.id_seleksi}" id="btn_tolak">Tidak Hadir</button>
-                                                                        </div>
-                                                                        `
-                                                            } else if (v.status_seleksi === "Hadir"){
-                                                                html += `<a href="#/">Lihat</a>`
-                                                            } else {
-                                                                html += `Ditolak`
-                                                            }
-                                                    html +=`</td>
-                                                        </tr>
-                                                        `
-                                                    });
+                                                                if (v.status_seleksi === "Proses") {
+                                                                    html += `<div class="btn-group">
+                                                                                <a href="#/add_seleksi/${v.id_seleksi}" class="btn btn-info round btn-min-width box-shadow-2 btn-glow" id="btn_terima" data-id="${v.id_seleksi}">Hadir</a>
+                                                                                <button type="button" class="btn btn-danger round btn-min-width box-shadow-2" data-id="${v.id_seleksi}" id="btn_tolak">Tidak Hadir</button>
+                                                                            </div>
+                                                                            `
+                                                                } else if (v.status_seleksi === "Hadir"){
+                                                                    html += `<a href="#/lihat_hasil/${v.id_seleksi}">Lihat Hasil</a>`
+                                                                } else {
+                                                                    html += `Tidak Hadir`
+                                                                }
+                                                        html +=`</td>
+                                                            </tr>
+                                                            `
+                                                        });
+                                                    } else {
+                                                        html += `
+                                                            <tr>
+                                                                <td colspan="7"><center>Tidak ada peserta yang terdaftar</center></td>
+                                                            </tr>
+                                                        `;
+                                                    }
+                                                    
                                                 html += `</tbody>
                                             </table>
                         </div>

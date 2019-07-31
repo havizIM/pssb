@@ -30,7 +30,6 @@
                 <thead>
                   <tr>
                     <th>Kriteria</th>
-                    <th>Bobot</th>
                     <th>Subkriteria (Bobot)</th>
                     <th></th>
                   </tr>
@@ -74,7 +73,6 @@
                   <tr>
                     <th>ID Subkriteria</th>
                     <th>Nama Subkriteria</th>
-                    <th>Bobot</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -121,7 +119,6 @@
       ajax: '<?= base_url('api/kriteria/show/'); ?>'+auth.token,
       columns: [
         {"data": 'nama_kriteria'},
-        {"data": 'bobot_kriteria'},
         {"data": null, 'render': function(data, type, row){
 
             var subkriteria = '';
@@ -215,10 +212,6 @@
               <tr>
                 <th>Nama Kriteria</th>
                 <td>${v.nama_kriteria}</td>
-              </tr>
-              <tr>
-                <th>Bobot</th>
-                <td>${v.bobot_kriteria}</td>
               </tr>
             `;
 

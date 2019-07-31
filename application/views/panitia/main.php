@@ -67,7 +67,7 @@
             <li class="nav-item">
               <a class="navbar-brand" href="index.html">
                 <img class="brand-logo" alt="modern admin logo" src="<?= base_url('assets') ?>/app-assets/images/logo/logo.png">
-                <h3 class="brand-text">Modern Admin</h3>
+                <h3 class="brand-text">PSSB</h3>
               </a>
             </li>
             <li class="nav-item d-md-none">
@@ -81,20 +81,6 @@
               <li class="nav-item d-none d-md-block"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu"></i></a></li>
             </ul>
             <ul class="nav navbar-nav float-right">
-              <li class="dropdown dropdown-user nav-item">
-                <a class="dropdown-toggle nav-link dropdown-user-link" href="#" data-toggle="dropdown">
-                  <span class="mr-1">Assalamualaikum,
-                    <span class="user-name text-bold-700">John Doe</span>
-                  </span>
-                  <span class="avatar avatar-online">
-                    <img src="<?= base_url('assets') ?>/app-assets/images/portrait/small/avatar-s-19.png" alt="avatar"><i></i></span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i class="ft-user"></i> Informasi User</a>
-                  <a class="dropdown-item" href="#"><i class="ft-mail"></i> My Inbox</a>
-                  <a class="dropdown-item" href="#"><i class="ft-check-square"></i> Task</a>
-                  <a class="dropdown-item" href="#"><i class="ft-message-square"></i> Chats</a>
-                </div>
-              </li>
               <li class="dropdown dropdown-notification nav-item">
                 <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-settings"></i></a>
                 <ul class="dropdown-menu dropdown-menu-right">

@@ -46,9 +46,8 @@ class Kriteria extends CI_Controller {
             $post             = $this->input->post();
             $id_kriteria      = $this->KodeModel->buatKode('kriteria', 'KR', 'id_kriteria', 9);
             $nama_kriteria    = $this->input->post('nama_kriteria');
-            $bobot_kriteria   = $this->input->post('bobot_kriteria');
 
-            if($nama_kriteria == null || $bobot_kriteria == null){
+            if($nama_kriteria == null){
               json_output(400, array('status' => 400, 'description' => 'Gagal', 'message' => 'Data yang dikirim tidak lengkap'));
             } else {
               if(!isset($post['nama_subkriteria']) && count($post['nama_subkriteria']) < 1){
@@ -66,8 +65,7 @@ class Kriteria extends CI_Controller {
 
                 $kriteria = array(
                     'id_kriteria'         => $id_kriteria,
-                    'nama_kriteria'       => $nama_kriteria,
-                    'bobot_kriteria'      => $bobot_kriteria
+                    'nama_kriteria'       => $nama_kriteria
                 );
 
                 $log = array('message' => 'Berhasil menambah kriteria');
@@ -110,12 +108,11 @@ class Kriteria extends CI_Controller {
             $post               = $this->input->post();
             $id_kriteria        = $this->input->get('id_kriteria');
             $nama_kriteria      = $this->input->post('nama_kriteria');
-            $bobot_kriteria     = $this->input->post('bobot_kriteria');
 
             if($id_kriteria == null){
               json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Tidak ada ID Kriteria yang dipilih'));
             } else {
-              if($nama_kriteria == null || $bobot_kriteria == null){
+              if($nama_kriteria == null){
                 json_output(400, array('status' => 400, 'description' => 'Gagal', 'message' => 'Data yang dikirim tidak lengkap'));
               } else {
                 if(!isset($post['nama_subkriteria']) && count($post['nama_subkriteria']) < 1){
@@ -131,8 +128,7 @@ class Kriteria extends CI_Controller {
                     }
 
                     $kriteria = array(
-                        'nama_kriteria'      => $nama_kriteria,
-                        'bobot_kriteria'     => $bobot_kriteria
+                        'nama_kriteria'      => $nama_kriteria
                     );
 
                     $log  = array('message' => 'Berhasil mengedit kriteria');
@@ -226,7 +222,6 @@ class Kriteria extends CI_Controller {
               
               $json['id_kriteria']    = $key->id_kriteria;
               $json['nama_kriteria']  = $key->nama_kriteria;
-              $json['bobot_kriteria'] = $key->bobot_kriteria;
               $json['jml_subkriteria'] = $key->jml_subkriteria;
               $json['subkriteria']    = array();
               
@@ -244,11 +239,10 @@ class Kriteria extends CI_Controller {
                 $json['subkriteria'][] = $json_sub;
               }
 
-              $total_bobot[]  = $key->bobot_kriteria;
               $kriteria[]     = $json;
             }
 
-            json_output(200, array('status' => 200, 'description' => 'Berhasil', 'data' => $kriteria, 'total_bobot' => array_sum($total_bobot)));
+            json_output(200, array('status' => 200, 'description' => 'Berhasil', 'data' => $kriteria));
         }
       }
     }

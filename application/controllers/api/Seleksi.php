@@ -20,6 +20,8 @@ class Seleksi extends CI_Controller {
     );
 
     $this->load->model('JadwalModel');
+    $this->load->model('TahunAjaranModel');
+    $this->load->model('SubkriteriaModel');
     $this->load->model('SeleksiModel');
     $this->load->model('SeleksiDetailModel');
   }
@@ -90,7 +92,7 @@ class Seleksi extends CI_Controller {
                     $json_d['subkriteria']      = array(
                         'id_subkriteria'    => $key3->id_subkriteria,
                         'nama_subkriteria'  => $key3->nama_subkriteria,
-                        'bobot'             => $key3->bobot
+                        'bobot'             => $key3->bobot_sub
                     );
                     $json_d['kriteria']         = array(
                         'id_kriteria'   => $key3->id_kriteria,
@@ -107,6 +109,115 @@ class Seleksi extends CI_Controller {
             }
 
             json_output(200, array('status' => 200, 'description' => 'Berhasil', 'data' => $jadwal));
+        }
+      }
+    }
+  }
+
+  function get_form(){
+      $where_sk     = array('a.id_seleksi' => $this->input->get('id_seleksi'));
+      $peserta      = $this->SeleksiModel->show($where_sk)->row();
+
+      $where  = array('kd_ta' => $peserta->kd_ta);
+      $form   = $this->TahunAjaranModel->detail($where);
+
+      $kriteria = array(
+        'id_seleksi'    => $peserta->id_seleksi,
+        'nama_lengkap'  => $peserta->nama_lengkap,
+        'kriteria'      => array()
+      );
+
+      foreach($form->result() as $key2){
+        $json_p = array();
+        $json_p['id_kriteria']      = $key2->id_kriteria;
+        $json_p['nama_kriteria']    = $key2->nama_kriteria;
+        $json_p['subkriteria']      = array();
+        
+
+        $where2 = array('id_kriteria' => $key2->id_kriteria);
+        $subkriteria = $this->SubkriteriaModel->show($where2);
+
+        foreach($subkriteria->result() as $key){
+          $json_a = array();
+
+          $json_a['id_subkriteria'] = $key->id_subkriteria;
+          $json_a['nama_subkriteria'] = $key->nama_subkriteria;
+
+
+          $json_p['subkriteria'][] = $json_a;
+        }
+
+        $kriteria['kriteria'][]   = $json_p;
+      }
+      
+      json_output(200, array('status' => 200, 'description' => 'Berhasil', 'data' => $kriteria));
+  }
+
+  function lihat_hasil($token = null){
+    $method = $_SERVER['REQUEST_METHOD'];
+
+    if ($method != 'GET') {
+      json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Metode request salah'));
+		} else {
+
+      if($token == null){
+        json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Request tidak terotorisasi'));
+      } else {
+        $auth = $this->AuthModel->cekAuth($token);
+
+        if($auth->num_rows() != 1){
+          json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Token tidak dikenali'));
+        } else {
+
+            $otorisasi    = $auth->row();
+
+            $where_sk = array(
+              'id_seleksi' => $this->input->get('id_seleksi')
+            );
+            $show2      = $this->SeleksiModel->show($where_sk);
+
+            $seleksi = array();
+
+              foreach($show2->result() as $key2){
+                $json_s = array();
+
+                $json_s['id_seleksi']     = $key2->id_seleksi;
+                $json_s['pendaftar']      = array(
+                  'id_pendaftar'    => $key2->id_pendaftar,
+                  'kd_ta'           => $key2->kd_ta,
+                  'nama_lengkap'    => $key2->nama_lengkap,
+                  'jenis_kelamin'   => $key2->jenis_kelamin,
+                  'tgl_register'    => $key2->tgl_register
+                );
+                $json_s['keterangan']     = $key2->keterangan;
+                $json_s['status_seleksi'] = $key2->status_seleksi;
+                $json_s['detail']         = array();
+
+                $where_dt = array('a.id_seleksi' => $key2->id_seleksi);
+                $show3    = $this->SeleksiDetailModel->show($where_dt);
+
+                foreach($show3->result() as $key3){
+                  $json_d = array();
+
+                  $json_d['subkriteria']      = array(
+                      'id_subkriteria'    => $key3->id_subkriteria,
+                      'nama_subkriteria'  => $key3->nama_subkriteria,
+                      'bobot'             => $key3->bobot_sub
+                  );
+                  $json_d['kriteria']         = array(
+                      'id_kriteria'   => $key3->id_kriteria,
+                      'nama_kriteria' => $key3->nama_kriteria
+                  );
+
+                  $json_s['detail'][] = $json_d;
+                }
+
+              
+                $seleksi[]        = $json_s;
+              }
+
+
+            json_output(200, array('status' => 200, 'description' => 'Berhasil', 'data' => $seleksi));
         }
       }
     }
@@ -138,12 +249,12 @@ class Seleksi extends CI_Controller {
             if($id_seleksi == null){
               json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Tidak ada ID Seleksi yang dipilih'));
             } else {
-                if(!isset($post['id_seleksi']) && count($post['id_seleksi']) < 1){
+                if(!isset($post['id_subkriteria']) && count($post['id_subkriteria']) < 1){
                     json_output(400, array('status' => 400, 'description' => 'Gagal', 'message' => 'Anda harus memilih Subkriteria'));
                 } else {
 
                     $detail = array();
-                    foreach($post['id_seleksi'] as $key => $val){
+                    foreach($post['id_subkriteria'] as $key => $val){
                         $detail[] = array(
                             'id_seleksi'         => $id_seleksi,
                             'id_subkriteria'     => $post['id_subkriteria'][$key]
