@@ -78,7 +78,6 @@
           <div class="form-group">
             <select class="form-control" id="level" name="level">
               <option value="">-- Pilih Level --</option>
-              <option value="Guru">Guru</option>
               <option value="Panitia">Panitia</option>
               <option value="kepsek">Kepsek</option>
             </select>
@@ -114,7 +113,6 @@
           <div class="form-group">
             <select class="form-control" id="edit_level" name="level">
               <option value="">-- Pilih Level --</option>
-              <option value="Guru">Guru</option>
               <option value="Panitia">Panitia</option>
               <option value="kepsek">Kepsek</option>
             </select>

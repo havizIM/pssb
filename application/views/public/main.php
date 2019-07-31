@@ -48,7 +48,7 @@
             <li class="nav-item">
               <a class="navbar-brand" href="index.html">
                 <img class="brand-logo" alt="modern admin logo" src="<?= base_url('assets') ?>/app-assets/images/home/logo_test.png">
-                <h3 class="brand-text">PSSB MTS Arizkan</h3>
+                <h3 class="brand-text">PSSB MTS Ar-rizkan</h3>
               </a>
             </li>
             <li class="nav-item d-md-none">
