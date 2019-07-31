@@ -9,8 +9,8 @@
     <meta name="keywords" content="admin template, modern admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
     <meta name="author" content="PIXINVENT">
     <title>PSSB | MTS Arizkan</title>
-    <link rel="apple-touch-icon" href="<?= base_url('assets') ?>/app-assets/images/ico/apple-icon-120.png">
-    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('assets') ?>/app-assets/images/ico/favicon.ico">
+    <link rel="apple-touch-icon" href="<?= base_url('assets') ?>/app-assets/images/home/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="<?= base_url('assets') ?>/app-assets/images/home/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Quicksand:300,400,500,700"
     rel="stylesheet">
     <link href="https://maxcdn.icons8.com/fonts/line-awesome/1.1/css/line-awesome.min.css"
@@ -47,7 +47,7 @@
             <li class="nav-item mobile-menu d-md-none mr-auto"><a class="nav-link nav-menu-main menu-toggle hidden-xs" href="#"><i class="ft-menu font-large-1"></i></a></li>
             <li class="nav-item">
               <a class="navbar-brand" href="index.html">
-                <img class="brand-logo" alt="modern admin logo" src="<?= base_url('assets') ?>/app-assets/images/logo/logo.png">
+                <img class="brand-logo" alt="modern admin logo" src="<?= base_url('assets') ?>/app-assets/images/home/logo_test.png">
                 <h3 class="brand-text">PSSB MTS Arizkan</h3>
               </a>
             </li>
