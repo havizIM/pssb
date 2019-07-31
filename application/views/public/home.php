@@ -68,7 +68,7 @@
             <div class="col-lg-6">
                 <div class="section-title text-center">
                   <h2 class="text-bold-600">Layanan</h2>
-                  <p>Yayasan Pendidikan Islam Rizkhan  Ibnu Safiudin Juhut memiliki beberapa layanan utama yang dapat dinikmati siswa/i kami saat melakukan kegiatan ajar mengajar.
+                  <p>Yayasan Pendidikan Islam Rizkhan  Ibnu Safiudin Juhut memiliki beberapa layanan utama yang dapat dinikmati siswa/i kami saat melakukan kegiatan ajar mengajar dan aktivitas lainnya.
                   </p>
                 </div>
             </div>

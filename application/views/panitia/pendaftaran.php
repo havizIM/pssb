@@ -127,7 +127,7 @@
       },
       responsive: true,
       processing: true,
-      ajax: '<?= base_url('api/pendaftaran/show/'); ?>'+auth.token,
+      ajax: '<?= base_url('api/pendaftaran/show/') ?>'+auth.token,
       columns: [
         {"data": null, 'render': function(data, type, row){
                 return `<a href="#/pendaftaran/${row.id_pendaftar}">${row.id_pendaftar}</a>`;

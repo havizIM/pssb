@@ -122,6 +122,7 @@
     <script src="<?= base_url('assets') ?>/app-assets/js/scripts/cards/card-social.js" type="text/javascript"></script>
     <script src="<?= base_url('assets') ?>/app-assets/vendors/js/forms/icheck/icheck.min.js" type="text/javascript"></script>
     <script src="<?= base_url('assets') ?>/app-assets/js/scripts/forms/checkbox-radio.js" type="text/javascript"></script>
+    <script src="<?= base_url('assets') ?>/app-assets/vendors/js/forms/select/select2.full.min.js" type="text/javascript"></script>
     <!-- END MODERN JS-->
 
         <script src="<?= base_url('assets') ?>/js/jquery.magnific-popup.min.js" type="text/javascript"></script>

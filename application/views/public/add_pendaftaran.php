@@ -24,97 +24,177 @@
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="firstName2">Nama Lengkap :</label>
-                              <input type="text" class="form-control" id="firstName2">
+                              <label>Nama Lengkap :</label>
+                              <input type="text" class="form-control" id="nama_lengkap" name="nama_lengkap">
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="lastName2">NIK :</label>
-                              <input type="text" class="form-control" id="lastName2">
-                            </div>
-                          </div>
-                        </div>
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="emailAddress3">Email :</label>
-                              <input type="email" class="form-control" id="emailAddress3">
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="location2">Agama :</label>
-                              <select class="c-select form-control" id="location2" name="location">
-                                <option value="">Select City</option>
-                                <option value="Amsterdam">Amsterdam</option>
-                                <option value="Berlin">Berlin</option>
-                                <option value="Frankfurt">Frankfurt</option>
-                              </select>
+                              <label>NIK :</label>
+                              <input type="text" class="form-control" id="nik" name="nik">
                             </div>
                           </div>
                         </div>
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="phoneNumber2">No Handphone :</label>
-                              <input type="tel" class="form-control" id="phoneNumber2">
+                              <label>Email :</label>
+                              <input type="email" class="form-control" id="email" name="email">
+                            </div>
+                          </div>
+                          <div class="col-md-6">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Jenis Kelamin :</label>
+                                  <select class="c-select form-control" id="jenis_kelamin" name="jenis_kelamin">
+                                    <option value="">-</option>
+                                    <option value="Laki-laki">Laki-laki</option>
+                                    <option value="Perempuan">Perempuan</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                 <div class="form-group">
+                                  <label>Agama :</label>
+                                  <select class="c-select form-control" id="agama" name="agama">
+                                    <option value="">-</option>
+                                    <option value="Islam">Islam</option>
+                                    <option value="Kristen">Kristen</option>
+                                    <option value="Katolik">Katolik</option>
+                                    <option value="Hindu">Hindu</option>
+                                    <option value="Budha">Buddha</option>
+                                  </select>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="form-group">
+                              <label>No Handphone :</label>
+                              <input type="tel" class="form-control" id="no_hp" name="no_hp">
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="date2">Tempat Tgl Lahir :</label>
+                              <label>Tempat Tgl Lahir :</label>
                               <div class="row">
                                   <div class="col-md-6">
-                                     <input type="text" class="form-control" id="date2">
+                                     <input type="text" class="form-control" id="tmp_lahir" name="tmp_lahir">
                                   </div>
                                   <div class="col-md-6">
-                                     <input type="date" class="form-control" id="date2">
+                                     <input type="date" class="form-control" id="tgl_lahir" name="tgl_lahir">
                                   </div>
                               </div>
-                             
-                             
+
                             </div>
                           </div>
                         </div>
 
                         <div class="row ">
-                            <div class="col-md-6 skin skin-square">
-                                <label for="date2">Jenis Kelamin :</label>
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <input type="radio" id="input-11">
-                                        <label for="input-11">Laki-laki</label>
-
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="radio" id="input-12">
-                                         <label for="input-12">Perempuan</label>
-
-                                    </div>
+                          <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Alat Transportasi :</label>
+                                    <select class="c-select form-control" id="alat_transportawsi" name="alat_transportawsi">
+                                      <option value="">-</option>
+                                      <option value="Jalan Kaki">Jalan Kaki</option>
+                                      <option value="Motor">Motor</option>
+                                      <option value="Angkutan Umum">Angkutan Umum</option>
+                                    </select>
+                                  </div>
                                 </div>
-
+                                <div class="col-md-6">
+                                   <div class="form-group">
+                                    <label>Jenis Tempat Tinggal :</label>
+                                    <select class="c-select form-control" id="jenis_tmp_tinggal" name="jenis_tmp_tinggal">
+                                      <option value="">-</option>
+                                      <option value="Bersama Orang Tua">Bersama Orang Tua</option>
+                                      <option value="Bersama Wali">Bersama Wali</option>
+                                      <option value="Pondok Pesantren">Pondok Pesantren</option>
+                                    </select>
+                                  </div>
+                                </div>
+                              </div>
+                              
+                          </div>
+                          <div class="col-md-6">
+                            <div class="row">
+                              <div class="col-md-6">
+                                 <div class="form-group">
+                                    <label>Ekstrakulikuler :</label>
+                                    <select class="c-select form-control" id="ekstrakuliler" name="ekstrakuliler">
+                                      <option value="">-</option>
+                                      <option value="Sepak Bola">Sepak Bola</option>
+                                      <option value="Volly">Volly</option>
+                                      <option value="Badminton">Badminton</option>
+                                      <option value="Bela Diri">Bela Diri</option>
+                                      <option value="Pramuka">Pramuka</option>
+                                      <option value="Paskibra">Paskibra</option>
+                                    </select>
+                                  </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Asal Sekolah :</label>
+                                  <input type="text" class="form-control" id="asal_sekolah" name="asal_sekolah">
+                                </div>
+                              </div>
                             </div>
-                            <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="date2">Jenis Tempat Tinggal :</label>
-                                        <input type="text" class="form-control" id="date2">
-                                    </div>
-                            </div>
+                          </div>
                         </div>
-
+                          
                         <div class="row">
                             <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="date2">Alat Transportasi :</label>
-                              <input type="text" class="form-control" id="date2">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Golongan Darah :</label>
+                                  <input type="text" class="form-control" id="gol_darah" name="gol_darah">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <label>Tinggi Badan :</label>
+                                  <input type="text" class="form-control" id="tinggi_badan" name="tinggi_badan">
+                                </div>
+                              </div>
                             </div>
                           </div>
 
                           <div class="col-md-6">
+                            <div class="row">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                    <label>Anak ke :</label>
+                                    <input type="text" class="form-control" id="anak_ke" name="anak_ke">
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                  <div class="form-group">
+                                    <label>Jumlah Saudara :</label>
+                                    <input type="text" class="form-control" id="jml_saudara" name="jml_saudara">
+                                  </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                          
+                       <div class="row">
+                            <div class="col-md-6">
+                              <div class="form-group">
+                                <label>NISN :</label>
+                                <input type="text" class="form-control" id="nisn" name="nisn">
+                              </div>
+                            </div>
+
+                          <div class="col-md-6">
                             <div class="form-group">
-                              <label for="date2">Ekstrakulikuler :</label>
-                              <input type="text" class="form-control" id="date2">
+                              <label>No. UN :</label>
+                              <input type="text" class="form-control" id="no_un" name="no_un">
                             </div>
                           </div>
                         </div>
@@ -122,47 +202,15 @@
                         <div class="row">
                             <div class="col-md-6">
                             <div class="form-group">
-                              <label for="date2">Golongan Darah :</label>
-                              <input type="text" class="form-control" id="date2">
+                              <label>SKHUN:</label>
+                              <input type="text" class="form-control" id="no_skhun" name="no_skhun">
                             </div>
                           </div>
 
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="date2">Anak ke :</label>
-                              <input type="text" class="form-control" id="date2">
-                            </div>
-                          </div>
-                        </div>
-                          
-                        <div class="row">
-                            <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="date2">Jumlah Saudara :</label>
-                              <input type="text" class="form-control" id="date2">
-                            </div>
-                          </div>
-
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="date2">Tinggi Badan :</label>
-                              <input type="text" class="form-control" id="date2">
-                            </div>
-                          </div>
-                        </div>
-                          
-                        <div class="row">
-                            <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="date2">SKHUN:</label>
-                              <input type="text" class="form-control" id="date2">
-                            </div>
-                          </div>
-
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <label for="date2">No. Ijazah :</label>
-                              <input type="text" class="form-control" id="date2">
+                              <label>No. Ijazah :</label>
+                              <input type="text" class="form-control" id="no_ijazah" name="no_ijazah">
                             </div>
                           </div>
                         </div>
@@ -170,15 +218,15 @@
                         <div class="row">
                             <div class="col-md-6">
                             <div class="form-group">
-                              <label for="date2">KIP:</label>
-                              <input type="text" class="form-control" id="date2">
+                              <label>KIP:</label>
+                              <input type="text" class="form-control" id="kip" name="kip">
                             </div>
                           </div>
 
                           <div class="col-md-6">
                             <div class="form-group">
-                              <label for="date2">Asal Sekolah :</label>
-                              <input type="text" class="form-control" id="date2">
+                              <label>Tahun Ajaran:</label>
+                              <input type="text" class="form-control" id="kd_ta" name="kd_ta">
                             </div>
                           </div>
                         </div>
@@ -192,37 +240,38 @@
                         <div class="row">
                           <div class="col-md-6">
                             <div class="form-group">
-                                <label for="shortDescription2">Alamat :</label>
-                                <textarea name="shortDescription" id="shortDescription2" rows="11" class="form-control"></textarea>
+                                <label>Alamat :</label>
+                                <textarea name="alamat" id="alamat2" name="shortDescription2" rows="11" class="form-control"></textarea>
                             </div>
                             <div class="form-group">
-                              <label for="proposalTitle2">RT/RW :</label>
-                              <input type="text" class="form-control" id="proposalTitle2">
+                              <label>RT/RW :</label>
+                              <input type="text" class="form-control" id="rtrw" name="rtrw">
                             </div>
                             
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                                <label for="emailAddress4">Kelurahan :</label>
-                                <select type="email" class="form-control" id="emailAddress4">
-                                    <option value=""></option>
+                                <label>Provinsi :</label>
+                                <select class="select2 form-control" id="id_provinsi" name="id_provinsi">
+                                    
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="videoUrl2">Kecamatan :</label>
-                                <select type="url" class="form-control" id="videoUrl2">
-                                    <option value=""></option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                              <label for="jobTitle2">Kabupaten :</label>
-                              <select type="url" class="form-control" id="videoUrl2">
-                                  <option value=""></option>
+                              <label>Kota :</label>
+                              <select class="select2 form-control" id="id_kota" name="id_kota">
+                                  
                               </select>
                             </div>
                             <div class="form-group">
-                              <label for="jobTitle2">Provinsi :</label>
-                              <select type="url" class="form-control" id="videoUrl2">
+                                <label>Kecamatan :</label>
+                                <select class="select2 form-control" id="id_kecamatan" name="id_kecamatan">
+                                   
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                              <label>Kelurahan :</label>
+                              <select class="select2 form-control" id="id_kelurahan" name="id_kelurahan">
                                   <option value=""></option>
                               </select>
                             </div>
@@ -237,67 +286,87 @@
                             <div class="col-md-6">
                                 <h2>Data Ayah</h2>
                                 <div class="form-group">
-                                <label for="eventName2">NIK :</label>
-                                <input type="text" class="form-control" id="eventName2">
+                                <label>NIK :</label>
+                                <input type="text" class="form-control" id="nik_ayah" name="nik_ayah">
                                 </div>
                                 <div class="form-group">
-                                <label for="eventName2">Nama Ayah :</label>
-                                <input type="text" class="form-control" id="eventName2">
+                                <label>Nama Ayah :</label>
+                                <input type="text" class="form-control" id="nama_ayah" name="nama_ayah">
                                 </div>
                                 <div class="form-group">
-                                <label for="eventType2">Pekerja :</label>
-                                <input type="text" class="form-control" id="eventName2">
+                                  <label>Tempat & Tgl Lahir :</label>
+                                  <div class="row">
+                                      <div class="col-md-6">
+                                        <input type="text" class="form-control" id="tmp_lahir_ayah" name="tmp_lahir_ayah">
+                                      </div>
+                                      <div class="col-md-6">
+                                        <input type="date" class="form-control" id="tgl_lahir_ayah" name="tgl_lahir_ayah">
+                                      </div>
+                                  </div>
                                 </div>
                                 <div class="form-group">
-                                <label for="eventLocation2">Pendidikan Terakhir :</label>
-                                <input type="text" class="form-control" id="eventName2">
-                                </select>
+                                <label>Pekerjaan :</label>
+                                <input type="text" class="form-control" id="pekerjaan_ayah" name="pekerjaan_ayah">
                                 </div>
                                 <div class="form-group">
-                                <label>Tempat & Tgl Lahir :</label>
-                                <div class='input-group'>
-                                    <input type='text' class="form-control datetime" />
-                                    <span class="input-group-addon">
-                                    <span class="ft-calendar"></span>
-                                    </span>
-                                </div>
-                                </div>
+                                <label>Pendidikan Terakhir :</label>
+                                    <select class="c-select form-control" id="pendidikan_ayah" name="pendidikan_ayah">
+                                      <option value="">-</option>
+                                      <option value="SD">SD</option>
+                                      <option value="SMP">SMP</option>
+                                      <option value="SMA/SMK">SMA/SMK</option>
+                                      <option value="D3">D3</option>
+                                      <option value="S1">S1</option>
+                                      <option value="S2">S2</option>
+                                      <option value="S3">S3</option>
+                                    </select>
+                                  </div>
                                 <div class="form-group">
-                                <label for="eventLocation2">Penghasilan Perbulan :</label>
-                                    <input type="text" class="form-control" id="eventName2">
+                                <label>Penghasilan Perbulan :</label>
+                                    <input type="text" class="form-control" id="penghasilan_ayah" name="penghasilan_ayah">
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <h2>Data Ibu</h2>
                                 <div class="form-group">
-                                <label for="eventName2">NIK :</label>
-                                <input type="text" class="form-control" id="eventName2">
+                                <label>NIK :</label>
+                                <input type="text" class="form-control" id="nik_ibu" name="nik_ibu">
                                 </div>
                                 <div class="form-group">
-                                <label for="eventName2">Nama Ibu :</label>
-                                <input type="text" class="form-control" id="eventName2">
+                                <label>Nama Ibu :</label>
+                                <input type="text" class="form-control" id="nama_ibu" name="nama_ibu">
+                                </div>
+                                 <div class="form-group">
+                                  <label>Tempat & Tgl Lahir :</label>
+                                  <div class="row">
+                                      <div class="col-md-6">
+                                        <input type="text" class="form-control" id="tmp_lahir_ibu" name="tmp_lahir_ibu">
+                                      </div>
+                                      <div class="col-md-6">
+                                        <input type="date" class="form-control" id="tgl_lahir_ibu" name="tgl_lahir_ibu">
+                                      </div>
+                                  </div>
                                 </div>
                                 <div class="form-group">
-                                <label for="eventType2">Pekerja :</label>
-                                <input type="text" class="form-control" id="eventName2">
+                                <label>Pekerjaan :</label>
+                                <input type="text" class="form-control" id="pekerjaan_ibu" name="pekerjaan_ibu">
                                 </div>
                                 <div class="form-group">
-                                <label for="eventLocation2">Pendidikan Terakhir :</label>
-                                <input type="text" class="form-control" id="eventName2">
-                                </select>
-                                </div>
+                                <label>Pendidikan Terakhir :</label>
+                                    <select class="c-select form-control" id="pendidikan_ibu" name="pendidikan_ibu">
+                                      <option value="">-</option>
+                                      <option value="SD">SD</option>
+                                      <option value="SMP">SMP</option>
+                                      <option value="SMA/SMK">SMA/SMK</option>
+                                      <option value="D3">D3</option>
+                                      <option value="S1">S1</option>
+                                      <option value="S2">S2</option>
+                                      <option value="S3">S3</option>
+                                    </select>
+                                  </div>
                                 <div class="form-group">
-                                <label>Tempat & Tgl Lahir :</label>
-                                <div class='input-group'>
-                                    <input type='text' class="form-control datetime" />
-                                    <span class="input-group-addon">
-                                    <span class="ft-calendar"></span>
-                                    </span>
-                                </div>
-                                </div>
-                                <div class="form-group">
-                                <label for="eventLocation2">Penghasilan Perbulan :</label>
-                                    <input type="text" class="form-control" id="eventName2">
+                                <label>Penghasilan Perbulan :</label>
+                                    <input type="text" class="form-control" id="penghasilan_ibu" name="penghasilan_ibu">
                                 </div>
                             </div>
                         </div>
@@ -313,8 +382,7 @@
                                     <input type="text" class="form-control new-form" readonly style="height: 40px;">
                                     <label class="input-group-btn">
                                     <span class="btn btn-primary">
-                                        Browse&hellip; <input type="file" style="display: none;" id="lampiran_daftar"
-                                        name="lampiran_daftar" multiple>
+                                        Browse&hellip; <input type="file" style="display: none;" id="ijasah" name="ijasah" multiple>
                                     </span>
                                     </label>
                                 </div>
@@ -326,8 +394,7 @@
                                     <input type="text" class="form-control new-form" readonly style="height: 40px;">
                                     <label class="input-group-btn">
                                     <span class="btn btn-primary">
-                                        Browse&hellip; <input type="file" style="display: none;" id="lampiran_daftar"
-                                        name="lampiran_daftar" multiple>
+                                        Browse&hellip; <input type="file" style="display: none;" id="skhun" name="skhun" multiple>
                                     </span>
                                     </label>
                                 </div>
@@ -339,8 +406,7 @@
                                     <input type="text" class="form-control new-form" readonly style="height: 40px;">
                                     <label class="input-group-btn">
                                     <span class="btn btn-primary">
-                                        Browse&hellip; <input type="file" style="display: none;" id="lampiran_daftar"
-                                        name="lampiran_daftar" multiple>
+                                        Browse&hellip; <input type="file" style="display: none;" id="kk" name="kk" multiple>
                                     </span>
                                     </label>
                                 </div>
@@ -352,8 +418,7 @@
                                     <input type="text" class="form-control new-form" readonly style="height: 40px;">
                                     <label class="input-group-btn">
                                     <span class="btn btn-primary">
-                                        Browse&hellip; <input type="file" style="display: none;" id="lampiran_daftar"
-                                        name="lampiran_daftar" multiple>
+                                        Browse&hellip; <input type="file" style="display: none;" id="sertifikat" name="sertifikat" multiple>
                                     </span>
                                     </label>
                                 </div>
@@ -365,8 +430,7 @@
                                     <input type="text" class="form-control new-form" readonly style="height: 40px;">
                                     <label class="input-group-btn">
                                     <span class="btn btn-primary">
-                                        Browse&hellip; <input type="file" style="display: none;" id="lampiran_daftar"
-                                        name="lampiran_daftar" multiple>
+                                        Browse&hellip; <input type="file" style="display: none;" id="sk_baik" name="sk_baik" multiple>
                                     </span>
                                     </label>
                                 </div>
@@ -379,8 +443,7 @@
                                     <input type="text" class="form-control new-form" readonly style="height: 40px;">
                                     <label class="input-group-btn">
                                     <span class="btn btn-primary">
-                                        Browse&hellip; <input type="file" style="display: none;" id="lampiran_daftar"
-                                        name="lampiran_daftar" multiple>
+                                        Browse&hellip; <input type="file" style="display: none;" id="foto" name="foto" multiple>
                                     </span>
                                     </label>
                                 </div>
@@ -392,8 +455,7 @@
                                     <input type="text" class="form-control new-form" readonly style="height: 40px;">
                                     <label class="input-group-btn">
                                     <span class="btn btn-primary">
-                                        Browse&hellip; <input type="file" style="display: none;" id="lampiran_daftar"
-                                        name="lampiran_daftar" multiple>
+                                        Browse&hellip; <input type="file" style="display: none;" id="ktp_ayah" name="ktp_ayah" multiple>
                                     </span>
                                     </label>
                                 </div>
@@ -405,8 +467,7 @@
                                     <input type="text" class="form-control new-form" readonly style="height: 40px;">
                                     <label class="input-group-btn">
                                     <span class="btn btn-primary">
-                                        Browse&hellip; <input type="file" style="display: none;" id="lampiran_daftar"
-                                        name="lampiran_daftar" multiple>
+                                        Browse&hellip; <input type="file" style="display: none;" id="ktp_ibu" name="ktp_ibu" multiple>
                                     </span>
                                     </label>
                                 </div>
@@ -418,8 +479,7 @@
                                     <input type="text" class="form-control new-form" readonly style="height: 40px;">
                                     <label class="input-group-btn">
                                     <span class="btn btn-primary">
-                                        Browse&hellip; <input type="file" style="display: none;" id="lampiran_daftar"
-                                        name="lampiran_daftar" multiple>
+                                        Browse&hellip; <input type="file" style="display: none;" id="ktp_wali" name="ktp_wali" multiple>
                                     </span>
                                     </label>
                                 </div>
@@ -432,8 +492,7 @@
                                     <input type="text" class="form-control new-form" readonly style="height: 40px;">
                                     <label class="input-group-btn">
                                     <span class="btn btn-primary">
-                                        Browse&hellip; <input type="file" style="display: none;" id="lampiran_daftar"
-                                        name="lampiran_daftar" multiple>
+                                        Browse&hellip; <input type="file" style="display: none;" id="fc_kip" name="fc_kip" multiple>
                                     </span>
                                     </label>
                                 </div>
@@ -467,6 +526,55 @@
                html += `
                `
             },
+
+            renderProvinsi: function(data){
+              var html = `<option value=""> Pilih Provinsi</option>`
+
+            
+                $.each(data, function(k, v){
+                    // console.log(v.id)
+                  html+= `
+                    <option value="${v.id}">${v.nama_provinsi}</option>
+                  `
+                })
+              $('#id_provinsi').html(html);
+            },
+
+            renderKota: function(data) {
+              var html = `<option value=""> Pilih Kota</option>`
+
+              $.each( data, function(k, v){
+                html += `
+                  <option value="${v.id}">${v.nama_kabupaten}</option>
+                ` 
+
+              })
+              $('#id_kota').html(html)
+            },
+
+            renderKecamatan: function(data) {
+              var html = `<option value=""> Pilih Kota</option>`
+
+              $.each( data, function(k, v){
+                html += `
+                  <option value="${v.id}">${v.nama_kecamatan}</option>
+                ` 
+
+              })
+              $('#id_kecamatan').html(html)
+            },
+
+            renderKelurahan: function(data) {
+              var html = `<option value=""> Pilih Kota</option>`
+
+              $.each( data, function(k, v){
+                html += `
+                  <option value="${v.id}">${v.nama_kelurahan}</option>
+                ` 
+
+              })
+              $('#id_kelurahan').html(html)
+            }
 
             
         }
@@ -525,6 +633,91 @@
             })
         }
 
+        var selectProvinsi = function() {
+        $.ajax({
+            url:`<?= base_url('public/pendaftaran/provinsi/') ?>`,
+            type:'GET',
+            dataType:'JSON',
+            success: function(response){
+                  UI.renderProvinsi(response.data)
+                  
+            }
+
+          });
+        }
+
+        var provinsiOnChange = function(){
+          $('#id_provinsi').on('change', function(){
+            var id_provinsi = $(this).val();
+            if (id_provinsi === '') {
+              $('#id_kota').html('')
+            } else {
+              selectKota(id_provinsi)
+            }
+          
+          })
+        }
+
+        var selectKota = function(id_provinsi){
+          $.ajax({
+            url:`<?= base_url('public/pendaftaran/kabupaten/') ?>?id_provinsi=${id_provinsi}`,
+            type: `GET`,
+            dataType: `JSON`,
+            success: function(response){
+              UI.renderKota(response.data)
+              
+            }
+          })
+        }
+
+        var kotaOnChange = function(){
+          $('#id_kota').on('change', function(){
+            var id_kota = $(this).val();
+            if (id_kota === '') {
+              $('#id_kecamatan').html('')
+            } else {
+              selectKecamatan(id_kota)
+            }
+          
+          })
+        }
+
+        var selectKecamatan = function(id_kota){
+          $.ajax({
+            url:`<?= base_url('public/pendaftaran/kecamatan/') ?>?id_kota=${id_kota}`,
+            type: `GET`,
+            dataType: `JSON`,
+            success: function(response){
+              UI.renderKecamatan(response.data)
+              
+            }
+          })
+        }
+
+        var selectKelurahan = function(id_kecamatan){
+          $.ajax({
+            url:`<?= base_url('public/pendaftaran/kelurahan/') ?>?id_kecamatan=${id_kecamatan}`,
+            type: `GET`,
+            dataType: `JSON`,
+            success: function(response){
+              UI.renderKelurahan(response.data)
+              
+            }
+          })
+        }
+
+        var kelurahanOnChange = function(){
+          $('#id_kelurahan').on('change', function(){
+            var id_kelurahan = $(this).val();
+            if (id_kelurahan === '') {
+              $('#id_kelurahan').html('')
+            } else {
+              selectKelurahan(id_kecamatan)
+            }
+          
+          })
+        }
+
         var setupFile = function () {
         $(document).on('change', ':file', function () {
             var input = $(this),
@@ -549,11 +742,16 @@
         });
     }
 
+
        
         return {
             init : function(){
                 setupStep();
                 setupFile();
+                selectProvinsi();
+                provinsiOnChange()
+                kotaOnChange()
+                kelurahanOnChange()
             }
         }
 
