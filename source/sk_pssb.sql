@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 14 Jul 2019 pada 04.45
+-- Waktu pembuatan: 31 Jul 2019 pada 20.49
 -- Versi server: 10.1.40-MariaDB
 -- Versi PHP: 7.1.29
 
@@ -36,13 +36,6 @@ CREATE TABLE `hasil_seleksi` (
   `status_seleksi` enum('Proses','Hadir','Tidak Hadir','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `hasil_seleksi`
---
-
-INSERT INTO `hasil_seleksi` (`id_seleksi`, `id_jadwal`, `id_pendaftar`, `keterangan`, `status_seleksi`) VALUES
-('SL-00000001', 'JD000000001', 'P-000000001', 'Test', 'Tidak Hadir');
-
 -- --------------------------------------------------------
 
 --
@@ -70,14 +63,6 @@ CREATE TABLE `jadwal_seleksi` (
   `status` enum('Buka','Tutup','','') NOT NULL,
   `tgl_input` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `jadwal_seleksi`
---
-
-INSERT INTO `jadwal_seleksi` (`id_jadwal`, `kd_ta`, `keterangan_jadwal`, `deskripsi_jadwal`, `tgl_pelaksanaan`, `lokasi`, `status`, `tgl_input`) VALUES
-('JD000000001', '2020-2021', 'Batch 1', 'Coba coba coba coba', '2019-10-12', 'Lobby SMA Negeri 2', 'Tutup', '2019-07-13 14:29:58'),
-('JD000000002', '2020-2021', 'vhvj', 'xgcg', '1992-10-10', 'Jakarta', 'Tutup', '2019-07-14 02:44:29');
 
 -- --------------------------------------------------------
 
@@ -82882,17 +82867,8 @@ INSERT INTO `kelurahan` (`id`, `id_kecamatan`, `nama_kelurahan`) VALUES
 
 CREATE TABLE `kriteria` (
   `id_kriteria` varchar(11) NOT NULL,
-  `nama_kriteria` varchar(50) NOT NULL,
-  `bobot_kriteria` int(11) NOT NULL
+  `nama_kriteria` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `kriteria`
---
-
-INSERT INTO `kriteria` (`id_kriteria`, `nama_kriteria`, `bobot_kriteria`) VALUES
-('KR000000001', 'Nilai Rata-rata UNJ', 4),
-('KR000000002', 'Umur', 6);
 
 -- --------------------------------------------------------
 
@@ -82957,13 +82933,6 @@ CREATE TABLE `pendaftaran` (
   `status_pendaftaran` enum('Proses','Terima','Tolak','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `pendaftaran`
---
-
-INSERT INTO `pendaftaran` (`id_pendaftar`, `kd_ta`, `nama_lengkap`, `jenis_kelamin`, `nisn`, `no_ijazah`, `no_skhun`, `no_un`, `asal_sekolah`, `nik`, `tmp_lahir`, `tgl_lahir`, `agama`, `alamat`, `rtrw`, `id_kelurahan`, `kode_pos`, `alat_transportasi`, `jenis_tmp_tinggal`, `anak_ke`, `jml_saudara`, `kip`, `no_hp`, `email`, `nama_ayah`, `nik_ayah`, `tmp_lahir_ayah`, `tgl_lahir_ayah`, `pekerjaan_ayah`, `pendidikan_ayah`, `penghasilan_ayah`, `nama_ibu`, `nik_ibu`, `tmp_lahir_ibu`, `tgl_lahir_ibu`, `pekerjaan_ibu`, `pendidikan_ibu`, `penghasilan_ibu`, `tinggi_badan`, `berat_badan`, `gol_darah`, `ekstrakulikuler`, `ijazah`, `skhun`, `kk`, `ktp_ayah`, `ktp_ibu`, `ktp_wali`, `fc_kip`, `foto`, `sk_baik`, `sertifikat`, `tgl_register`, `status_pendaftaran`) VALUES
-('P-000000001', '2020-2021', 'Haviz Indra Maulana', 'Laki-laki', '12341241', '12541341', '135314141', '1251341', 'SDN Tanah Sereal 01 Pagi', '1376813751', 'Jakarta', '2019-10-10', 'Islam', 'Jakarta', '010/05', '9107180012', 11210, 'Jalan Kaki', 'Bersama Orang Tua', 2, 2, 'T', '081355754092', 'viz.ndinq@gmail.com', 'Muhammad Hanafi', '138613795613', 'Jakarta', '2019-10-10', 'Karyawan Swasta', 'SMA/SMK', 3500000, 'Indrawati', '16718376193', 'Jakarta', '2019-10-10', 'Ibu Rumah Tangga', 'SMA/SMK', 0, 120, 25, 'A', 'Sepak Bola', 'P-000000001.jpg', 'P-000000001.jpg', 'P-000000001.jpg', 'P-000000001.jpg', 'P-000000001.jpg', 'P-000000001.jpg', 'P-000000001.jpg', 'P-000000001.jpg', 'P-000000001.jpg', 'P-000000001.jpg', '2019-07-13 14:30:54', 'Terima');
-
 -- --------------------------------------------------------
 
 --
@@ -82978,14 +82947,6 @@ CREATE TABLE `pengaturan` (
   `q` int(11) NOT NULL,
   `p` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `pengaturan`
---
-
-INSERT INTO `pengaturan` (`id_pengaturan`, `kd_ta`, `id_kriteria`, `tipe`, `q`, `p`) VALUES
-(25, '2020-2021', 'KR000000001', 'quasi', 1, 3),
-(26, '2020-2021', 'KR000000002', 'level', 3, 3);
 
 -- --------------------------------------------------------
 
@@ -83051,17 +83012,6 @@ CREATE TABLE `subkriteria` (
   `bobot_sub` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data untuk tabel `subkriteria`
---
-
-INSERT INTO `subkriteria` (`id_subkriteria`, `id_kriteria`, `nama_subkriteria`, `bobot_sub`) VALUES
-(12, 'KR000000001', 'Diatas 50', 5),
-(13, 'KR000000001', 'Dibawah 50', 2),
-(33, 'KR000000002', 'Pas 15', 3),
-(34, 'KR000000002', 'Diatas 15', 5),
-(35, 'KR000000002', 'Dibawah 15', 2);
-
 -- --------------------------------------------------------
 
 --
@@ -83077,13 +83027,6 @@ CREATE TABLE `tahun_ajaran` (
   `status` enum('Publish','Valid','Nonaktif','') NOT NULL,
   `tgl_input` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data untuk tabel `tahun_ajaran`
---
-
-INSERT INTO `tahun_ajaran` (`kd_ta`, `tahun_awal`, `tahun_akhir`, `tgl_awal`, `tgl_akhir`, `status`, `tgl_input`) VALUES
-('2020-2021', 2019, 2020, '2020-10-10', '2020-12-10', 'Nonaktif', '2019-05-24 10:00:27');
 
 -- --------------------------------------------------------
 
@@ -83108,10 +83051,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`nip`, `nama`, `username`, `password`, `level`, `foto`, `tgl_registrasi`, `status`, `token`) VALUES
-('7201160106', 'Kalyssa Innara Putri', 'kalyssaip', '1ixhd', 'Guru', 'user.jpg', '2019-03-28 17:38:51', 'Aktif', 'e2baa50d717f2e8'),
-('7201160111', 'Haviz Indra Maulana', 'havizim', 'byi3f', 'Panitia', 'user.jpg', '2019-05-24 06:53:21', 'Aktif', '9a64164ce3c1429'),
-('admin', 'Administrator', 'admin', 'admin', 'Admin', 'user.jpg', '2019-03-28 10:55:33', 'Aktif', 'd033e22ae348aeb'),
-('Lagi', 'lagi', 'lagi', 'tpysz', 'Guru', 'user.jpg', '2019-04-11 10:52:14', 'Aktif', '4b0aba0f566991a');
+('admin', 'Administrator', 'admin', 'admin', 'Admin', 'user.jpg', '2019-03-28 10:55:33', 'Aktif', 'd033e22ae348aeb');
 
 --
 -- Indexes for dumped tables
@@ -83216,13 +83156,13 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `pengaturan`
 --
 ALTER TABLE `pengaturan`
-  MODIFY `id_pengaturan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id_pengaturan` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT untuk tabel `subkriteria`
 --
 ALTER TABLE `subkriteria`
-  MODIFY `id_subkriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id_subkriteria` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
