@@ -34,7 +34,7 @@
                 </div>
                 <div class="card-content">
                   <div class="card-body">
-                    <h2 class="card-title" style="font-size:17px;">1. Silahkan akses ke halaman website <i>www......com</i> </h2>
+                    <h2 class="card-title" style="font-size:17px;">1. Silahkan akses ke halaman website <i></i> </h2>
                     <h2 class="card-title" style="font-size:17px;">2. Klik menu Pendaftaran</h2>
                     <h2 class="card-title" style="font-size:17px;">3. Isi Form Pendaftaran , kemudian Submit</h2>
                     <h2 class="card-title" style="font-size:17px;">4. Cek email untuk melihat jadwal seleksi</h2>
