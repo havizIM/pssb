@@ -29,34 +29,34 @@
         <div class="col-md-6 col-xs-12">
             <div class="card">
                 <div class="card-header">
-                  <h4 class="card-title" id="heading-icon">Syarat Pendaftaran</h4>
+                  <h2 class="card-title" style="font-size:20px;" id="heading-icon">Tatacara Pendaftaran</h2>
                   <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                 </div>
                 <div class="card-content">
                   <div class="card-body">
-                    <h4 class="card-title">Content title</h4>
-                    <p class="card-text">Jelly beans sugar plum cheesecake cookie oat cake soufflé.Tootsie
-                      roll bonbon liquorice tiramisu pie powder.Donut sweet roll
-                      marzipan pastry cookie cake tootsie roll oat cake cookie.</p>
-                    <p class="card-text">Sweet roll marzipan pastry halvah. Cake bear claw sweet. Tootsie
-                      roll pie marshmallow lollipop chupa chups donut fruitcake cake.</p>
+                    <h2 class="card-title" style="font-size:17px;">1. Silahkan akses ke halaman website <i>www......com</i> </h2>
+                    <h2 class="card-title" style="font-size:17px;">2. Klik menu Pendaftaran</h2>
+                    <h2 class="card-title" style="font-size:17px;">3. Isi Form Pendaftaran , kemudian Submit</h2>
+                    <h2 class="card-title" style="font-size:17px;">4. Cek email untuk melihat jadwal seleksi</h2>
+                    <h2 class="card-title" style="font-size:17px;">5. Orang tua menghadiri jadwal seleksi yang di tentukan</h2>
+                    <h2 class="card-title" style="font-size:17px;">6. Melihat hasil seleksi pada halaman website</h2>
                   </div>
                 </div>
               </div>
 
-              
+
         </div>
 
         <div class="col-md-6 col-xs-12" id="content_ta">
-        
-        </div>
-           
 
-   
+        </div>
+
+
+
 
 <script>
 var renderUI = (function(){
-        
+
         return {
             renderTA: function(data){
                 var html = '';
@@ -64,7 +64,7 @@ var renderUI = (function(){
                 <div class="card">
                     <div class="card-content">
                     <img class="card-img-top img-fluid" src="<?= base_url('assets') ?>/app-assets/images/home/school2.png" alt="Card image cap">
-                    
+
                     </div>
                     <div class="card-header">
                         <h1 class="text-bold-600">Tahun Ajaran ${data.kd_ta}</h1>
@@ -122,7 +122,7 @@ var renderUI = (function(){
                     </div>
                 </div>
                 `
-                    
+
 
                 $('#content_ta').html(html)
             },
@@ -139,12 +139,12 @@ var renderUI = (function(){
                     </div>
                     </div>
                 </div>
-                
+
                `
             $('#content_ta').html(html);
             },
 
-            
+
         }
 
     })()
@@ -174,12 +174,12 @@ var renderUI = (function(){
                                 // UI.renderAction(v);
                             })
                         }
-                    } 
+                    }
                 },
                 error: function(err){
                     location.hash = '#/seleksi'
                 }
-            }) 
+            })
         }
 
         var tolakSeleksi = function(){
@@ -203,7 +203,7 @@ var renderUI = (function(){
                     dataType: 'JSON',
                     success: function(response){
                         if(response.status === 200){
-                            
+
                                 Swal.fire({
                                     position: 'center',
                                     type: 'success',
@@ -213,7 +213,7 @@ var renderUI = (function(){
                                 });
                                 dataSeleksi()
                         } else {
-                            
+
                                 Swal.fire({
                                     position: 'center',
                                     type: 'error',
@@ -221,20 +221,20 @@ var renderUI = (function(){
                                     showConfirmButton: false,
                                     timer: 1500
                                 });
-                            
-                            
+
+
                         }
                     },
                     error: function(err){
                         console.log(err)
                     }
-                }) 
+                })
              });
-               
+
            });
-            
+
         }
-       
+
         return {
             init : function(){
                 dataTA();
@@ -247,7 +247,7 @@ var renderUI = (function(){
     $(document).ready(function(){
         loadData.init();
     })
- 
+
 
 
 </script>
