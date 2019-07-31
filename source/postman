@@ -446,6 +446,27 @@
 			"response": []
 		},
 		{
+			"name": "Public - Show Jadwal",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/pssb/public/jadwal/show",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"public",
+						"jadwal",
+						"show"
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/jadwal/show/--token--\n\nMethod :\n- GET\n\nParams : \n- id_jadwal\n- keterangan_jadwal\n\nHak Akses : \n- Panitia\n- Kepsek\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Params bersifat optional, bertujuan untuk mendapatkan data yang spesifik"
+			},
+			"response": []
+		},
+		{
 			"name": "Login",
 			"request": {
 				"method": "POST",
@@ -608,6 +629,34 @@
 			"response": []
 		},
 		{
+			"name": "Show Hasil",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost/pssb/api/hasil/show/d033e22ae348aeb?kd_ta=2020-2021",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"pssb",
+						"api",
+						"hasil",
+						"show",
+						"d033e22ae348aeb"
+					],
+					"query": [
+						{
+							"key": "kd_ta",
+							"value": "2020-2021"
+						}
+					]
+				},
+				"description": "Link :\n- localhost/pssb/api/tahun_ajaran/show/--token--\n\nMethod :\n- GET\n\nParams : \n- kd_ta\n\nHak Akses : \n- Panitia\n\nNote :\n- Token bisa didapatkan dari localStorage\n- Params bersifat optional, bertujuan untuk mendapatkan data yang spesifik"
+			},
+			"response": []
+		},
+		{
 			"name": "Show Jadwal",
 			"request": {
 				"method": "GET",
@@ -731,12 +780,17 @@
 					"formdata": [
 						{
 							"key": "nama_kriteria",
-							"value": "Nilai Rata-rata UN",
+							"value": "Umur",
+							"type": "text"
+						},
+						{
+							"key": "bobot_kriteria",
+							"value": "5",
 							"type": "text"
 						},
 						{
 							"key": "nama_subkriteria[]",
-							"value": "Diatas 60",
+							"value": "Diatas 15",
 							"type": "text"
 						},
 						{
@@ -746,11 +800,11 @@
 						},
 						{
 							"key": "nama_subkriteria[]",
-							"value": "Dibawah 60",
+							"value": "Dibawah 15",
 							"type": "text"
 						},
 						{
-							"key": "bobot[]",
+							"key": "bobot_sub[]",
 							"value": "2",
 							"type": "text"
 						}
@@ -960,35 +1014,38 @@
 					"formdata": [
 						{
 							"key": "nama_kriteria",
-							"value": "Nilai Rata-rata UNJ",
+							"value": "Umur",
 							"type": "text"
 						},
 						{
-							"key": "nama_subkriteria[]",
-							"value": "Diatas 50",
-							"type": "text"
-						},
-						{
-							"key": "bobot[]",
+							"key": "bobot_kriteria",
 							"value": "5",
 							"type": "text"
 						},
 						{
 							"key": "nama_subkriteria[]",
-							"value": "Dibawah 50",
-							"type": "text",
-							"disabled": true
+							"value": "Diatas 15",
+							"type": "text"
 						},
 						{
-							"key": "bobot[]",
+							"key": "bobot_sub[]",
+							"value": "5",
+							"type": "text"
+						},
+						{
+							"key": "nama_subkriteria[]",
+							"value": "Dibawah 15",
+							"type": "text"
+						},
+						{
+							"key": "bobot_sub[]",
 							"value": "2",
-							"type": "text",
-							"disabled": true
+							"type": "text"
 						}
 					]
 				},
 				"url": {
-					"raw": "localhost/pssb/api/kriteria/edit/9a64164ce3c1429?id_kriteria=KR000000001",
+					"raw": "localhost/pssb/api/kriteria/edit/9a64164ce3c1429?id_kriteria=KR000000002",
 					"host": [
 						"localhost"
 					],
@@ -1002,7 +1059,7 @@
 					"query": [
 						{
 							"key": "id_kriteria",
-							"value": "KR000000001"
+							"value": "KR000000002"
 						}
 					]
 				},
@@ -1262,7 +1319,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost/pssb/api/kriteria/detail/9a64164ce3c1429?id_kriteria=KR000000001",
+					"raw": "localhost/pssb/api/kriteria/detail/9a64164ce3c1429?",
 					"host": [
 						"localhost"
 					],
@@ -1276,7 +1333,8 @@
 					"query": [
 						{
 							"key": "id_kriteria",
-							"value": "KR000000001"
+							"value": "KR000000001",
+							"disabled": true
 						}
 					]
 				},
@@ -1290,7 +1348,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost/pssb/api/tahun_ajaran/detail/9a64164ce3c1429?kd_ta=2019-2020",
+					"raw": "localhost/pssb/api/tahun_ajaran/show/9a64164ce3c1429?kd_ta=2019-2020",
 					"host": [
 						"localhost"
 					],
@@ -1298,7 +1356,7 @@
 						"pssb",
 						"api",
 						"tahun_ajaran",
-						"detail",
+						"show",
 						"9a64164ce3c1429"
 					],
 					"query": [

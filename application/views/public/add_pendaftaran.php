@@ -553,7 +553,7 @@
             },
 
             renderKecamatan: function(data) {
-              var html = `<option value=""> Pilih Kota</option>`
+              var html = `<option value=""> Pilih Kecamatan</option>`
 
               $.each( data, function(k, v){
                 html += `
@@ -608,19 +608,6 @@
                     form.validate().settings.ignore = ":disabled,:hidden";
                     return form.valid();
                 },
-                onStepChanged: function (event, currentIndex, priorIndex)
-                {
-                    // Used to skip the "Warning" step if the user is old enough.
-                    if (currentIndex === 2 && Number($("#age-2").val()) >= 18)
-                    {
-                        form.steps("next");
-                    }
-                    // Used to skip the "Warning" step if the user is old enough and wants to the previous step.
-                    if (currentIndex === 2 && priorIndex === 3)
-                    {
-                        form.steps("previous");
-                    }
-                },
                 onFinishing: function (event, currentIndex)
                 {
                     form.validate().settings.ignore = ":disabled";
@@ -631,6 +618,51 @@
                     form.submit();
                 }
             })
+        }
+
+        var submitForm = function(){
+            $('#form_pendaftaran').on('submit', function(e){
+                e.preventDefault();
+
+                $.ajax({
+                    url: `<?= base_url('public/pendaftaran/add') ?>`,
+                    type: 'POST',
+                    dataType: 'JSON',
+                    data: new FormData(this),
+                    processData:false,
+                    contentType:false,
+                    success: function(response){
+                        if(response.status === 200){
+                          Swal.fire({
+                            position: 'center',
+                            type: 'success',
+                            title: response.message,
+                            showConfirmButton: false,
+                            timer: 1500
+                          })
+                          location.hash = '#/pendaftaran';
+                        } else {
+                         Swal.fire({
+                            position: 'center',
+                            type: 'warning',
+                            title: response.message,
+                            showConfirmButton: false,
+                            timer: 1500
+                          })
+                        }
+
+                    },
+                    error: function(err){
+                       Swal.fire({
+                            position: 'center',
+                            type: 'warning',
+                            title: 'Tidak dapat mengakses server',
+                            showConfirmButton: false,
+                            timer: 1500
+                        })
+                    }
+                })
+            });
         }
 
         var selectProvinsi = function() {
@@ -684,13 +716,25 @@
 
         var selectKecamatan = function(id_kota){
           $.ajax({
-            url:`<?= base_url('public/pendaftaran/kecamatan/') ?>?id_kota=${id_kota}`,
+            url:`<?= base_url('public/pendaftaran/kecamatan/') ?>?id_kabupaten=${id_kota}`,
             type: `GET`,
             dataType: `JSON`,
             success: function(response){
               UI.renderKecamatan(response.data)
               
             }
+          })
+        }
+
+        var kecamatanOnChange = function(){
+          $('#id_kecamatan').on('change', function(){
+            var id_kecamatan = $(this).val();
+            if (id_kecamatan === '') {
+              $('#id_kelurahan').html('')
+            } else {
+              selectKelurahan(id_kecamatan)
+            }
+          
           })
         }
 
@@ -701,22 +745,11 @@
             dataType: `JSON`,
             success: function(response){
               UI.renderKelurahan(response.data)
-              
             }
           })
         }
 
-        var kelurahanOnChange = function(){
-          $('#id_kelurahan').on('change', function(){
-            var id_kelurahan = $(this).val();
-            if (id_kelurahan === '') {
-              $('#id_kelurahan').html('')
-            } else {
-              selectKelurahan(id_kecamatan)
-            }
-          
-          })
-        }
+        
 
         var setupFile = function () {
         $(document).on('change', ':file', function () {
@@ -751,7 +784,8 @@
                 selectProvinsi();
                 provinsiOnChange()
                 kotaOnChange()
-                kelurahanOnChange()
+                kecamatanOnChange()
+                submitForm()
             }
         }
 
