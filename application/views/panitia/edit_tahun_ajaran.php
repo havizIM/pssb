@@ -163,6 +163,7 @@
       html+=`</tr>`
 
       $('#select_kriteria tbody').append(html)
+      $('#lookup_kriteria').modal('hide')
     })
 
     $(document).on('click', '.remove', function(){

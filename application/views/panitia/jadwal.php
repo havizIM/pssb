@@ -30,7 +30,6 @@
                 <thead>
                   <tr>
                     <th>ID Jadwal</th>
-                    <th>Tanggal Input</th>
                     <th>Tahun Ajaran</th>
                     <th>Keterangan</th>
                     <th>Deskripsi</th>
@@ -87,7 +86,6 @@
                 return `<a href="#/seleksi/${row.id_jadwal}">${row.id_jadwal}</a>`;
             }
         },
-        {"data": 'tgl_input'},
         {"data": 'kd_ta'},
         {"data": 'keterangan_jadwal'},
         {"data": 'deskripsi_jadwal'},

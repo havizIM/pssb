@@ -49,6 +49,7 @@ class Jadwal extends CI_Controller {
             $deskripsi_jadwal   = $this->input->post('deskripsi_jadwal');
             $tgl_pelaksanaan    = $this->input->post('tgl_pelaksanaan');
             $lokasi             = $this->input->post('lokasi');
+            $status             = $this->input->post('status');
 
             if($kd_ta == null || $keterangan_jadwal == null || $deskripsi_jadwal == null || $tgl_pelaksanaan == null || $lokasi == null){
               json_output(400, array('status' => 400, 'description' => 'Gagal', 'message' => 'Data yang dikirim tidak lengkap'));
@@ -60,7 +61,7 @@ class Jadwal extends CI_Controller {
                     'deskripsi_jadwal'  => $deskripsi_jadwal,
                     'tgl_pelaksanaan'   => $tgl_pelaksanaan,
                     'lokasi'            => $lokasi,
-                    'status'            => 'Tutup'
+                    'status'            => $status
                 );
 
                 $log = array('message' => 'Berhasil menambah jadwal');

@@ -24,4 +24,19 @@ class Admin extends CI_Controller{
     $this->load->view('admin/user');
   }
 
+  function kriteria()
+  {
+    $this->load->view('admin/kriteria');
+  }
+
+  function add_kriteria()
+  {
+    $this->load->view('admin/add_kriteria');
+  }
+
+  function edit_kriteria($id)
+  {
+    $this->load->view('admin/edit_kriteria');
+  }
+
 }

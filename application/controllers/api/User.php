@@ -106,7 +106,7 @@ class User extends CI_Controller {
                 'nip'       => $nip,
                 'nama'      => $nama,
                 'username'  => $username,
-                'password'  => substr(str_shuffle("01234567890abcdefghijklmnopqestuvwxyz"), 0, 5),
+                'password'  => $nip,
                 'level'     => $level,
                 'foto'      => 'user.jpg',
                 'status'    => 'Aktif',

@@ -144,19 +144,25 @@
                               <div class="col-md-4">
                                 <div class="form-group">
                                   <label>Golongan Darah :</label>
-                                  <input type="text" class="form-control" id="gol_darah" name="gol_darah">
+                                  <select class="c-select form-control" id="gol_darah" name="gol_darah">
+                                      <option value="">-</option>
+                                      <option value="A">A</option>
+                                      <option value="B">B</option>
+                                      <option value="AB">AB</option>
+                                      <option value="O">O</option>
+                                    </select>
                                 </div>
                               </div>
                               <div class="col-md-4">
                                 <div class="form-group">
                                   <label>Tinggi Badan :</label>
-                                  <input type="text" class="form-control" id="tinggi_badan" name="tinggi_badan">
+                                  <input type="number" class="form-control" id="tinggi_badan" name="tinggi_badan">
                                 </div>
                               </div>
                               <div class="col-md-4">
                                 <div class="form-group">
                                   <label>Berat Badan :</label>
-                                  <input type="text" class="form-control" id="berat_badan" name="berat_badan">
+                                  <input type="number" class="form-control" id="berat_badan" name="berat_badan">
                                 </div>
                               </div>
                             </div>
@@ -167,13 +173,13 @@
                               <div class="col-md-6">
                                 <div class="form-group">
                                     <label>Anak ke :</label>
-                                    <input type="text" class="form-control" id="anak_ke" name="anak_ke">
+                                    <input type="number" class="form-control" id="anak_ke" name="anak_ke">
                                 </div>
                               </div>
                               <div class="col-md-6">
                                   <div class="form-group">
                                     <label>Jumlah Saudara :</label>
-                                    <input type="text" class="form-control" id="jml_saudara" name="jml_saudara">
+                                    <input type="number" class="form-control" id="jml_saudara" name="jml_saudara">
                                   </div>
                               </div>
                             </div>

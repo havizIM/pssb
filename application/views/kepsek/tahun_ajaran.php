@@ -110,7 +110,7 @@
 
       Swal.fire({
         title: `Apa Anda yakin ingin publish Tahun Ajaran ${kd_ta}?`,
-        text: "Tahun Ajaran akan terhapus secara permanen",
+        text: "Tahun Ajaran akan terpublish",
         type: 'question',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -133,6 +133,7 @@
                   showConfirmButton: false,
                   timer: 1500
                 });
+                table.ajax.reload()
               } else {
                 Swal.fire({
                   position: 'center',
@@ -162,7 +163,7 @@
 
       Swal.fire({
         title: `Apa Anda yakin ingin menonaktifkan Tahun Ajaran ${kd_ta}?`,
-        text: "Tahun Ajaran akan terhapus secara permanen",
+        text: "Tahun Ajaran akan dinonaktifkan",
         type: 'question',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -185,6 +186,7 @@
                   showConfirmButton: false,
                   timer: 1500
                 });
+                table.ajax.reload()
               } else {
                 Swal.fire({
                   position: 'center',
@@ -214,7 +216,7 @@
 
       Swal.fire({
         title: `Apa Anda yakin ingin validasi Tahun Ajaran ${kd_ta}?`,
-        text: "Tahun Ajaran akan terhapus secara permanen",
+        text: "Tahun Ajaran akan tervalidasi secara permanen",
         type: 'question',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
@@ -237,6 +239,7 @@
                   showConfirmButton: false,
                   timer: 1500
                 });
+                table.ajax.reload()
               } else {
                 Swal.fire({
                   position: 'center',
@@ -261,15 +264,6 @@
       })
     });
 
-    var pusher = new Pusher('f6a967b44e507048ffa7', {
-      cluster: 'ap1',
-      forceTLS: true
-    });
-
-    var channel = pusher.subscribe('pssb');
-    channel.bind('tahun_ajaran', function(data) {
-      table.ajax.reload()
-    });
 
   })
 

@@ -40,7 +40,7 @@ class Kriteria extends CI_Controller {
 
           $otorisasi = $auth->row();
 
-          if($otorisasi->level != 'Panitia'){
+          if($otorisasi->level != 'Admin'){
             json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Hak akses tidak disetujui'));
           } else {
             $post             = $this->input->post();
@@ -102,7 +102,7 @@ class Kriteria extends CI_Controller {
         } else {
           $otorisasi = $auth->row();
 
-          if($otorisasi->level != 'Panitia'){
+          if($otorisasi->level != 'Admin'){
             json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Hak akses tidak disetujui'));
           } else {
             $post               = $this->input->post();
@@ -166,7 +166,7 @@ class Kriteria extends CI_Controller {
 
           $otorisasi = $auth->row();
 
-          if($otorisasi->level != 'Panitia'){
+          if($otorisasi->level != 'Admin'){
             json_output(401, array('status' => 401, 'description' => 'Gagal', 'message' => 'Hak akses tidak disetujui'));
           } else {
             $id_kriteria = $this->input->get('id_kriteria');

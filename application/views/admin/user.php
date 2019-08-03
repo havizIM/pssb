@@ -35,7 +35,6 @@
                     <th>Username</th>
                     <th>Password</th>
                     <th>Level</th>
-                    <th>Foto</th>
                     <th>Status</th>
                     <th></th>
                   </tr>
@@ -172,7 +171,6 @@
         {"data": 'username'},
         {"data": 'password'},
         {"data": 'level'},
-        {"data": 'foto'},
         {"data": 'status'},
         {"data": null, 'render': function(data, type, row){
           return `<button type="button" class="btn btn-sm btn-info" id="edit_user" data-id="${row.nip}"><i class="la la-edit"></i></button> <button type="button" class="btn btn-sm btn-danger" id="hapus_user" data-id="${row.nip}" data-nama="${row.nama_user}"><i class="la la-trash"></i></button>`
@@ -257,13 +255,14 @@
         dataType: 'JSON',
         success: function(response){
           $.each(response.data, function(k, v){
-            $('#modal_edit').modal('show')
             $('#edit_nama').val(v.nama)
             $('#edit_username').val(v.username)
             $('#edit_level').val(v.level)
             $('#status').val(v.status)
             $('#edit_nip').val(v.nip)
           })
+
+          $('#modal_edit').modal('show')
         },
         error: function(){
           Swal.fire({
@@ -280,6 +279,7 @@
     $('#form_edit').on('submit', function(e){
       e.preventDefault()
 
+      var nip = $('#edit_nip').val()
       var nama = $('#edit_nama').val()
       var username = $('#edit_username').val()
       var level = $('#edit_level').val()
@@ -294,12 +294,13 @@
           timer: 1500
         });
       } else {
+
         $.ajax({
           url: `<?= base_url('api/user/edit/') ?>${auth.token}?nip=${nip}`,
           type: 'POST',
           dataType: 'JSON',
           beforeSend: function(){
-            $('#submit_edit').addClass('disabled').attr('disabled', 'disabled').html('<i class="fa fa-fw fa-spinner fa-spin"></i>')
+            $('#submit_edit').addClass('disabled').attr('disabled', 'disabled').html('<i class="la la-spin la-spinner"></i>')
           },
           data: $(this).serialize(),
           success: function(response){
@@ -313,6 +314,7 @@
               })
               $('#modal_edit').modal('hide')
               $('#form_edit')[0].reset()
+              table.ajax.reload()
             } else {
               Swal.fire({
                 position: 'center',
@@ -340,10 +342,9 @@
 
     $(document).on('click', '#hapus_user', function(){
       var nip = $(this).attr('data-id');
-      var nama_user = $(this).attr('data-nama')
 
       Swal.fire({
-        title: `Apa Anda yakin ingin menghapus ${nama_user}?`,
+        title: `Apa Anda yakin ingin menghapus ${nip}?`,
         text: "User akan terhapus secara permanen",
         type: 'question',
         showCancelButton: true,
@@ -367,6 +368,7 @@
                   showConfirmButton: false,
                   timer: 1500
                 });
+                table.ajax.reload()
               } else {
                 Swal.fire({
                   position: 'center',
@@ -389,16 +391,6 @@
           });
         }
       })
-    });
-
-    var pusher = new Pusher('f6a967b44e507048ffa7', {
-      cluster: 'ap1',
-      forceTLS: true
-    });
-
-    var channel = pusher.subscribe('pssb');
-    channel.bind('user', function(data) {
-      table.ajax.reload()
     });
 
   })

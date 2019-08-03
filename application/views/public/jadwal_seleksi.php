@@ -201,13 +201,13 @@ img {
                                           <div class="row">
                                               <div class="col-md-6">
                                               <div class="">
-                                                  <dt class="">Tanggal Input</dt>
+                                                  <dt class="">Tanggal Seleksi</dt>
                                               </div>
                                               </div>
                                               <div class="col-md-6">
                                               <div class="form-group">
                                                   <div class="">
-                                                          <dd class="">${v.tgl_input}</dd>
+                                                          <dd class="">${v.tgl_pelaksanaan}</dd>
                                                   </div>
                                               </div>
                                               </div>

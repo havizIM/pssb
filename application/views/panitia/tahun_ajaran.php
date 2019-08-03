@@ -90,9 +90,15 @@
         {"data": 'tgl_akhir'},
         {"data": 'status'},
         {"data": null, 'render': function(data, type, row){
-          return `
-            <a href="#/edit_tahun_ajaran/${row.kd_ta}" class="btn btn-sm btn-info"><i class="la la-edit"></i></a>
-            </button> <button type="button" class="btn btn-sm btn-danger" id="hapus_tahun_ajaran" data-id="${row.kd_ta}"><i class="la la-trash"></i></button>`
+            if(row.status !== 'Valid'){
+              return `
+                <a href="#/edit_tahun_ajaran/${row.kd_ta}" class="btn btn-sm btn-info"><i class="la la-edit"></i></a>
+                </button> <button type="button" class="btn btn-sm btn-danger" id="hapus_tahun_ajaran" data-id="${row.kd_ta}"><i class="la la-trash"></i></button>
+              `
+            } else {
+              return `Data sudah divalidasi`
+            }
+          
           }
         }
       ],

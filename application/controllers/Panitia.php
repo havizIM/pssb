@@ -19,21 +19,6 @@ class Panitia extends CI_Controller{
     $this->load->view('panitia/dashboard');
   }
 
-  function kriteria()
-  {
-    $this->load->view('panitia/kriteria');
-  }
-
-  function add_kriteria()
-  {
-    $this->load->view('panitia/add_kriteria');
-  }
-
-  function edit_kriteria($id)
-  {
-    $this->load->view('panitia/edit_kriteria');
-  }
-
   function tahun_ajaran()
   {
     $this->load->view('panitia/tahun_ajaran');

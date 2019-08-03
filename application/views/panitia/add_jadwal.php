@@ -136,7 +136,20 @@
       },
       responsive: true,
       processing: true,
-      ajax: '<?= base_url('api/tahun_ajaran/show/'); ?>'+auth.token,
+      ajax: {
+        url: '<?= base_url('api/tahun_ajaran/show/'); ?>'+auth.token,
+        dataSrc: function(res){
+          var data = [];
+
+          $.each(res.data, function(k, v){
+            if(v.status === 'Publish'){
+              data.push(v)
+            }
+          })
+
+          return data;
+        }
+      },
       columns: [
         {"data": 'tgl_input'},
         {"data": 'kd_ta'},

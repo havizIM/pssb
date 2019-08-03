@@ -1,13 +1,6 @@
 <div class="content-header row">
   <div class="content-header-left col-md-6 col-12 mb-2">
     <h3 class="content-header-title">Dashboard</h3>
-    <div class="row breadcrumbs-top">
-      <div class="breadcrumb-wrapper col-12">
-        <ol class="breadcrumb">
-          <li class="breadcrumb-item"><a href="index.html">Dashboard</a></li>
-        </ol>
-      </div>
-    </div>
   </div>
 </div>
 <div class="content-body">
@@ -35,6 +28,21 @@
             </div>
           </div>
         </div>
+        <div class="card bg-gradient-directional-success">
+          <div class="card-content">
+            <div class="card-body">
+              <div class="media d-flex">
+                <div class="align-self-center">
+                  <i class="la la-user text-white float-left" style="font-size:60px;"></i>
+                </div>
+                <div class="media-body text-white text-right">
+                  <h1 class="text-white" id="data2">0</h1>
+                  <h3>Total Kriteria</h3>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
@@ -50,6 +58,7 @@
     var token = auth.token
 
     var data1 = `<?= base_url().'api/user/show/' ?>${token}`
+    var data2 = `<?= base_url().'api/kriteria/show/' ?>${token}`
 
     $.ajax({
       url: data1,
@@ -59,6 +68,18 @@
       // beforeSend:function(){},
       success:function(response){
         $('#data1').text(response.data.length)
+      },
+      error:function(){}
+    });
+
+    $.ajax({
+      url: data2,
+      type: 'GET',
+      dataType: 'JSON',
+      // data: {},
+      // beforeSend:function(){},
+      success:function(response){
+        $('#data2').text(response.data.length)
       },
       error:function(){}
     });

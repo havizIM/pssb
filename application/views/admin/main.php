@@ -101,15 +101,15 @@
       <div class="main-menu-content">
         <ul class="navigation navigation-main">
           <li class=" nav-item"><a href="#/dashboard"><i class="la la-home"></i><span class="menu-title">Dashboard</span></a></li>
-
           <li class=" nav-item"><a href="#/user"><i class="la la-user"></i><span class="menu-title">User</span></a></li>
+          <li class=" nav-item"><a href="#/kriteria"><i class="la la-file"></i><span class="menu-title">Kriteria</span></a></li>
         </ul>
       </div>
     </div>
 
     <div class="app-content content">
       <div class="content-wrapper" id="content">
-
+        
       </div>
     </div>
     <!-- ////////////////////////////////////////////////////////////////////////////-->

@@ -32,7 +32,8 @@ class Jadwal extends CI_Controller {
 	} else {
 
         $where = array(
-            'id_jadwal' => $this->input->get('id_jadwal')
+            'id_jadwal' => $this->input->get('id_jadwal'),
+            'status'    => 'Buka'
         );
         
 

@@ -61,9 +61,8 @@ img {
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body form-group">
-        <div class="table-responsive m-t-40">
-            <form id="form_terima">
+    <form id="form_terima">
+        <div class="modal-body form-group">
                 <div class="form-group">
                   <input type="text" class="form-control" name="id_pendaftar" id="id_pendaftar" placeholder="ID Pendaftar" readonly>
                 </div>
@@ -77,17 +76,13 @@ img {
                 <div class="form-group">
                   <input type="text" class="form-control" name="keterangan" id="keterangan" placeholder="Keterangan">
                 </div>
-
-                <div class="form-group">
-                    <button type="submit" id="submit_add" class="btn btn-indigo float-md-right">Tambah</button>
-                 </div>
-                <div class="form-group">
-                    <button type="submit" data-dismiss="modal" class="btn btn-indigo float-md-right">Cancel</button>
-                 </div>
                 
-            </form>
         </div>
-      </div>
+        <div class="modal-footer">
+            <button type="submit" id="submit_add" class="btn btn-info float-md-right">Tambahkan</button>
+            <button type="submit" data-dismiss="modal" class="btn btn-danger float-md-right">Batal</button>
+        </div>
+    </form>
     </div>
   </div>
 </div>
@@ -487,9 +482,12 @@ img {
                 var html = ' <option value="">--- Pilih ---</option>';
                 
                 $.each(data, function(k, v){
-                      html +=`
-                            <option value="${v.id_jadwal}">${v.id_jadwal}</option>
+                    if(v.status === 'Buka'){
+                        html +=`
+                            <option value="${v.id_jadwal}">${v.id_jadwal} - ${v.keterangan_jadwal}</option>
                         `
+                    }
+                      
                 })
               $('#id_jadwal').html(html);
             }
