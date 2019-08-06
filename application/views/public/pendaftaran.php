@@ -29,17 +29,37 @@
         <div class="col-md-6 col-xs-12">
             <div class="card">
                 <div class="card-header">
-                  <h2 class="card-title" style="font-size:20px;" id="heading-icon">Tatacara Pendaftaran</h2>
+                  <h2 class="card-title text-info" style="font-size:20px;" id="heading-icon">Tujuan PSB Online</h2>
                   <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
                 </div>
                 <div class="card-content">
                   <div class="card-body">
-                    <h2 class="card-title" style="font-size:17px;">1. Silahkan akses ke halaman website <i></i> </h2>
-                    <h2 class="card-title" style="font-size:17px;">2. Klik menu Pendaftaran</h2>
-                    <h2 class="card-title" style="font-size:17px;">3. Isi Form Pendaftaran , kemudian Submit</h2>
-                    <h2 class="card-title" style="font-size:17px;">4. Cek email untuk melihat jadwal seleksi</h2>
-                    <h2 class="card-title" style="font-size:17px;">5. Orang tua menghadiri jadwal seleksi yang di tentukan</h2>
-                    <h2 class="card-title" style="font-size:17px;">6. Melihat hasil seleksi pada halaman website</h2>
+                    <h2 class="card-title" style="font-size:17px;">
+                        Pendaftaran Siswa Baru online tidaklah sulit, pendaftaran siswa bisa melalui online jadi siswa atau wali murid tidak harus bersusah payah harus antri panjang disekolah bersangkutan atau sekedar menebus formulir, cukup dengan mengakses informasi seputar pendaftaran melalui situs resmi psb-mtsarizkan.online di masing masing daerah, selanjutnya mengikuti semua prosedur sampai dengan selesai.
+                    </h2>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="card">
+                <div class="card-header">
+                  <h2 class="card-title text-success" style="font-size:20px;" id="heading-icon">Langkah-langkah</h2>
+                  <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
+                </div>
+                <div class="card-content">
+                  <div class="card-body">
+                    <h2 class="card-title" style="font-size:17px;">
+                        Pertama, mengumpulkan syarat-syarat. Pendaftaran calon peserta didik baru.
+                    </h2>
+                    <h2 class="card-title" style="font-size:17px;">
+                        Kedua, mengisi formulir pendaftaran penerimaan peserta didik baru (PPDB) / Penerimaan Siswa Baru (PSB) SMP yang disediakan oleh website.
+                    </h2>
+                    <h2 class="card-title" style="font-size:17px;">
+                        Ketiga, Pastikan anda mendapatkan jadwal seleksi yang telah ditentukan oleh panitia. Dan wajib menghadiri seleksi dengan membawa kelengkapan dokumen asli untuk validitas dokumen.
+                    </h2>
+                    <h2 class="card-title" style="font-size:17px;">
+                        Keempat, menerima hasil selesksi. Ada dua cara melihat pengumuman hasil seleksi psb-mtsarizkan.online. Cara yang pertama adalah dengan membuka situs PSB Online. Selanjutnya masuk ke menu hasil seleksi, anda akan menemukan data diri anda secara dan juga keterangan Anda LULUS atau TIDAK LULUS di sekolah. . Bagi yang lulus silahkan melakukan pendaftaran ulang sesuai jadwal yang telah ditentukan sekolah.
+                    </h2>
                   </div>
                 </div>
               </div>
