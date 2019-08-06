@@ -33,7 +33,7 @@ class Hasil extends CI_Controller {
 
         $where = array(
             'kd_ta'   => $this->input->get('kd_ta'),
-            'status'  => 'Publish'
+            'status'  => 'Valid'
         );
             
         $show           = $this->TahunAjaranModel->show($where);
