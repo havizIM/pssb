@@ -8,9 +8,13 @@ class SeleksiModel extends CI_Model {
     {
       $this->db->select('a.id_seleksi, a.id_jadwal, a.keterangan, a.status_seleksi')
                ->select('b.*')
+               ->select('c.status')
+               ->select('d.status as status_jadwal')
 
                ->from('hasil_seleksi a')
-               ->join('pendaftaran b', 'b.id_pendaftar = a.id_pendaftar');
+               ->join('pendaftaran b', 'b.id_pendaftar = a.id_pendaftar')
+               ->join('tahun_ajaran c', 'c.kd_ta = b.kd_ta')
+               ->join('jadwal_seleksi d', 'd.id_jadwal = a.id_jadwal');
 
       if(!empty($where)){
           foreach($where as $key => $value){
@@ -20,7 +24,7 @@ class SeleksiModel extends CI_Model {
           }
       }
 
-      $this->db->order_by('id_seleksi', 'desc');
+      $this->db->order_by('a.id_seleksi', 'desc');
       return $this->db->get();
     }
 

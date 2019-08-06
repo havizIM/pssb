@@ -141,7 +141,7 @@ var renderUI = (function(){
                 </div>
 
                `
-            $('#content_ta').html(html);
+                $('#content_ta').html(html);
             },
 
 

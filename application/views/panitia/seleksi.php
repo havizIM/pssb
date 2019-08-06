@@ -201,7 +201,7 @@ img {
                  html +=` 
                         <div class="col-md-12 mb-10">
                             <div class="table-responsive">
-                                            <table class="table table-bordered mb-0 table-striped">
+                                            <table class="table table-bordered mb-0 table-striped" style="font-size: 12px;">
                                                 <thead class="bg-success white">  
                                                     <tr>
                                                         <th>ID Seleksi</th>

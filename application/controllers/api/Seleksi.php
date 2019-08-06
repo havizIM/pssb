@@ -193,10 +193,12 @@ class Seleksi extends CI_Controller {
                 $json_s['status_seleksi'] = $key2->status_seleksi;
                 $json_s['detail']         = array();
 
+                $total_bobot = 0;
                 $where_dt = array('a.id_seleksi' => $key2->id_seleksi);
                 $show3    = $this->SeleksiDetailModel->show($where_dt);
 
                 foreach($show3->result() as $key3){
+                  $total_bobot += $key3->bobot_sub;
                   $json_d = array();
 
                   $json_d['subkriteria']      = array(
@@ -212,8 +214,10 @@ class Seleksi extends CI_Controller {
                   $json_s['detail'][] = $json_d;
                 }
 
+                $json_s['rate']   = $total_bobot / $show3->num_rows();
+                $json_s['hasil']  = $json_s['rate'] < 7 ? 'Tidak Lulus' : 'Lulus';
               
-                $seleksi[]        = $json_s;
+                $seleksi[]      = $json_s;
               }
 
 

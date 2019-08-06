@@ -59,11 +59,6 @@ img {
                             <div class="card-header">
                                 <h4 class="card-title">Detail Jadwal</h4>
                                 <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
-                                <div class="heading-elements">
-                                    <ul class="list-inline mb-0">
-                                        <li><a data-action="close"><i class="ft-x"></i></a></li>
-                                    </ul>
-                                </div>
                             </div>
                             <div class="card-content collpase show">
                                 <div class="card-body">
@@ -277,74 +272,19 @@ img {
                         } else {
                             $.each(response.data, function(k, v){
                                 UI.renderSeleksi(v);
-                                // UI.renderAction(v);
                             }) 
                         }
                     } 
                 },
                 error: function(err){
-                    // location.hash = '#/seleksi'
+                    location.hash = '#/home'
                 }
             }) 
-        }
-
-        var tolakSeleksi = function(){
-           $(document).on('click', '#btn_tolak', function(){
-            var id_seleksi = $(this).attr("data-id");
-            var link_get = `<?= base_url('api/seleksi/tidak_hadir/') ?>${auth.token}?id_seleksi=${id_seleksi}`;
-
-                 Swal.fire({
-            title: 'Seleksi  tidak akan dihadiri secara permanen?',
-            type: 'question',
-            showCancelButton: true,
-            cancelButtonColor: '#d33',
-            confirmButtonColor: '#3085d6',
-            cancelButtonText: 'Batal',
-            confirmButtonText: 'Ya, Saya yakin.',
-            showLoaderOnConfirm: true
-          }).then((result) => {
-                 $.ajax({
-                    url: link_get,
-                    type: 'GET',
-                    dataType: 'JSON',
-                    success: function(response){
-                        if(response.status === 200){
-                            
-                                Swal.fire({
-                                    position: 'center',
-                                    type: 'success',
-                                    title: response.message,
-                                    showConfirmButton: true,
-                                    timer: 1500
-                                });
-                                dataSeleksi()
-                        } else {
-                            
-                                Swal.fire({
-                                    position: 'center',
-                                    type: 'error',
-                                    title: response.message,
-                                    showConfirmButton: false,
-                                    timer: 1500
-                                });
-                            
-                            
-                        }
-                    },
-                    error: function(err){
-                        console.log(err)
-                    }
-                }) 
-             });
-               
-           });
-            
         }
        
         return {
             init : function(){
                 dataSeleksi();
-                tolakSeleksi();
             }
         }
 

@@ -94,6 +94,25 @@ img {
                                         </table>
                                     </div>
                                 </div>
+
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title"> Hasil Akhir Seleksi</h4>
+                                        <table class="table">
+                                            <tr>
+                                                <th>Nilai Akhir</th>
+                                                <td><span class="${v.rate < 7 ? 'text-danger' : 'text-sucsess'}">${v.rate}</span></td>
+                                            </tr>
+                                            <tr>
+                                                <th>Hasil Seleksi</th>
+                                                <td><span class="${v.rate < 7 ? 'text-danger' : 'text-sucsess'}">${v.hasil}</span></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+
+
+                                            
                             </div>
                             <div class="col-md-6">
                                 <div class="card">
@@ -107,7 +126,9 @@ img {
                                             </thead>
                                             <tbody>`
 
+                                            var total_bobot = 0;
                                             $.each(v.detail, function(k1, v1){
+                                                total_bobot += parseInt(v1.subkriteria.bobot)
                                                 html += `
                                                     <tr>
                                                         <td>${v1.kriteria.nama_kriteria}</td>
@@ -117,8 +138,12 @@ img {
                                                 `;
                                             })
                                                 
-                    html +=
-                                            `</tbody>
+                    html += `           
+                                            <tr>
+                                                <th colspan="2" class="text-info">Total Bobot</th>
+                                                <td class="text-info"><b>${total_bobot}</b></td>
+                                            </tr>
+                                        </tbody>
                                         </table>
                                     </div>
                                 </div>

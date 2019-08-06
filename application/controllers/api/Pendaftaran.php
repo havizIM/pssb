@@ -42,7 +42,8 @@ class Pendaftaran extends CI_Controller {
 
           $where = array(
             'a.id_pendaftar'        => $this->input->get('id_pendaftar'),
-            'a.status_pendaftaran'  => $this->input->get('status_pendaftaran')
+            'a.status_pendaftaran'  => $this->input->get('status_pendaftaran'),
+            'a.kd_ta'               => $this->input->get('kd_ta')
           );
             
 

@@ -169,6 +169,8 @@
 
     <script src="<?= base_url('assets') ?>/js/jquery.magnific-popup.min.js" type="text/javascript"></script>
 
+    <script src="<?= base_url('') ?>assets/js/jquery.PrintArea.js" type="text/javascript"></script>
+
     <script src="<?= base_url('assets/app-assets/vendors/js/sweetalert/jquery.sweet-alert.custom.js') ?>"></script>
 
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>

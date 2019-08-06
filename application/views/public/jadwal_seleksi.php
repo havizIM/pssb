@@ -53,7 +53,7 @@ img {
 <section id="sizing">
          <div class="content-header row">
           <div class="content-header-left col-md-6 col-12 mb-2">
-                <h1 class="text-bold-600">Jadwal seleksi</h1>
+                <h1 class="text-bold-600">Jadwal Seleksi</h1>
           </div>
         </div>
 
@@ -76,8 +76,8 @@ img {
                               <div class="card text-white bg-grey text-center border-0 box-shadow-0">
                                   <div class="card-content">
                                     <div class="card-body">
-                                      <h1 class="card-title fz text-white">Tidak ada data</h1>
-                                      <p class="card-text" style="font-size: 1.2rem;">Data tidak terseadia, Silahkan kembali ke halaman utama</p>
+                                      <h1 class="card-title fz text-white">Tidak ada jadwal</h1>
+                                      <p class="card-text" style="font-size: 1.2rem;">Data tidak tersedia, Silahkan kembali ke halaman utama</p>
                                       <img class="card-img-top" src="<?= base_url('assets') ?>/app-assets/images/home/no-data.svg" alt="Card image cap">
                                     </div>
                                   </div>
@@ -94,11 +94,6 @@ img {
                               <div class="card-header">
                                   <h4 class="card-title">Detail Jadwal</h4>
                                   <a class="heading-elements-toggle"><i class="la la-ellipsis-v font-medium-3"></i></a>
-                                  <div class="heading-elements">
-                                      <ul class="list-inline mb-0">
-                                          <li><a data-action="close"><i class="ft-x"></i></a></li>
-                                      </ul>
-                                  </div>
                               </div>
                               <div class="card-content collpase show">
                                   <div class="card-body">
@@ -131,7 +126,7 @@ img {
                                           <div class="col-md-6">
                                           <div class="form-group">
                                               <div class="">
-                                                      <dd class="">${v.kd_ta}</dd>
+                                                      <div class="">${v.kd_ta}</div>
                                               </div>
                                           </div>
                                           </div>
@@ -146,7 +141,7 @@ img {
                                           <div class="col-md-6">
                                           <div class="form-group">
                                               <div class="">
-                                                      <dd class="">${v.status}</dd>
+                                                      <div class="">${v.status}</div>
                                               </div>
                                           </div>
                                           </div>
@@ -162,7 +157,7 @@ img {
                                               <div class="col-md-6">
                                                   <div class="form-group">
                                                       <div class="">
-                                                          <dd class="">${v.lokasi}</dd>
+                                                          <div class="">${v.lokasi}</div>
                                                       </div>
                                                   </div>
                                               </div>
@@ -177,7 +172,7 @@ img {
                                           <div class="col-md-6">
                                           <div class="form-group">
                                               <div class="">
-                                                      <dd class="">${v.keterangan_jadwal}</dd>
+                                                      <div class="">${v.keterangan_jadwal}</div>
                                               </div>
                                           </div>
                                           </div>
@@ -191,7 +186,7 @@ img {
                                               <div class="col-md-6">
                                               <div class="form-group">
                                                   <div class="">
-                                                          <dd class="">${v.deskripsi_jadwal}</dd>
+                                                          <div class="">${v.deskripsi_jadwal}</div>
                                                   </div>
                                               </div>
                                               </div>
@@ -207,7 +202,7 @@ img {
                                               <div class="col-md-6">
                                               <div class="form-group">
                                                   <div class="">
-                                                          <dd class="">${v.tgl_pelaksanaan}</dd>
+                                                          <div class="">${v.tgl_pelaksanaan}</div>
                                                   </div>
                                               </div>
                                               </div>
@@ -216,7 +211,7 @@ img {
                                       
                                       </div>
                                   </form>
-                                  <a href="#/jadwal_seleksi/${v.id_jadwal}" class="btn btn-info btn-min-width mr-1 mb-2 float-right icon"> Detail <i class="la la-arrow-circle-right"></i></a>
+                                  <a href="#/jadwal_seleksi/${v.id_jadwal}" class="btn btn-info btn-min-width mr-1 mb-2 float-right"> Lihat Selengkapnya <i class="la la-arrow-circle-right"></i></a>
                                   </div>
                               </div>
                             </div>
@@ -230,11 +225,7 @@ img {
                 $('#content_seleksi').html(html)
                
 
-            },
-
-            renderNoData: function(){
-                console.log('No Data');
-            },
+            }
 
         }
 

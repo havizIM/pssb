@@ -72,11 +72,11 @@ class Pendaftaran extends CI_Controller {
       $gol_darah          = $this->input->post('gol_darah');
       $ekstrakulikuler    = $this->input->post('ekstrakulikuler');
 
-      if($kd_ta == null || $nama_lengkap == null || $jenis_kelamin == null || $nisn == null || $no_ijazah == null || $no_skhun == null || $no_un == null || $asal_sekolah == null || $nik == null || $tmp_lahir == null || $tgl_lahir == null || $agama == null || $alamat == null || $rtrw == null || $id_kelurahan == null || $kode_pos == null || $alat_transportasi == null || $jenis_tmp_tinggal == null || $anak_ke == null || $jml_saudara == null || $kip == null || $no_hp == null || $email == null || $tinggi_badan == null || $berat_badan == null || $gol_darah == null || $ekstrakulikuler == null){
-        json_output(400, array('status' => 400, 'description' => 'Gagal', 'message' => 'Data pendaftar yang dikirim tidak lengkap'));
-      } else if($nama_ayah == null || $nik_ayah == null || $tmp_lahir_ayah == null || $tgl_lahir_ayah == null || $pekerjaan_ayah == null || $penghasilan_ayah == null || $pendidikan_ayah == null || $nama_ibu == null || $nik_ibu == null || $tmp_lahir_ibu == null || $tgl_lahir_ibu == null || $pekerjaan_ibu == null || $pendidikan_ibu == null || $penghasilan_ibu == null){
-        json_output(400, array('status' => 400, 'description' => 'Gagal', 'message' => 'Data orang tua yang dikirim tidak lengkap'));
-      } else {
+      // if($kd_ta == null || $nama_lengkap == null || $jenis_kelamin == null || $nisn == null || $no_ijazah == null || $no_skhun == null || $no_un == null || $asal_sekolah == null || $nik == null || $tmp_lahir == null || $tgl_lahir == null || $agama == null || $alamat == null || $rtrw == null || $id_kelurahan == null || $kode_pos == null || $alat_transportasi == null || $jenis_tmp_tinggal == null || $anak_ke == null || $jml_saudara == null || $kip == null || $no_hp == null || $email == null || $tinggi_badan == null || $berat_badan == null || $gol_darah == null || $ekstrakulikuler == null){
+      //   json_output(400, array('status' => 400, 'description' => 'Gagal', 'message' => 'Data pendaftar yang dikirim tidak lengkap'));
+      // } else if($nama_ayah == null || $nik_ayah == null || $tmp_lahir_ayah == null || $tgl_lahir_ayah == null || $pekerjaan_ayah == null || $penghasilan_ayah == null || $pendidikan_ayah == null || $nama_ibu == null || $nik_ibu == null || $tmp_lahir_ibu == null || $tgl_lahir_ibu == null || $pekerjaan_ibu == null || $pendidikan_ibu == null || $penghasilan_ibu == null){
+      //   json_output(400, array('status' => 400, 'description' => 'Gagal', 'message' => 'Data orang tua yang dikirim tidak lengkap'));
+      // } else {
           $ijazah       = $this->upload_file('ijazah', $id_pendaftar);
           $skhun        = $this->upload_file('skhun', $id_pendaftar);
           $kk           = $this->upload_file('kk', $id_pendaftar);
@@ -88,9 +88,9 @@ class Pendaftaran extends CI_Controller {
           $sk_baik      = $this->upload_file('sk_baik', $id_pendaftar);
           $sertifikat   = $this->upload_file('sertifikat', $id_pendaftar);
 
-          if($ijazah == null || $skhun == null || $kk == null || $ktp_ayah == null || $ktp_ibu == null || $ktp_wali == null || $foto == null || $sk_baik == null){
-            json_output(400, array('status' => 400, 'description' => 'Gagal', 'message' => 'Data dokumen yang dikirim tidak lengkap'));
-          } else {
+          // if($ijazah == null || $skhun == null || $kk == null || $ktp_ayah == null || $ktp_ibu == null || $ktp_wali == null || $foto == null || $sk_baik == null){
+          //   json_output(400, array('status' => 400, 'description' => 'Gagal', 'message' => 'Data dokumen yang dikirim tidak lengkap'));
+          // } else {
 
             $data = array(
                 'id_pendaftar'       => $id_pendaftar,
@@ -146,8 +146,6 @@ class Pendaftaran extends CI_Controller {
                 'sk_baik'            => $sk_baik,
                 'sertifikat'         => $sertifikat
             );
-
-            // print_r($data);
   
             $log = array('message' => 'Berhasil melakukan pendaftaran');
             $add = $this->PendaftaranModel->add($data);
@@ -158,8 +156,8 @@ class Pendaftaran extends CI_Controller {
                 $this->pusher->trigger('pssb', 'pendaftaran', $log);
                 json_output(200, array('status' => 200, 'description' => 'Berhasil', 'message' => 'Berhasil melakukan pendaftaran'));
             } 
-          }
-      }
+          // }
+      // }
     }
   }
 

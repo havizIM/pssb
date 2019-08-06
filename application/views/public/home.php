@@ -47,10 +47,10 @@
               <div class="selected">
                   <h2 class="text-bold-600">Yayasan Pendidikan Islam</h2>
                   <h3 class="text-muted mb-1">
-                    <em>Rizkhan Ibnu Safiudin Juhut</em>
+                    <em>MTS AR-Rizkan</em>
                   </h3>
                   <p class="lead justify">
-                    Merupakan sebuah lembaga dakwah yang berpusat di Jakarta dengan menambahkan berbagai kegiatan lain yang bermanfaat untuk pendidikan dan dakwah bagi kalangan siswa pada khususnya maupun bagi kaum muslimin secara umum. 
+                    Madrasah Tsanawiyah AR-Rizkan Ibnu Safiudin Juhut merupakan lembaga pendidikan jenjang dasar pada pendidikan formal di Indonesia setara dengan Sekolah Menengah Pertama, kurikulum MTS Ar-Rizkan sama dengan kurikulum Sekolah Menengah Pertama, hanya saja pada porsi MTS terdapat porsi lebih banyak mengenai pendidikan agama Islam juga mengajarkan mata pelajaran sebagaimana di sekolah umum lainnya.
                   </p>
               </div>
               

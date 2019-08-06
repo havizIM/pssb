@@ -73,6 +73,7 @@
                   <tr>
                     <th>ID Subkriteria</th>
                     <th>Nama Subkriteria</th>
+                    <th>Bobot</th>
                   </tr>
                 </thead>
                 <tbody>

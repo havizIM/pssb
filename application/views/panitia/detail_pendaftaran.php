@@ -154,19 +154,19 @@ img {
                                              <div class="card-text">
                                                 <dl>
                                                     <dt>Nama Lengkap</dt>
-                                                    <dd>${data.nama_lengkap}.</dd>
+                                                    <dd>${data.nama_lengkap || </dd>
                                                     <dt>Jenis Kelamin</dt>
-                                                    <dd>${data.jenis_kelamin}.</dd>
+                                                    <dd>${data.jenis_kelamin || </dd>
                                                     <dt>Nomor Induk Kependudukkan (NIK)</dt>
-                                                    <dd>${data.nik}.</dd>
+                                                    <dd>${data.nik || </dd>
                                                     <dt>Agama</dt>
-                                                    <dd>${data.agama}.</dd>
+                                                    <dd>${data.agama || </dd>
                                                     <dt>Tempat dan Tgl Lahir</dt>
-                                                    <dd>${data.tmp_lahir}, ${data.tgl_lahir}.</dd>
+                                                    <dd>${data.tmp_lahir}, ${data.tgl_lahir || </dd>
                                                     <dt>No Handphone</dt>
-                                                    <dd>${data.no_hp}.</dd>
+                                                    <dd>${data.no_hp || </dd>
                                                     <dt>Email</dt>
-                                                    <dd>${data.email}.</dd>
+                                                    <dd>${data.email || </dd>
                                                 </dl>
                                             </div>
                                         </div>
@@ -175,19 +175,19 @@ img {
                                             <div class="card-text">
                                                 <dl>
                                                     <dt>Asal Sekolah</dt>
-                                                    <dd>${data.asal_sekolah}.</dd>
+                                                    <dd>${data.asal_sekolah || </dd>
                                                     <dt>Jenis Tempat Tinggal</dt>
-                                                    <dd>${data.jenis_tmp_tinggal}.</dd>
+                                                    <dd>${data.jenis_tmp_tinggal || </dd>
                                                     <dt>Alat Transportasi</dt>
-                                                    <dd>${data.alat_transportasi}.</dd>
+                                                    <dd>${data.alat_transportasi || </dd>
                                                     <dt>Ekstrakulikuler</dt>
-                                                    <dd>${data.ekstrakulikuler}.</dd>
+                                                    <dd>${data.ekstrakulikuler || </dd>
                                                     <dt>Golongan Darah</dt>
-                                                    <dd>${data.gol_darah}.</dd>
+                                                    <dd>${data.gol_darah || </dd>
                                                     <dt>Anak Ke</dt>
-                                                    <dd>${data.anak_ke}.</dd>
+                                                    <dd>${data.anak_ke || </dd>
                                                     <dt>Jumlah Saudara</dt>
-                                                    <dd>${data.jml_saudara}.</dd>
+                                                    <dd>${data.jml_saudara || </dd>
                                                 </dl>
                                             </div>
                                         </div>
@@ -196,19 +196,19 @@ img {
                                             <div class="card-text">
                                                 <dl>
                                                     <dt>Tinggi Badan</dt>
-                                                    <dd>${data.tinggi_badan}.</dd>
+                                                    <dd>${data.tinggi_badan || </dd>
                                                     <dt>Berat Badan</dt>
-                                                    <dd>${data.berat_badan}.</dd>
+                                                    <dd>${data.berat_badan || </dd>
                                                     <dt>Nomor Induk Siswa Nasional (NISN)</dt>
-                                                    <dd>${data.nisn}.</dd>
+                                                    <dd>${data.nisn || </dd>
                                                     <dt>No. Ijazah</dt>
-                                                    <dd>${data.no_ijazah}.</dd>
+                                                    <dd>${data.no_ijazah || </dd>
                                                     <dt>Surat Keterangan Hasil Ujian Nasional (SKHUN)</dt>
-                                                    <dd>${data.no_skhun}.</dd>
+                                                    <dd>${data.no_skhun || </dd>
                                                     <dt>Kartu Indonesia Pintar (KIP)</dt>
-                                                    <dd>${data.kip}.</dd>
+                                                    <dd>${data.kip || </dd>
                                                     <dt>Golongan Darah</dt>
-                                                    <dd>${data.gol_darah}.</dd>
+                                                    <dd>${data.gol_darah || </dd>
                                                 </dl>
                                             </div>
                                         </div>
@@ -224,7 +224,7 @@ img {
                                              <div class="card-text">
                                                 <dl>
                                                     <dt>Alamat</dt>
-                                                    <dd>${data.alamat_lengkap.alamat}.</dd>
+                                                    <dd>${data.alamat_lengkap.alamat || </dd>
                                                 </dl>
                                             </div>
                                         </div>
@@ -233,11 +233,11 @@ img {
                                             <div class="card-text">
                                                 <dl>
                                                     <dt>RT/RW</dt>
-                                                    <dd>${data.alamat_lengkap.rtrw}.</dd>
+                                                    <dd>${data.alamat_lengkap.rtrw || </dd>
                                                     <dt>Kelurahan</dt>
-                                                    <dd>${data.alamat_lengkap.kelurahan}.</dd>
+                                                    <dd>${data.alamat_lengkap.kelurahan || </dd>
                                                     <dt>Kecamatan</dt>
-                                                    <dd>${data.alamat_lengkap.kecamatan}.</dd>
+                                                    <dd>${data.alamat_lengkap.kecamatan || </dd>
                                                 </dl>
                                             </div>
                                         </div>
@@ -247,11 +247,11 @@ img {
                                                 <dl>
                                                     
                                                     <dt>Kabupaten</dt>
-                                                    <dd>${data.alamat_lengkap.kabupaten}.</dd>
+                                                    <dd>${data.alamat_lengkap.kabupaten || </dd>
                                                     <dt>Provinsi</dt>
-                                                    <dd>${data.alamat_lengkap.provinsi}.</dd>
+                                                    <dd>${data.alamat_lengkap.provinsi || </dd>
                                                     <dt>Kode Pos</dt>
-                                                    <dd>${data.alamat_lengkap.kode_pos}.</dd>
+                                                    <dd>${data.alamat_lengkap.kode_pos || </dd>
                                                 </dl>
                                             </div>
                                         </div>
@@ -274,11 +274,11 @@ img {
                                              <div class="card-text">
                                                 <dl>
                                                     <dt>Nama Ayah</dt>
-                                                    <dd>${data.data_ayah.nama_ayah}.</dd>
+                                                    <dd>${data.data_ayah.nama_ayah || </dd>
                                                     <dt>NIK Ayah</dt>
-                                                    <dd>${data.data_ayah.nik_ayah}.</dd>
+                                                    <dd>${data.data_ayah.nik_ayah || </dd>
                                                     <dt>Tempat dan Tgl Lahir</dt>
-                                                    <dd>${data.data_ayah.tmp_lahir_ayah}, ${data.data_ayah.tgl_lahir_ayah}.</dd>
+                                                    <dd>${data.data_ayah.tmp_lahir_ayah}, ${data.data_ayah.tgl_lahir_ayah || </dd>
                                                     
                                                 </dl>
                                             </div>
@@ -288,11 +288,11 @@ img {
                                             <div class="card-text">
                                                 <dl>
                                                     <dt>Pekerjaan</dt>
-                                                    <dd>${data.data_ayah.pekerjaan_ayah}.</dd>
+                                                    <dd>${data.data_ayah.pekerjaan_ayah || </dd>
                                                     <dt>Pendidikan Terakhir</dt>
-                                                    <dd>${data.data_ayah.pendidikan_ayah}.</dd>
+                                                    <dd>${data.data_ayah.pendidikan_ayah || </dd>
                                                     <dt>Penghasilan Perbulan</dt>
-                                                    <dd>${data.data_ayah.penghasilan_ayah}.</dd>
+                                                    <dd>${data.data_ayah.penghasilan_ayah || </dd>
                                                 </dl>
                                             </div>
                                         </div>
@@ -301,11 +301,11 @@ img {
                                             <div class="card-text">
                                                 <dl>
                                                     <dt>Nama Ibu</dt>
-                                                    <dd>${data.data_ibu.nama_ibu}.</dd>
+                                                    <dd>${data.data_ibu.nama_ibu || </dd>
                                                     <dt>NIK Ibu</dt>
-                                                    <dd>${data.data_ibu.nik_ibu}.</dd>
+                                                    <dd>${data.data_ibu.nik_ibu || </dd>
                                                     <dt>Tempat dan Tgl Lahir</dt>
-                                                    <dd>${data.data_ibu.tmp_lahir_ibu}, ${data.data_ibu.tgl_lahir_ibu}.</dd>
+                                                    <dd>${data.data_ibu.tmp_lahir_ibu}, ${data.data_ibu.tgl_lahir_ibu || </dd>
                                                 </dl>
                                             </div>
                                         </div>
@@ -314,11 +314,11 @@ img {
                                             <div class="card-text">
                                                 <dl>
                                                     <dt>Pekerjaan</dt>
-                                                    <dd>${data.data_ibu.pekerjaan_ibu}.</dd>
+                                                    <dd>${data.data_ibu.pekerjaan_ibu || </dd>
                                                     <dt>Pendidikan Terakhir</dt>
-                                                    <dd>${data.data_ibu.pendidikan_ibu}.</dd>
+                                                    <dd>${data.data_ibu.pendidikan_ibu || </dd>
                                                     <dt>Penghasilan Perbulan</dt>
-                                                    <dd>${data.data_ibu.penghasilan_ibu}.</dd>
+                                                    <dd>${data.data_ibu.penghasilan_ibu || </dd>
                                                 </dl>
                                             </div>
                                         </div>
@@ -334,16 +334,16 @@ img {
                                              <div class="card-text">
                                                 <dl>
                                                     <dt>Tanggal Registrasi</dt>
-                                                    <dd>${data.tgl_register}.</dd>
+                                                    <dd>${data.tgl_register || </dd>
                                                 </dl>
                                             </div>
                                         </div>
 
                                         <div class="col-md-6">
-                                            <div class="card-text">
+                                            <dd class="card-text">
                                                 <dl>
                                                     <dt>Status Pendaftaran</dt>
-                                                    <dd>${data.status_pendaftaran}.</dd>
+                                                    <dd>${data.status_pendaftaran || </dd>
                                                 </dl>
                                             </div>
                                         </div>

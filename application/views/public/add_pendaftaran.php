@@ -548,16 +548,16 @@
                 labels: {
                 finish: "Simpan"
                 },
-                // onStepChanging: function (event, currentIndex, newIndex)
-                // {   
-                //     if (currentIndex > newIndex)
-                //     {
-                //         return true;
-                //     }
+                onStepChanging: function (event, currentIndex, newIndex)
+                {   
+                    if (currentIndex > newIndex)
+                    {
+                        return true;
+                    }
 
-                //     form.validate().settings.ignore = ":disabled,:hidden";
-                //     return form.valid();
-                // },
+                    form.validate().settings.ignore = ":disabled,:hidden";
+                    return form.valid();
+                },
                 onFinishing: function (event, currentIndex)
                 {
                     form.validate().settings.ignore = ":disabled";
@@ -612,6 +612,79 @@
                         })
                     }
                 })
+            });
+        }
+
+        var setupValidate = function(){
+            $.validator.addMethod('filesize', function (value, element, arg) {
+                if(element.files[0].size<=arg){
+                    return true;
+                }else{
+                    return false;
+                }
+            });
+
+            jQuery.extend(jQuery.validator.messages,{
+              required: 'Data ini wajib di isi'
+            })
+
+            form.validate({
+                rules: {
+                    kd_ta: "required",
+                    nama_lengkap: "required",
+                    jenis_kelamin: "required",
+                    asal_sekolah: "required",
+                    nik: "required",
+                    tmp_lahir: "required",
+                    tgl_lahir: "required",
+                    agama: "required",
+                    alamat: "required",
+                    id_kelurahan: "required",
+                    rtrw: "required",
+                    kode_pos: "required",
+                    alat_transportasi: "required",
+                    jenis_tmp_tinggal: "required",
+                    anak_ke: "required",
+                    jml_saudara: "required",
+                    kip: "required",
+                    no_hp: "required",
+                    email: "required",
+                    nama_ayah: "required",
+                    nik_ayah: "required",
+                    tmp_lahir_ayah: "required",
+                    tgl_lahir_ayah: "required",
+                    pekerjaan_ayah: "required",
+                    pendidikan_ayah: "required",
+                    penghasilan_ayah: "required",
+                    nama_ibu: "required",
+                    nik_ibu: "required",
+                    tmp_lahir_ibu: "required",
+                    tgl_lahir_ibu: "required",
+                    pekerjaan_ibu: "required",
+                    pendidikan_ibu: "required",
+                    penghasilan_ibu: "required",
+                    tinggi_badan: "required",
+                    berat_badan: "required",
+                    gol_darah: "required",
+                    ekstrakulikuler: "required",
+                    ijazah: "required",
+                    kk: "required",
+                    ktp_ayah: "required",
+                    ktp_ibu: "required",
+                    ktp_wali: "required",
+                    foto: "required",
+                },
+                errorClass: 'is-invalid',
+                validClass: 'is-valid',
+                // success: function(error, element){
+                //     $(element).parent('div').removeClass('has-danger');
+                // },
+                // errorPlacement: function(error, element) {
+                //     var name = $(element).attr("id");
+
+                //     $(element).parent('div').addClass('has-danger');
+                //     $('#invalid_'+name).text(error.text());
+                // },
             });
         }
 
@@ -729,11 +802,12 @@
        
         return {
             init : function(){
-                setupStep();
-                selectProvinsi();
+                setupStep()
+                selectProvinsi()
                 provinsiOnChange()
                 kotaOnChange()
                 kecamatanOnChange()
+                setupValidate()
                 submitForm()
             }
         }

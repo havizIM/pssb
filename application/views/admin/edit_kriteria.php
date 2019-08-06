@@ -46,9 +46,6 @@
                               </tr>
                             </thead>
                             <tbody>
-                              <tr>
-                                <td colspan="3"><center>Tidak ada subkriteria yang ditambahkan</center></td>
-                              </tr>
                             </tbody>
                           </table>
                         </div>
@@ -83,7 +80,7 @@
       var html = `<tr id="baris${count}">`
 
       html+=`<td><input type="text" class="form-control" name="nama_subkriteria[]" placeholder="Nama Subkriteria" required></td>`
-      html+=`<td><input type="text" class="form-control" name="bobot_sub[]" placeholder="Bobot" required></td>`
+      html+=`<td><input type="number" min="0" max="10" class="form-control" name="bobot_sub[]" placeholder="Bobot" required></td>`
       html+=`<td><button type="button" class="btn btn-danger remove" id="${count}"><i class="la la-trash"></i></button></td>`
       html+=`</tr>`
 
